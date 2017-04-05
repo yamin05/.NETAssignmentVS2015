@@ -1,77 +1,80 @@
 ﻿using System;
 using WebApplication1;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WebApplication1.For_Test_Purpose;
+using WebApplication1.Exceptions;
 
 namespace Assignment1.Tests
 {
     [TestClass]
-    public class VerifyTest
+    public class UnitTestforVerify
     {
         /* From Qing */
         //1
-            Verify _v;
+        Verify _v;
 
-            [TestInitialize]
+        [TestInitialize]
             public void Setup()
             {
-                _v = new Verify();
-            }
+            Verify verify = new Verify();
+            _v = verify;
+        }
 
-            //2 check login info same or not
-            [TestMethod()]
-            public void LoginInfo(string name, string pass)
-            {
-                name = "Name";
-                pass = "pass";
+        //2 check login info same or not
+        [TestMethod()]
+        public void LoginInfo()
+        {
+            string name = "Name";
+            string pass = "pass";
 
-                Assert.AreNotEqual(name, _v.Username);
-                Assert.AreNotEqual(pass, _v.Password);
+            Assert.AreNotEqual(name, _v.Username);
+            Assert.AreNotEqual(pass, _v.Password);
                 
-            }
+        }
 
-            //3 check username and password not null
-            [TestMethod()]
-            public void LoginInfonotNull()
-            {
-                string Nname = _v.Username;
-                string Npass = _v.Password;
+        //3 check username and password not null
+        [TestMethod()]
+        public void LoginInfoNotNull()
+        {
+            string Nname = _v.Username;
+            string Npass = _v.Password;
+            
+            Assert.IsNotNull(Nname);
+            Assert.IsNotNull(Npass);
+        }
 
-                Assert.IsNotNull(Nname);
-                Assert.IsNotNull(Npass);
-            }
+        //4 check login function
+        [TestMethod()]
+        public void LoginTest()
+        {
+            string username = "Name1";
+            string password = "Password1";
 
-            //4 check login function
-            [TestMethod()]
-            public void LoginTest()
-            {
-                string username = "Name1";
-                string password = "Password1";
+            Assert.IsTrue(_v.Login(username, password));
 
-                Assert.IsTrue(_v.Login(username, password));
+        }
 
-            }
+        //5 check return report info
+        [TestMethod()]
+        public void ReportTest()
+        {
+            string reportinput = "input";
+            string EreportOutput = "Output";
+            string AreportOutput = _v.OutReport(reportinput);
 
-            //5 check return report info
-            [TestMethod()]
-            public void reportTest()
-            {
-                string reportinput = "input";
-                string EreportOutput = "Output";
-                string AreportOutput = _v.OutReport(reportinput);
+            Assert.AreNotSame(EreportOutput, AreportOutput);
+        }
 
-                Assert.AreNotSame(EreportOutput, AreportOutput);
-            }
+        //6 check add new client function
+        [TestMethod()]
+        public void AddClientTest()
+        {
+            string Clientinfo ="info";
+            string EResult = "result";
+            string ClientResult = _v.AddClient(Clientinfo);
 
-            //6 check add new client function
-            [TestMethod()]
-            public void AddclientTest()
-            {
-                string Clientinfo ="info";
-                string EResult = "result";
-                string ClientResult = _v.AddClient(Clientinfo);
-
-                Assert.AreNotSame(EResult, ClientResult);
-            }
+            Assert.AreNotSame(EResult, ClientResult);
+        }
 
 
         [TestMethod]
@@ -116,7 +119,7 @@ namespace Assignment1.Tests
         }
 
         [TestClass]
-        public class PasswordchangerTest
+        public class PasswordChangerTest
         {
             public TestContext TestContext { get; set; }
 
@@ -145,6 +148,7 @@ namespace Assignment1.Tests
                 Assert.IsNull(Pass1.oldPassword);
             }
 
+            
             [TestMethod()]
             public void ConfirmPassDoesntMatchNewPass()
             {
@@ -209,6 +213,7 @@ namespace Assignment1.Tests
                     throw e;
                 }
             }
+
 
         }
     }
