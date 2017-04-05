@@ -8,6 +8,40 @@ namespace WebApplication1
 {
     public class Verify
     {
+        public String Username
+        {
+            get
+            {
+                return "";
+            }
+        }
+
+        public String Password
+        {
+            get
+            {
+                return "";
+            }
+        }
+
+        public bool Login(string Uname, string Pword)
+        {
+            return true;
+        }
+
+        public string OutReport(string input)
+        {
+            string output = "";
+            return output;
+        }
+
+        public string AddClient(string info)
+        {
+            string intervention1 = "info";
+            return intervention1;
+        }
+
+
         public static bool VerifyUsername(string username)
         {
             if (username != "")
