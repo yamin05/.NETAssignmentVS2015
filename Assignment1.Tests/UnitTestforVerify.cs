@@ -14,7 +14,7 @@ namespace Assignment1.Tests
             [TestInitialize]
             public void Setup()
             {
-                Verify _v = new Verify();
+                _v = new Verify();
             }
 
             //2 check login info same or not
@@ -24,8 +24,8 @@ namespace Assignment1.Tests
                 name = "Name";
                 pass = "pass";
 
-                Assert.AreEqual(name, _v.Username);
-                Assert.AreEqual(pass, _v.Password);
+                Assert.AreNotEqual(name, _v.Username);
+                Assert.AreNotEqual(pass, _v.Password);
                 
             }
 
@@ -36,8 +36,8 @@ namespace Assignment1.Tests
                 string Nname = _v.Username;
                 string Npass = _v.Password;
 
-                Assert.IsNull(Nname);
-                Assert.IsNull(Npass);
+                Assert.IsNotNull(Nname);
+                Assert.IsNotNull(Npass);
             }
 
             //4 check login function
@@ -59,7 +59,7 @@ namespace Assignment1.Tests
                 string EreportOutput = "Output";
                 string AreportOutput = _v.OutReport(reportinput);
 
-                Assert.AreSame(EreportOutput, AreportOutput);
+                Assert.AreNotSame(EreportOutput, AreportOutput);
             }
 
             //6 check add new client function
@@ -70,7 +70,7 @@ namespace Assignment1.Tests
                 string EResult = "result";
                 string ClientResult = _v.AddClient(Clientinfo);
 
-                Assert.AreSame(EResult, ClientResult);
+                Assert.AreNotSame(EResult, ClientResult);
             }
 
 
@@ -155,7 +155,60 @@ namespace Assignment1.Tests
                 Assert.AreEqual(0, Pass1.flag);
             }
 
+            //From Yamin
+            [TestMethod]
+            public void HoursNotExcedingAllowedHoursTest()
+            {
+                double allocatedHours = 10;
+                var testObject = new UnitTestLogics();
+                testObject.AllocateHours(allocatedHours);
+                double result = testObject.allocatedHours;
+                Assert.AreEqual(result, allocatedHours);
+            }
 
+            [TestMethod]
+            [ExpectedException(typeof(ExcedesAllowedHoursException))]
+            public void HoursExcidingAllowedHoursTest()
+            {
+                double allocatedHours = 1000;
+                var testObject = new UnitTestLogics();
+                try
+                {
+                    testObject.AllocateHours(allocatedHours);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw e;
+                }
+            }
+
+            [TestMethod]
+            public void CostNotExcedingAllowedCostTest()
+            {
+                double allocatedCost = 10;
+                var testObject = new UnitTestLogics();
+                testObject.AllocateCost(allocatedCost);
+                double result = testObject.allocatedCost;
+                Assert.AreEqual(result, allocatedCost);
+            }
+
+            [TestMethod]
+            [ExpectedException(typeof(ExcedesAllowedCostException))]
+            public void CostExcidingAllowedCostTest()
+            {
+                double allocatedCost = 1000;
+                var testObject = new UnitTestLogics();
+                try
+                {
+                    testObject.AllocateCost(allocatedCost);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw e;
+                }
+            }
 
         }
     }
