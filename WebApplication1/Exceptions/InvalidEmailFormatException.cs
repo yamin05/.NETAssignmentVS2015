@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Exceptions
 {
-    public class ExcedesAllowedHoursException : Exception
+    public class InvalidPasswordFormatException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public ExcedesAllowedHoursException()
+        public InvalidPasswordFormatException()
         {
-            errorCode = 102;
-            errorMessage = "Hours to be allocated is exceding the allowed hours";
+            errorCode = 105;
+            errorMessage = "The format of the password is not valid";
         }
 
         public override string Message

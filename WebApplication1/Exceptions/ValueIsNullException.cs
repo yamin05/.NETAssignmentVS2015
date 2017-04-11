@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Exceptions
 {
-    public class ExcedesAllowedHoursException : Exception
+    public class ValueIsNullException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public ExcedesAllowedHoursException()
+        public ValueIsNullException()
         {
-            errorCode = 102;
-            errorMessage = "Hours to be allocated is exceding the allowed hours";
+            errorCode = 103;
+            errorMessage = "The value cannot be null";
         }
 
         public override string Message

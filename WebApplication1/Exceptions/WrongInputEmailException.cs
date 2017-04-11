@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Exceptions
 {
-    public class ExcedesAllowedHoursException : Exception
+    public class WrongInputEmailException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public ExcedesAllowedHoursException()
+        public WrongInputEmailException()
         {
-            errorCode = 102;
-            errorMessage = "Hours to be allocated is exceding the allowed hours";
+            errorCode = 106;
+            errorMessage = "The user email doesn't match with the database";
         }
 
         public override string Message

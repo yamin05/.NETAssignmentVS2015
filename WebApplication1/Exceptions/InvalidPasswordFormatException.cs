@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Exceptions
 {
-    public class ExcedesAllowedHoursException : Exception
+    public class InvalidEmailFormatException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public ExcedesAllowedHoursException()
+        public InvalidEmailFormatException()
         {
-            errorCode = 102;
-            errorMessage = "Hours to be allocated is exceding the allowed hours";
+            errorCode = 104;
+            errorMessage = "The format of the email address is not valid";
         }
 
         public override string Message
