@@ -217,7 +217,15 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Manager\ManagerHome.aspx" />
-    <Content Include="Views\Register.aspx" />
+    <Content Include="Views\SiteEngineer\CreateClient.aspx" />
+    <Content Include="Views\SiteEngineer\CreateClientDone.aspx" />
+    <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
+    <Content Include="Views\SiteEngineer\CreateInterventionDone.aspx" />
+    <Content Include="Views\SiteEngineer\EngineerHome.aspx" />
+    <Content Include="Views\SiteEngineer\ViewClient.aspx" />
+    <Content Include="Views\SiteEngineer\ViewClientbyDistrict.aspx" />
+    <Content Include="Views\SiteEngineer\ViewInterventionbyClient.aspx" />
+    <Content Include="Views\SiteEngineer\ViewInterventions.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -349,11 +357,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Enums\Roles.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\ValueIsNullException.cs" />
-    <Compile Include="Exceptions\WrongUserInpuException.cs" />
     <Compile Include="Exceptions\WrongInputPasswordException.cs" />
     <Compile Include="Exceptions\WrongInputEmailException.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
@@ -433,12 +439,68 @@
     <Compile Include="Views\Manager\ManagerHome.aspx.designer.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\CreateClient.aspx.cs">
+      <DependentUpon>CreateClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\CreateClient.aspx.designer.cs">
+      <DependentUpon>CreateClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\CreateClientDone.aspx.cs">
+      <DependentUpon>CreateClientDone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\CreateClientDone.aspx.designer.cs">
+      <DependentUpon>CreateClientDone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.cs">
+      <DependentUpon>CreateIntervention.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.designer.cs">
+      <DependentUpon>CreateIntervention.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\CreateInterventionDone.aspx.cs">
+      <DependentUpon>CreateInterventionDone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\CreateInterventionDone.aspx.designer.cs">
+      <DependentUpon>CreateInterventionDone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\EngineerHome.aspx.cs">
+      <DependentUpon>EngineerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\EngineerHome.aspx.designer.cs">
+      <DependentUpon>EngineerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewClient.aspx.cs">
+      <DependentUpon>ViewClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewClient.aspx.designer.cs">
+      <DependentUpon>ViewClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewClientbyDistrict.aspx.cs">
+      <DependentUpon>ViewClientbyDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewClientbyDistrict.aspx.designer.cs">
+      <DependentUpon>ViewClientbyDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewInterventionbyClient.aspx.cs">
+      <DependentUpon>ViewInterventionbyClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewInterventionbyClient.aspx.designer.cs">
+      <DependentUpon>ViewInterventionbyClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewInterventions.aspx.cs">
+      <DependentUpon>ViewInterventions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewInterventions.aspx.designer.cs">
+      <DependentUpon>ViewInterventions.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
