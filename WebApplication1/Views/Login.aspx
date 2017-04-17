@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="~/Views/Login.aspx.cs" Inherits="WebApplication1.Account.ViewLogin" Async="true" %>
+﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="~/Views/Login.aspx.cs" Inherits="WebApplication1.Account.ViewLogin"%>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>
@@ -30,7 +30,7 @@
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                                ErrorMessage="Password should be 4 to 8 characters in length" ValidationExpression="\w{4,8}"
+                                ErrorMessage="Password should be atleast 6 characters in length" ValidationExpression="\w{6,}"
                                 ControlToValidate="Password" CssClass="text-danger"></asp:RegularExpressionValidator>
                         </div>
                     </div>

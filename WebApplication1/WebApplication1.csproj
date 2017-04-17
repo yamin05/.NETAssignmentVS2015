@@ -217,6 +217,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Manager\ManagerHome.aspx" />
+    <Content Include="Views\Register.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -348,9 +349,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Enums\Roles.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\ValueIsNullException.cs" />
+    <Compile Include="Exceptions\WrongUserInpuException.cs" />
     <Compile Include="Exceptions\WrongInputPasswordException.cs" />
     <Compile Include="Exceptions\WrongInputEmailException.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
@@ -429,6 +432,13 @@
     </Compile>
     <Compile Include="Views\Manager\ManagerHome.aspx.designer.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

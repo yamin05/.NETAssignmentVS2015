@@ -19,7 +19,7 @@ namespace WebApplication1.Models
                 return username;
             }
 
-            private set
+            set
             {
                 username = value;
             }
@@ -32,7 +32,7 @@ namespace WebApplication1.Models
                 return password;
             }
 
-            private set
+            set
             {
                 password = value;
             }
@@ -45,7 +45,7 @@ namespace WebApplication1.Models
                 return role;
             }
 
-            private set
+            set
             {
                 role = value;
             }
