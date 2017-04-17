@@ -357,11 +357,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Enums\Roles.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\ValueIsNullException.cs" />
     <Compile Include="Exceptions\WrongInputPasswordException.cs" />
     <Compile Include="Exceptions\WrongInputEmailException.cs" />
+    <Compile Include="Exceptions\WrongUserInpuException.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Utils\ValidationUtil.cs" />
