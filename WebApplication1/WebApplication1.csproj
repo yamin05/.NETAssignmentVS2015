@@ -155,14 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManageLogins.aspx" />
-    <Content Include="Account\ManagePassword.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
@@ -170,16 +168,22 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Account\Web.config" />
+    <Content Include="App_Data\aspnet-WebApplication1-20170404072835.mdf" />
+    <Content Include="App_Data\aspnet-WebApplication1-20170404072835_log.ldf">
+      <DependentUpon>aspnet-WebApplication1-20170404072835.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Views\Accountant\AccountantHome.aspx" />
+    <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -217,6 +221,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Manager\ManagerHome.aspx" />
+    <Content Include="Views\Register.aspx" />
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientDone.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
@@ -226,7 +231,9 @@
     <Content Include="Views\SiteEngineer\ViewClientbyDistrict.aspx" />
     <Content Include="Views\SiteEngineer\ViewInterventionbyClient.aspx" />
     <Content Include="Views\SiteEngineer\ViewInterventions.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -241,13 +248,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AddPhoneNumber.aspx.cs">
-      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\AddPhoneNumber.aspx.designer.cs">
-      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\Confirm.aspx.cs">
       <DependentUpon>Confirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -289,13 +289,6 @@
     </Compile>
     <Compile Include="Account\ManageLogins.aspx.designer.cs">
       <DependentUpon>ManageLogins.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ManagePassword.aspx.cs">
-      <DependentUpon>ManagePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ManagePassword.aspx.designer.cs">
-      <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
@@ -367,6 +360,20 @@
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Utils\ValidationUtil.cs" />
+    <Compile Include="Views\Accountant\AccountantHome.aspx.cs">
+      <DependentUpon>AccountantHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\AccountantHome.aspx.designer.cs">
+      <DependentUpon>AccountantHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,6 +448,13 @@
     <Compile Include="Views\Manager\ManagerHome.aspx.designer.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\SiteEngineer\CreateClient.aspx.cs">
       <DependentUpon>CreateClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -505,10 +519,7 @@
       <DependentUpon>ViewInterventions.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

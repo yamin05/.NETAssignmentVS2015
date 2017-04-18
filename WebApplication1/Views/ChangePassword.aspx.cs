@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace WebApplication1.Account
+namespace WebApplication1
 {
-    public partial class ManagePassword : System.Web.UI.Page
+    public partial class ChangePassword : System.Web.UI.Page
     {
         protected string SuccessMessage
         {
@@ -44,7 +44,7 @@ namespace WebApplication1.Account
                 if (message != null)
                 {
                     // Strip the query string from action
-                    Form.Action = ResolveUrl("~/Account/Manage");
+                    Form.Action = ResolveUrl("~/Views/ChangePassword");
                 }
             }
         }
@@ -60,7 +60,23 @@ namespace WebApplication1.Account
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
                     signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
-                    Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
+                    if (manager.IsInRole(User.Identity.GetUserId(), Roles.SiteEngineer.ToString()))
+                    {
+                        Response.Write("<script language='javascript'>window.alert('Password has been Changed');window.location='SiteEngineer/EngineerHome.aspx?m=ChangePwdSucce';</script>");
+                        
+                    }
+                    else
+                        if (manager.IsInRole(User.Identity.GetUserId(), Roles.Manager.ToString()))
+                    {
+                        Response.Write("<script language='javascript'>window.alert('Password has been Changed');window.location='Manager/ManagerHome.aspx?m=ChangePwdSucces';</script>");
+                        
+                    }
+                    else
+                        if (manager.IsInRole(User.Identity.GetUserId(), Roles.Accountant.ToString()))
+                    {
+                        Response.Write("<script language='javascript'>window.alert('Password has been Changed');window.location='Accountant/AccountantHome.aspx?m=ChangePwdSucces';</script>");
+                        
+                    }
                 }
                 else
                 {

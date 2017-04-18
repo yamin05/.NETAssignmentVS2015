@@ -30,7 +30,25 @@ namespace WebApplication1.Helpers
                 {
                     return Roles.Admin.ToString();
                 }
+                else
+                    if (userManager.IsInRole(findUser.Id, Roles.Manager.ToString()))
+                {
+                    return Roles.Manager.ToString();
+                }
+                else
+                    if (userManager.IsInRole(findUser.Id, Roles.SiteEngineer.ToString()))
+                {
+                    return Roles.SiteEngineer.ToString();
+                }
+                else
+                    if (userManager.IsInRole(findUser.Id, Roles.Accountant.ToString()))
+                {
+                    return Roles.Accountant.ToString();
+                }
+
+
             }
+            
             else
             {
                 throw new WrongUserInputException();

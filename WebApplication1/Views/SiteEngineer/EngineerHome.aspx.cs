@@ -16,32 +16,39 @@ namespace WebApplication1.Views.SiteEngineer
 
         protected void CreateClient_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/CreateClient.aspx");
+            Response.Redirect("~/Views/SiteEngineer/CreateClient.aspx");
         }
 
         protected void ViewClient_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/ViewClient.aspx");
+            Response.Redirect("~/Views/SiteEngineer/ViewClient.aspx");
         }
 
         protected void CreateIntervention_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/CreateIntervention.aspx");
+            Response.Redirect("~/Views/SiteEngineer/CreateIntervention.aspx");
         }
 
         protected void ViewInterventions_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/ViewInterventions.aspx");
+            Response.Redirect("~/Views/SiteEngineer/ViewInterventions.aspx");
         }
 
         protected void ViewInterventionbyClients_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/ViewInterventionbyClient.aspx");
+            Response.Redirect("~/Views/SiteEngineer/ViewInterventionbyClient.aspx");
         }
 
         protected void ViewClientDistrict_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/ViewClientbyDistrict.aspx");
+            Response.Redirect("~/Views/SiteEngineer/ViewClientbyDistrict.aspx");
         }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/Views/ChangePassword.aspx");
+        }
+   
     }
 }

@@ -26,14 +26,29 @@ namespace WebApplication1.Account
                 {
                     LoginHelper loginHelper = new LoginHelper();
                     var roles = loginHelper.login(Email.Text, Password.Text);
-                    if (roles.ToString().Equals(Roles.Admin.ToString()))
+                    if (roles.ToString().Equals(Roles.SiteEngineer.ToString()))
+                    {
+                        Response.Redirect("~/Views/SiteEngineer/EngineerHome.aspx");
+                    }
+                    else
+                     if (roles.ToString().Equals(Roles.Manager.ToString()))
+
                     {
                         Response.Redirect("~/Views/Manager/ManagerHome.aspx");
                     }
                     else
+
+                    if (roles.ToString().Equals(Roles.Admin.ToString()))
+
                     {
-                        FailureText.Text = "Only Managers can login for now. No other pages created";
-                        ErrorMessage.Visible = true;
+                        Response.Redirect("~/Views/Manager/ManagerHome.aspx");
+                    }
+                    else
+
+                    if (roles.ToString().Equals(Roles.Accountant.ToString()))
+
+                    {
+                        Response.Redirect("~/Views/Accountant/AccountantHome.aspx");
                     }
                 }
                 catch (Exception ex)

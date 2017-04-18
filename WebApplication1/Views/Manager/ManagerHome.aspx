@@ -4,6 +4,11 @@
 
     <div class="jumbotron">
         <h1>Manager Home Page</h1>
+         <div class="form-horizontal">
+              
+             <asp:Button ID="ChangePassword" runat="server" Text="Change Password" OnClick="ChangePassword_Click" />
+              
+          </div>
     </div>
 
 </asp:Content>
