@@ -174,6 +174,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -216,7 +217,9 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Manager\ListInterventions.aspx" />
     <Content Include="Views\Manager\ManagerHome.aspx" />
+    <Content Include="Views\Manager\ManagerOperation.aspx" />
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientDone.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
@@ -367,6 +370,13 @@
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Utils\ValidationUtil.cs" />
+    <Compile Include="Views\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -434,12 +444,26 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Manager\ListInterventions.aspx.cs">
+      <DependentUpon>ListInterventions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\ListInterventions.aspx.designer.cs">
+      <DependentUpon>ListInterventions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\ManagerHome.aspx.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Manager\ManagerHome.aspx.designer.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\ManagerOperation.aspx.cs">
+      <DependentUpon>ManagerOperation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\ManagerOperation.aspx.designer.cs">
+      <DependentUpon>ManagerOperation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\CreateClient.aspx.cs">
       <DependentUpon>CreateClient.aspx</DependentUpon>
