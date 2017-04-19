@@ -60,11 +60,11 @@ namespace WebApplication1
             var findAdmin = userManager.FindByEmail("admin@admin.com");
             var findManager = userManager.FindByEmail("manager@manager.com");
             var findAccountant = userManager.FindByEmail("accountant@accountant.com");
-            var findSiteEnginner = userManager.FindByEmail("siteengineer@siteengineer.com");
+            var findSiteEngineer = userManager.FindByEmail("siteengineer@siteengineer.com");
             //var finduser = userManager.FindByEmail("yams.stj@gmail.com");
 
             if (Utils.getInstance.isNullOrEmpty(findAdmin) && Utils.getInstance.isNullOrEmpty(findManager)
-                && Utils.getInstance.isNullOrEmpty(findAccountant) && Utils.getInstance.isNullOrEmpty(findSiteEnginner))
+                && Utils.getInstance.isNullOrEmpty(findAccountant) && Utils.getInstance.isNullOrEmpty(findSiteEngineer))
                 //&& Utils.getInstance.isNullOrEmpty(finduser))
             {
                 var admin = new IdentityUser() { UserName = "Admin", Email = "admin@admin.com"};
@@ -85,11 +85,11 @@ namespace WebApplication1
                 {
                     userManager.AddToRole(accountant.Id, Roles.Accountant.ToString());
                 }
-                var siteEnginner = new IdentityUser() { UserName = "Site Engineer", Email = "siteengineer@siteengineer.com" };
-                IdentityResult resultSiteEngineer = await userManager.CreateAsync(siteEnginner, "123456");
+                var siteEngineer = new IdentityUser() { UserName = "SiteEngineer", Email = "siteengineer@siteengineer.com" };
+                IdentityResult resultSiteEngineer = await userManager.CreateAsync(siteEngineer, "123456");
                 if (resultSiteEngineer.Succeeded)
                 {
-                    userManager.AddToRole(siteEnginner.Id, Roles.SiteEngineer.ToString());
+                    userManager.AddToRole(siteEngineer.Id, Roles.SiteEngineer.ToString());
                 }
                 //var user = new IdentityUser() { UserName = "yams.stj", Email = "yams.stj@gmail.com" };
                 //IdentityResult result = await userManager.CreateAsync(user, "123456");
