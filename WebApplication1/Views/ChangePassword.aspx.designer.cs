@@ -7,83 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.Views
-{
-
-    public partial class ChangePassword
-    {
-
+namespace WebApplication1 {
+    
+    
+    public partial class ChangePassword {
+        
         /// <summary>
-        /// Label1 control.
+        /// setPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
+        protected global::System.Web.UI.WebControls.PlaceHolder setPassword;
+        
         /// <summary>
-        /// TextBox1 control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
+        protected global::System.Web.UI.WebControls.TextBox password;
+        
         /// <summary>
-        /// Label2 control.
+        /// confirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
+        protected global::System.Web.UI.WebControls.TextBox confirmPassword;
+        
         /// <summary>
-        /// TextBox2 control.
+        /// changePasswordHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-
+        protected global::System.Web.UI.WebControls.PlaceHolder changePasswordHolder;
+        
         /// <summary>
-        /// Label3 control.
+        /// CurrentPasswordLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
+        protected global::System.Web.UI.WebControls.Label CurrentPasswordLabel;
+        
         /// <summary>
-        /// TextBox3 control.
+        /// CurrentPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
-
+        protected global::System.Web.UI.WebControls.TextBox CurrentPassword;
+        
         /// <summary>
-        /// Button1 control.
+        /// NewPasswordLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
+        protected global::System.Web.UI.WebControls.Label NewPasswordLabel;
+        
         /// <summary>
-        /// Button2 control.
+        /// NewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.TextBox NewPassword;
+        
+        /// <summary>
+        /// ConfirmNewPasswordLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ConfirmNewPasswordLabel;
+        
+        /// <summary>
+        /// ConfirmNewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ConfirmNewPassword;
     }
-
 }

@@ -76,9 +76,9 @@ namespace WebApplication1.Account
                 // Create the local login info and link the local account to the user
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 IdentityResult result = manager.AddPassword(User.Identity.GetUserId(), password.Text);
-                if (result.Succeeded)
+                if (result.Succeeded && result.ToString().Equals(Roles.Manager.ToString()))
                 {
-                    Response.Redirect("~/Account/Manage?m=SetPwdSuccess");
+                    Response.Redirect("~/Views/Manager/ManagerHome.aspx");
                 }
                 else
                 {

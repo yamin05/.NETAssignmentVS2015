@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.Account {
+namespace WebApplication1.Views.Accountant {
     
     
-    public partial class AddPhoneNumber {
+    public partial class AccountantHome {
         
         /// <summary>
-        /// ErrorMessage control.
+        /// ChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
-        
-        /// <summary>
-        /// PhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
+        protected global::System.Web.UI.WebControls.Button ChangePassword;
     }
 }

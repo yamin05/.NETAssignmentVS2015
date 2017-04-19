@@ -4,48 +4,111 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebApplication1.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
-namespace WebApplication1.Views
-
+namespace WebApplication1
 {
     public partial class ChangePassword : System.Web.UI.Page
     {
+        protected string SuccessMessage
+        {
+            get;
+            private set;
+        }
+
+        private bool HasPassword(ApplicationUserManager manager)
+        {
+            return manager.HasPassword(User.Identity.GetUserId());
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            if (!IsPostBack)
+            {
+                // Determine the sections to render
+                if (HasPassword(manager))
+                {
+                    changePasswordHolder.Visible = true;
+                }
+                else
+                {
+                    setPassword.Visible = true;
+                    changePasswordHolder.Visible = false;
+                }
+
+                // Render success message
+                var message = Request.QueryString["m"];
+                if (message != null)
+                {
+                    // Strip the query string from action
+                    Form.Action = ResolveUrl("~/Views/ChangePassword");
+                }
+            }
         }
 
-        protected void Button2_click(object sender, EventArgs e)
+        protected void ChangePassword_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            string oldPassword;
-            string newPassword;
-            string confirmPassword;
-            oldPassword = TextBox1.Text;
-            newPassword = TextBox2.Text;
-            confirmPassword = TextBox3.Text;
-            string userPassword;
-            userPassword = user.Password;
-
-
-
-            if (oldPassword == userPassword && newPassword == confirmPassword)
+            if (IsValid)
             {
-                Response.Write("<script>alert('Your password has been changed');window.location.href='Login.aspx'</script>");
-                userPassword = newPassword;
-                user.Password = userPassword;
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+                IdentityResult result = manager.ChangePassword(User.Identity.GetUserId(), CurrentPassword.Text, NewPassword.Text);
+                if (result.Succeeded)
+                {
+                    var user = manager.FindById(User.Identity.GetUserId());
+                    signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                    if (manager.IsInRole(User.Identity.GetUserId(), Roles.SiteEngineer.ToString()))
+                    {
+                        Response.Write("<script language='javascript'>window.alert('Password has been Changed');window.location='SiteEngineer/EngineerHome.aspx?m=ChangePwdSucce';</script>");
+                        
+                    }
+                    else
+                        if (manager.IsInRole(User.Identity.GetUserId(), Roles.Manager.ToString()))
+                    {
+                        Response.Write("<script language='javascript'>window.alert('Password has been Changed');window.location='Manager/ManagerHome.aspx?m=ChangePwdSucces';</script>");
+                        
+                    }
+                    else
+                        if (manager.IsInRole(User.Identity.GetUserId(), Roles.Accountant.ToString()))
+                    {
+                        Response.Write("<script language='javascript'>window.alert('Password has been Changed');window.location='Accountant/AccountantHome.aspx?m=ChangePwdSucces';</script>");
+                        
+                    }
+                }
+                else
+                {
+                    AddErrors(result);
+                }
             }
-            else if (oldPassword != userPassword)
-            {
-                Response.Write("<script>alert('Your old password is wrong! Please try again!');window.location.href='ChangePassword.aspx'</script>");
+        }
 
-            }
-            else
+        protected void SetPassword_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
             {
-                Response.Write("<script>alert('The new password not same! Please try again!');window.location.href='ChangePassword.aspx'</script>");
+                // Create the local login info and link the local account to the user
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                IdentityResult result = manager.AddPassword(User.Identity.GetUserId(), password.Text);
+                if (result.Succeeded && result.ToString().Equals(Roles.Manager.ToString()))
+                {
+                    Response.Redirect("~/Views/Manager/ManagerHome.aspx");
+                }
+                else
+                {
+                    AddErrors(result);
+                }
             }
+        }
 
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
         }
     }
 }
