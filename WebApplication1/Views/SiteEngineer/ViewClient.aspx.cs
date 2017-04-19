@@ -13,7 +13,10 @@ namespace WebApplication1.Views.SiteEngineer
         {
 
         }
-
+        protected void AddClient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/SiteEngineer/CreateClient.aspx");
+        }
         protected void BulletedList1_Click(object sender, BulletedListEventArgs e)
         {
 

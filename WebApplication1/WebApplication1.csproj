@@ -174,6 +174,7 @@
     <Content Include="App_Data\aspnet-WebApplication1-20170404072835_log.ldf">
       <DependentUpon>aspnet-WebApplication1-20170404072835.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\database scripte.sql" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -369,6 +370,7 @@
     <Compile Include="Exceptions\WrongInputEmailException.cs" />
     <Compile Include="Exceptions\WrongUserInpuException.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
+    <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Views\Accountant\AccountantHome.aspx.cs">

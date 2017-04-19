@@ -20,7 +20,14 @@
         <asp:Label ID="Label4" font-Size="Small" runat="server" Text="District: "></asp:Label>
     </p>
     <p>
-        <asp:TextBox ID="NewClientDistrict" runat="server" Width="300px"></asp:TextBox>
+        <asp:DropDownList ID="NewClientDistrict1" runat="server">
+        <asp:ListItem Value=1>Urban Indonesia</asp:ListItem>
+        <asp:ListItem Value=2>Rural Indonesia</asp:ListItem>
+        <asp:ListItem Value=3>Urban Papua New Guinea</asp:ListItem>
+        <asp:ListItem Value=4>Rural Papua New Guinea</asp:ListItem>
+        <asp:ListItem Value=5>Sydney</asp:ListItem>
+        <asp:ListItem Value=6>Rural New South Wales</asp:ListItem>
+        </asp:DropDownList>
     </p>
     <p>
     </p>
