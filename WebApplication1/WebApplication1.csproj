@@ -186,6 +186,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -362,12 +363,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\ValueIsNullException.cs" />
     <Compile Include="Exceptions\WrongInputPasswordException.cs" />
     <Compile Include="Exceptions\WrongInputEmailException.cs" />
     <Compile Include="Exceptions\WrongUserInpuException.cs" />
+    <Compile Include="Helpers\ChangePasswordHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Utils\Utils.cs" />
