@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using WebApplication1.Models;
-using WebApplication1.Utils;
 using WebApplication1.Helpers;
 
 namespace WebApplication1.Account
@@ -25,31 +19,8 @@ namespace WebApplication1.Account
                 try
                 {
                     LoginHelper loginHelper = new LoginHelper();
-                    var roles = loginHelper.login(Email.Text, Password.Text);
-                    if (roles.ToString().Equals(Roles.SiteEngineer.ToString()))
-                    {
-                        Response.Redirect("~/Views/SiteEngineer/EngineerHome.aspx");
-                    }
-                    else
-                     if (roles.ToString().Equals(Roles.Manager.ToString()))
-
-                    {
-                        Response.Redirect("~/Views/Manager/ManagerHome.aspx");
-                    }
-                    else
-
-                    if (roles.ToString().Equals(Roles.Admin.ToString()))
-
-                    {
-                        Response.Redirect("~/Views/Manager/ManagerHome.aspx");
-                    }
-                    else
-
-                    if (roles.ToString().Equals(Roles.Accountant.ToString()))
-
-                    {
-                        Response.Redirect("~/Views/Accountant/AccountantHome.aspx");
-                    }
+                    var homePage = loginHelper.login(Username.Text, Password.Text);
+                    Response.Redirect(homePage);
                 }
                 catch (Exception ex)
                 {

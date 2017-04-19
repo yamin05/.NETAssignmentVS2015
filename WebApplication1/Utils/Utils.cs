@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using WebApplication1.Exceptions;
 
-namespace WebApplication1.Utils
+namespace WebApplication1
 {
-    public sealed class ValidationUtil
+    public sealed class Utils
     {
-        private static readonly ValidationUtil instance = new ValidationUtil();
+        private static readonly Utils instance = new Utils();
 
-        private ValidationUtil() { }
+        private Utils() { }
 
-        public static ValidationUtil Instance
+        public static Utils getInstance
         {
             get
             {
@@ -51,6 +47,12 @@ namespace WebApplication1.Utils
         public bool isNullOrEmpty(object obj)
         {
             return obj == null || obj.Equals("");
+        }
+
+        public string getHomePageURL(string role)
+        {
+            return (role.Equals("Admin")) ? "~" : "~/Views/" + role+ "/" + role+ "Home.aspx";
+
         }
     }
 }

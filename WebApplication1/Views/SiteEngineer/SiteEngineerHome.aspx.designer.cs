@@ -10,7 +10,7 @@
 namespace WebApplication1.Views.SiteEngineer {
     
     
-    public partial class EngineerHome {
+    public partial class SiteEngineerHome {
         
         /// <summary>
         /// Label1 control.

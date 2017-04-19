@@ -161,6 +161,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManageLogins.aspx" />
+    <Content Include="Account\ManagePassword.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
@@ -220,13 +221,15 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Manager\ListInterventions.aspx" />
     <Content Include="Views\Manager\ManagerHome.aspx" />
+    <Content Include="Views\Manager\ManagerOperation.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientDone.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
     <Content Include="Views\SiteEngineer\CreateInterventionDone.aspx" />
-    <Content Include="Views\SiteEngineer\EngineerHome.aspx" />
+    <Content Include="Views\SiteEngineer\SiteEngineerHome.aspx" />
     <Content Include="Views\SiteEngineer\ViewClient.aspx" />
     <Content Include="Views\SiteEngineer\ViewClientbyDistrict.aspx" />
     <Content Include="Views\SiteEngineer\ViewInterventionbyClient.aspx" />
@@ -289,6 +292,13 @@
     </Compile>
     <Compile Include="Account\ManageLogins.aspx.designer.cs">
       <DependentUpon>ManageLogins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.designer.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
@@ -359,7 +369,7 @@
     <Compile Include="Exceptions\WrongUserInpuException.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Utils\ValidationUtil.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <Compile Include="Views\Accountant\AccountantHome.aspx.cs">
       <DependentUpon>AccountantHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,12 +451,26 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Manager\ListInterventions.aspx.cs">
+      <DependentUpon>ListInterventions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\ListInterventions.aspx.designer.cs">
+      <DependentUpon>ListInterventions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\ManagerHome.aspx.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Manager\ManagerHome.aspx.designer.cs">
       <DependentUpon>ManagerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\ManagerOperation.aspx.cs">
+      <DependentUpon>ManagerOperation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\ManagerOperation.aspx.designer.cs">
+      <DependentUpon>ManagerOperation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -483,12 +507,12 @@
     <Compile Include="Views\SiteEngineer\CreateInterventionDone.aspx.designer.cs">
       <DependentUpon>CreateInterventionDone.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SiteEngineer\EngineerHome.aspx.cs">
-      <DependentUpon>EngineerHome.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\SiteEngineerHome.aspx.cs">
+      <DependentUpon>SiteEngineerHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SiteEngineer\EngineerHome.aspx.designer.cs">
-      <DependentUpon>EngineerHome.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\SiteEngineerHome.aspx.designer.cs">
+      <DependentUpon>SiteEngineerHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\ViewClient.aspx.cs">
       <DependentUpon>ViewClient.aspx</DependentUpon>

@@ -1,24 +1,22 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Web;
 using WebApplication1.Exceptions;
-using WebApplication1.Models;
 
 namespace WebApplication1.Helpers
 {
     public class LoginHelper
     {
-        public string login(String inputEmail, String inputPassword)
+        public string login(String inputUsername, String inputPassword)
         {
             //User user = new User();
 
             var userStore = new UserStore<IdentityUser>();
             var userManager = new UserManager<IdentityUser>(userStore);
 
-            var findUser = userManager.Find(inputEmail, inputPassword);
+            var findUser = userManager.Find(inputUsername, inputPassword);
 
             if (findUser != null)
             {
@@ -26,36 +24,18 @@ namespace WebApplication1.Helpers
                 var userIdentity = userManager.CreateIdentity(findUser, DefaultAuthenticationTypes.ApplicationCookie);
 
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
-                if (userManager.IsInRole(findUser.Id, Roles.Admin.ToString()))
-                {
-                    return Roles.Admin.ToString();
-                }
-                else
-                    if (userManager.IsInRole(findUser.Id, Roles.Manager.ToString()))
-                {
-                    return Roles.Manager.ToString();
-                }
-                else
-                    if (userManager.IsInRole(findUser.Id, Roles.SiteEngineer.ToString()))
-                {
-                    return Roles.SiteEngineer.ToString();
-                }
-                else
-                    if (userManager.IsInRole(findUser.Id, Roles.Accountant.ToString()))
-                {
-                    return Roles.Accountant.ToString();
-                }
-
-
+                var roles = userManager.GetRoles(findUser.Id);
+                
+                return Utils.getInstance.getHomePageURL(roles[0]);
             }
             
             else
             {
                 throw new WrongUserInputException();
             }
-            return null;
+            //return null;
 
-            //if (user.LoginSuccessful(inputEmail, inputPassword))
+            //if (user.LoginSuccessful(inputUsername, inputPassword))
             //{
             //    return user;
             //}
