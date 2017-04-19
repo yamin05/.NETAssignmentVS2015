@@ -179,6 +179,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Views\Accountant\AccountantHome.aspx" />
+    <Content Include="Views\Admin\AdminHome.aspx" />
     <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -376,6 +377,13 @@
     </Compile>
     <Compile Include="Views\Accountant\AccountantHome.aspx.designer.cs">
       <DependentUpon>AccountantHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>

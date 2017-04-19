@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Text.RegularExpressions;
 using WebApplication1.Exceptions;
 
 namespace WebApplication1
@@ -49,10 +51,20 @@ namespace WebApplication1
             return obj == null || obj.Equals("");
         }
 
-        public string getHomePageURL(string role)
+        public string getHomePageURL(Roles role)
         {
-            return (role.Equals("Admin")) ? "~" : "~/Views/" + role+ "/" + role+ "Home.aspx";
+            return role.ToString() +  "/" + role.ToString() + "Home.aspx";
+        }
 
+        public string getHomePageURL(string username)
+        {
+            var userStore = new UserStore<IdentityUser>();
+            var userManager = new UserManager<IdentityUser>(userStore);
+
+            var findUser = userManager.FindByName(username);
+            var roles = userManager.GetRoles(findUser.Id);
+
+            return "~/Views/" + roles[0] + "/" + roles[0] + "Home.aspx";
         }
     }
 }

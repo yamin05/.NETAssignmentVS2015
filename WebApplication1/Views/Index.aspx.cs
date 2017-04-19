@@ -11,7 +11,10 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Context.User != null && Context.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect(Utils.getInstance.getHomePageURL(User.Identity.Name));
+            }
         }
     }
 }

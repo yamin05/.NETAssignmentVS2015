@@ -26,7 +26,7 @@ namespace WebApplication1.Helpers
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
                 var roles = userManager.GetRoles(findUser.Id);
                 
-                return Utils.getInstance.getHomePageURL(roles[0]);
+                return Utils.getInstance.getHomePageURL((Roles) Enum.Parse(typeof(Roles), roles[0]));
             }
             
             else
