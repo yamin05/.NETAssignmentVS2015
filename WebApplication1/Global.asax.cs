@@ -57,23 +57,46 @@ namespace WebApplication1
                 roleManager.Create(role);
             }
 
-            var findUser = userManager.FindByEmail("admin@admin.com");
-            var findUser2 = userManager.FindByEmail("yams.stj@gmail.com");
+            var findAdmin = userManager.FindByEmail("admin@admin.com");
+            var findManager = userManager.FindByEmail("manager@manager.com");
+            var findAccountant = userManager.FindByEmail("accountant@accountant.com");
+            var findSiteEnginner = userManager.FindByEmail("siteengineer@siteengineer.com");
+            //var finduser = userManager.FindByEmail("yams.stj@gmail.com");
 
-            if (Utils.getInstance.isNullOrEmpty(findUser) && Utils.getInstance.isNullOrEmpty(findUser2))
+            if (Utils.getInstance.isNullOrEmpty(findAdmin) && Utils.getInstance.isNullOrEmpty(findManager)
+                && Utils.getInstance.isNullOrEmpty(findAccountant) && Utils.getInstance.isNullOrEmpty(findSiteEnginner))
+                //&& Utils.getInstance.isNullOrEmpty(finduser))
             {
-                var user = new IdentityUser() { UserName = "admin", Email = "admin@admin.com"};
-                IdentityResult result = await userManager.CreateAsync(user, "adminadmin");
-                if (result.Succeeded)
+                var admin = new IdentityUser() { UserName = "Admin", Email = "admin@admin.com"};
+                IdentityResult resultAdmin = await userManager.CreateAsync(admin, "123456");
+                if (resultAdmin.Succeeded)
                 {
-                    userManager.AddToRole(user.Id, Roles.Admin.ToString());
+                    userManager.AddToRole(admin.Id, Roles.Admin.ToString());
                 }
-                var user2 = new IdentityUser() { UserName = "yams.stj", Email = "yams.stj@gmail.com" };
-                IdentityResult result2 = await userManager.CreateAsync(user2, "123456");
-                if (result2.Succeeded)
+                var manager = new IdentityUser() { UserName = "Manager", Email = "manager@manager.com" };
+                IdentityResult resultManager = await userManager.CreateAsync(manager, "123456");
+                if (resultManager.Succeeded)
                 {
-                    userManager.AddToRole(user2.Id, Roles.Manager.ToString());
+                    userManager.AddToRole(manager.Id, Roles.Manager.ToString());
                 }
+                var accountant = new IdentityUser() { UserName = "Accountant", Email = "accountant@accountant.com" };
+                IdentityResult resultAccountant = await userManager.CreateAsync(accountant, "123456");
+                if (resultAccountant.Succeeded)
+                {
+                    userManager.AddToRole(accountant.Id, Roles.Accountant.ToString());
+                }
+                var siteEnginner = new IdentityUser() { UserName = "Site Engineer", Email = "siteengineer@siteengineer.com" };
+                IdentityResult resultSiteEngineer = await userManager.CreateAsync(siteEnginner, "123456");
+                if (resultSiteEngineer.Succeeded)
+                {
+                    userManager.AddToRole(siteEnginner.Id, Roles.SiteEngineer.ToString());
+                }
+                //var user = new IdentityUser() { UserName = "yams.stj", Email = "yams.stj@gmail.com" };
+                //IdentityResult result = await userManager.CreateAsync(user, "123456");
+                //if (result.Succeeded)
+                //{
+                //    userManager.AddToRole(user.Id, Roles.Admin.ToString());
+                //}
             }
         }
     }
