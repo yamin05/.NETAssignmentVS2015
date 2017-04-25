@@ -8,61 +8,44 @@ namespace WebApplication1.Models
 {
     public class User
     {
-        private string username = "yams.stj@gmail.com";
-        private string password = "1234";
-        private string role = "manager";
+        
+        public int UserID { get; set; }
 
-        public string Username
-        {
-            get
-            {
-                return username;
-            }
+        public string FirstName { get; set; }
 
-            set
-            {
-                username = value;
-            }
-        }
+        public string LastName { get; set; }
 
-        public string Password
-        {
-            get
-            {
-                return password;
-            }
+        public string UserName { get; set; }
 
-            set
-            {
-                password = value;
-            }
-        }
+        public string Password { get; set; }
 
-        public string Role
-        {
-            get
-            {
-                return role;
-            }
+        public bool IsActive { get; set; }
 
-            set
-            {
-                role = value;
-            }
-        }
+        public bool IsDeleted { get; set; }
 
-        public bool LoginSuccessful(string inputEmail, string inputPassword)
-        {
-            //Database code will be here....for now it is hard coded
-            if (!String.Equals(inputEmail, Username))
-            {
-                throw new WrongInputEmailException();
-            }
-            if (!String.Equals(inputPassword, Password))
-            {
-                throw new WrongInputPasswordException();
-            }
-            return true;
-        }
+        public DateTime CreatedAt { get; set; }
+
+        public int CreatedBy { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
+
+        public int UpdatedBy { get; set; }
+
+        public string Email { get; set; }
+
+
+        //public bool LoginSuccessful(string inputEmail, string inputPassword)
+        //{
+        //    //Database code will be here....for now it is hard coded
+        //    if (!String.Equals(inputEmail, Username))
+        //    {
+        //        throw new WrongInputEmailException();
+        //    }
+        //    if (!String.Equals(inputPassword, Password))
+        //    {
+        //        throw new WrongInputPasswordException();
+        //    }
+        //    return true;
+        //}
     }
 }

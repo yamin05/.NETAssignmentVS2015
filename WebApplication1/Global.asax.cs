@@ -11,6 +11,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using WebApplication1.Models;
+using WebApplication1.Repositories;
 
 [assembly: OwinStartupAttribute(typeof(WebApplication1.Startup))]
 namespace WebApplication1
@@ -23,6 +24,29 @@ namespace WebApplication1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             CreateOrCheckAdminUser();
+            test();
+        }
+
+        private void test()
+        {
+            var factory = new DbConnectionFactory("CustomDatabase");
+            
+            // during start of the current session
+            var context = new DbContext(factory);
+            // for the transaction
+            var repos = new DeptRepository(context);
+            var rows = repos.GetAll();
+            foreach(var row in rows)
+            {
+                Console.WriteLine(row.DeptId);
+            }
+            Console.Write(rows.Count);
+            
+                //var repos2 = new UserRepository(context);
+                // do changes
+                // [...]
+                //uow.SaveChanges();
+            
         }
 
         private async void CreateOrCheckAdminUser()
@@ -95,7 +119,7 @@ namespace WebApplication1
                 //IdentityResult result = await userManager.CreateAsync(user, "123456");
                 //if (result.Succeeded)
                 //{
-                //    userManager.AddToRole(user.Id, Roles.Admin.ToString());
+                //    userManager.AddToRole(user.DeptId, Roles.Admin.ToString());
                 //}
             }
         }
