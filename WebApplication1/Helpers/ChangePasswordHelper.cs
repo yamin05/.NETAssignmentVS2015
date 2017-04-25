@@ -27,9 +27,9 @@ namespace WebApplication1.Helpers
                     return Utils.getInstance.getHomePageURL((Roles)Enum.Parse(typeof(Roles), roles[0]));
                 }
                 else
-                { throw new WrongCurrentPassword(); }
-                
-               
+                {
+                    throw new WrongCurrentPassword();
+                } 
             }
 
             else

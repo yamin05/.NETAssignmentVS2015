@@ -7,11 +7,11 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Repositories
 {
-    public class UserRepository : Repository<Users>
+    public class ClientRepository : Repository<Clients>
     {
         //private DbContext _context;
 
-        public UserRepository(DbContext context) : base(context)
+        public ClientRepository(DbContext context) : base(context)
         {
             //_context = context;
         }
@@ -31,25 +31,27 @@ namespace WebApplication1.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public override Users Insert(Users tentity)
+        
+        public override Clients Insert(Clients tentity)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"INSERT INTO Users VALUES(@UserId, @MaximumHours, @MaximumCost, @District)";
-                command.Parameters.Add(command.CreateParameter("UserId", tentity.UserId));
-                command.Parameters.Add(command.CreateParameter("MaximumHours", tentity.MaximumHours));
-                command.Parameters.Add(command.CreateParameter("MaximumCost", tentity.MaximumCost));
-                command.Parameters.Add(command.CreateParameter("District", tentity.District));
+                command.CommandText = @"INSERT INTO Clients VALUES(@ClientName, @ClientLocation, @ClientDistrict)";
+                command.Parameters.Add(command.CreateParameter("ClientName", tentity.ClientName));
+                command.Parameters.Add(command.CreateParameter("ClientLocation", tentity.ClientLocation));
+                command.Parameters.Add(command.CreateParameter("ClientDistrict", tentity.ClientDistrict));
                 return this.ToList(command).FirstOrDefault();
             }
         }
 
-        public override Users Update(Users tentity)
+        public override Clients Update(Clients tentity)
         {
             throw new NotImplementedException();
         }
 
-       
+        public override Clients Delete(Clients tentity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

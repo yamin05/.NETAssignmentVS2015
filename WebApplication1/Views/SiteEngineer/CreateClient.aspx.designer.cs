@@ -67,13 +67,13 @@ namespace WebApplication1.Views.SiteEngineer {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// NewClientDistrict1 control.
+        /// NewClientDistrict control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NewClientDistrict1;
+        protected global::System.Web.UI.WebControls.DropDownList NewClientDistrict;
         
         /// <summary>
         /// Button1 control.
