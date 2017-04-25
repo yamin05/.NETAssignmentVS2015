@@ -183,6 +183,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Sql_Scripts\Updated_Database_Schema.sql" />
     <Content Include="Views\Accountant\AccountantHome.aspx" />
     <Content Include="Views\Admin\AdminHome.aspx" />
     <Content Include="Views\ChangePassword.aspx" />
@@ -367,6 +368,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Enums\Districts.cs" />
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
@@ -383,7 +385,11 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\Departments.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\EngineersClients.cs" />
+    <Compile Include="Models\Interventions.cs" />
+    <Compile Include="Models\InterventionType.cs" />
+    <Compile Include="Models\InterventionUpdate.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Repositories\DbConfigs\DbUnitOfWork.cs" />
     <Compile Include="Repositories\DbConfigs\DbConnectionFactory.cs" />
     <Compile Include="Repositories\DbConfigs\DbContext.cs" />

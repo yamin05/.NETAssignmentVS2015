@@ -6,7 +6,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Repositories
 {
-    public class UserRepository : Repository<User>
+    public class UserRepository : Repository<Users>
     {
         //private DbContext _context;
 
@@ -15,7 +15,7 @@ namespace WebApplication1.Repositories
             //_context = context;
         }
 
-        public IList<User> GetUsers()
+        public IList<Users> GetUsers()
         {
             using (var command = _context.CreateCommand())
             {
@@ -25,17 +25,17 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public override User Delete(User tentity)
+        public override Users Delete(Users tentity)
         {
             throw new NotImplementedException();
         }
 
-        public override User Insert(User tentity)
+        public override Users Insert(Users tentity)
         {
             throw new NotImplementedException();
         }
 
-        public override User Update(User tentity)
+        public override Users Update(Users tentity)
         {
             throw new NotImplementedException();
         }
