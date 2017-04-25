@@ -13,7 +13,6 @@ namespace WebApplication1.Models
         public int ClientId { get; set; }
         public float InterventionCost { get; set; }
         public float InterventionHour { get; set; }
-        public string InterventionComments { get; set; }
         public DateTime CreateDate { get; set; }
         public int Status { get; set; }
         public int Operater { get; set; }

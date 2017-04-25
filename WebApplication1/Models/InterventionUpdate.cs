@@ -12,5 +12,6 @@ namespace WebApplication1.Models
         public string UserId { get; set;}
         public int Condition { get; set;}
         public DateTime ModifyDate { get; set;}
+        public string InterventionComments { get; set; }
     }
 }

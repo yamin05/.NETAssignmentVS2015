@@ -156,6 +156,7 @@ create table InterventionUpdate (
    UserId               nvarchar(128)             null,
    Condition            int                  null,
    ModifyDate           datetime             null,
+   InterventionComments nvarchar(4000)        null,
    constraint PK_INTERVENTIONUPDATE primary key (InterventionUpdateId)
 )
 go
@@ -170,7 +171,6 @@ create table Interventions (
    ClientId             int             null,
    InterventionCost     decimal              null,
    InterventionHour     decimal              null,
-   InterventionComments nvarchar(4000)        null,
    CreateDate           datetime             null,
    Status               int                  null,
    Operater             int                  null,

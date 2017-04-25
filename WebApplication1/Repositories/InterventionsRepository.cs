@@ -21,14 +21,13 @@ namespace WebApplication1.Repositories
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = @"INSERT INTO Departments VALUES(@InterventionId,@UserId,@InterventionTypeId,@ClientId,@InterventionCost
-                                                                       ,@InterventionHour ,@InterventionComments,@CreateDate,@Operater)";
+                                                                       ,@InterventionHour ,@CreateDate,@Operater)";
                 command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
                 command.Parameters.Add(command.CreateParameter("UserId", intervention.UserId));
                 command.Parameters.Add(command.CreateParameter("InterventionTypeId", intervention.InterventionTypeId));
                 command.Parameters.Add(command.CreateParameter("ClientId", intervention.ClientId));
                 command.Parameters.Add(command.CreateParameter("InterventionCost", intervention.InterventionCost));
                 command.Parameters.Add(command.CreateParameter("IInterventionHour", intervention.InterventionHour));
-                command.Parameters.Add(command.CreateParameter("InterventionComments", intervention.InterventionComments));
                 command.Parameters.Add(command.CreateParameter("CreateDate", intervention.CreateDate));
                 command.Parameters.Add(command.CreateParameter("Operater", intervention.Operater));
                 
@@ -36,12 +35,35 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public Interventions Update_Intervention_Staus(Interventions intervention)
+        public Interventions Update_Intervention_Status_As_Proposed(Interventions intervention)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status  WHERE userid= @userid ";
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @Status WHERE userid= @userid and @interventionId ";
                 command.Parameters.Add(command.CreateParameter("userid", intervention.UserId));
+                command.Parameters.Add(command.CreateParameter("status=1", intervention.Status));
+                return this.ToList(command).FirstOrDefault();
+            }
+        }
+        public Interventions Update_Intervention_Status_As_Approved(Interventions intervention)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @Status WHERE userid= @userid and @interventionId";
+                command.Parameters.Add(command.CreateParameter("userid", intervention.UserId));
+                command.Parameters.Add(command.CreateParameter("status=2", intervention.Status));
+                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
+                return this.ToList(command).FirstOrDefault();
+            }
+        }
+        public Interventions Update_Intervention_Status_As_Cancelled(Interventions intervention)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @Status WHERE userid= @userid and @InterventionId";
+                command.Parameters.Add(command.CreateParameter("userid", intervention.UserId));
+                command.Parameters.Add(command.CreateParameter("Status=3", intervention.Status));
+                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
                 return this.ToList(command).FirstOrDefault();
             }
         }
