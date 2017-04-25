@@ -11,6 +11,7 @@ namespace WebApplication1.Views.Manager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
         }
     }

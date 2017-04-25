@@ -23,7 +23,7 @@ namespace WebApplication1.Views.SiteEngineer
             clientName = NewClientName.Text;
             clientLocation = NewClientAddress.Text;
             clientDistrictint = Convert.ToInt32(NewClientDistrict1.SelectedValue);
-            string conString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=aspnet-WebApplication1-20170404072835;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string conString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebApplication1-20170404072835.mdf;Initial Catalog=aspnet-WebApplication1-20170404072835;Integrated Security=True";
             SqlConnection myConnection = new SqlConnection(conString);
             myConnection.Open();
             SqlCommand cmd = new SqlCommand("insert into clients values ('" + clientName + "','" + clientLocation + "','" + clientDistrictint + "')", myConnection);

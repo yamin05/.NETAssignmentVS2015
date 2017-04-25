@@ -7,7 +7,8 @@
          <div class="form-horizontal">
               
              <asp:Button ID="ChangePassword" runat="server" Text="Change Password" OnClick="ChangePassword_Click" />
-              
+             <asp:Button ID="ListOfIntervention" runat="server" Text="Change Password" OnClick="Manager_Intervention_List_Click" />
+            
           </div>
     </div>
 
