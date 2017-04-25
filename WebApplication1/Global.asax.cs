@@ -24,28 +24,31 @@ namespace WebApplication1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             CreateOrCheckAdminUser();
-            test();
+            CreateInterventionType();
         }
 
-        private void test()
+        private void CreateInterventionType()
         {
             var factory = new DbConnectionFactory("CustomDatabase");
-            
-            // during start of the current session
             var context = new DbContext(factory);
-            // for the transaction
-            var repos = new DeptRepository(context);
+            var repos = new InterventionTypeRepository(context);
+            var interventionType = new InterventionType();
             var rows = repos.GetAll();
-            foreach(var row in rows)
+            if (rows.Count == 0)
             {
-                Console.WriteLine(row.DeptId);
+                interventionType.InterventionTypeName = "Supply and Install Portable Toilet";
+                interventionType.InterventionTypeHours = 10;
+                interventionType.InterventionTypeCost = 200;
+                repos.Insert(interventionType);
+                interventionType.InterventionTypeName = "Hepatitis Avoidance Training";
+                interventionType.InterventionTypeHours = 15;
+                interventionType.InterventionTypeCost = 300;
+                repos.Insert(interventionType);
+                interventionType.InterventionTypeName = "Supply and Install Storm-proof Home Kit";
+                interventionType.InterventionTypeHours = 50;
+                interventionType.InterventionTypeCost = 500;
+                repos.Insert(interventionType);
             }
-            Console.Write(rows.Count);
-            
-                //var repos2 = new UserRepository(context);
-                // do changes
-                // [...]
-                //uow.SaveChanges();
             
         }
 

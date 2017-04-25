@@ -214,15 +214,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="Sql_Scripts\Scripts\bootstrap.min.js" />
-    <Content Include="Sql_Scripts\Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
-    <Content Include="Sql_Scripts\Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -234,9 +225,9 @@
     <Content Include="Views\Manager\ManagerOperation.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
-    <Content Include="Views\SiteEngineer\CreateClientDone.aspx" />
+    <Content Include="Views\SiteEngineer\CreateClientSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
-    <Content Include="Views\SiteEngineer\CreateInterventionDone.aspx" />
+    <Content Include="Views\SiteEngineer\CreateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\SiteEngineerHome.aspx" />
     <Content Include="Views\SiteEngineer\ViewClient.aspx" />
     <Content Include="Views\SiteEngineer\ViewClientbyDistrict.aspx" />
@@ -248,7 +239,6 @@
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Sql_Scripts\Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Site.Main.Master" />
     <None Include="Web.Debug.config">
@@ -370,6 +360,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Enums\Districts.cs" />
     <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Enums\Status.cs" />
+    <Compile Include="Exceptions\FailedToCreateRecordException.cs" />
     <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
@@ -380,6 +372,8 @@
     <Compile Include="Extensions\IDataRecordExtensions.cs" />
     <Compile Include="Extensions\IDbCommandExtensions.cs" />
     <Compile Include="Helpers\ChangePasswordHelper.cs" />
+    <Compile Include="Helpers\CreateInterventionHelper.cs" />
+    <Compile Include="Helpers\ViewClientHelper.cs" />
     <Compile Include="Helpers\CreateClientHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Helpers\SiteHelper.cs" />
@@ -397,9 +391,9 @@
     <Compile Include="Repositories\DbConfigs\DbContext.cs" />
     <Compile Include="Repositories\InterventionsRepository.cs" />
     <Compile Include="Repositories\DeptRepository.cs" />
-    <Compile Include="Repositories\EngClientsRepository.cs" />
+    <Compile Include="Repositories\EngineerClientsRepository.cs" />
     <Compile Include="Repositories\InterRepository.cs" />
-    <Compile Include="Repositories\InterTypeRepository.cs" />
+    <Compile Include="Repositories\InterventionTypeRepository.cs" />
     <Compile Include="Repositories\InterUpdateRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
@@ -528,12 +522,12 @@
     <Compile Include="Views\SiteEngineer\CreateClient.aspx.designer.cs">
       <DependentUpon>CreateClient.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SiteEngineer\CreateClientDone.aspx.cs">
-      <DependentUpon>CreateClientDone.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\CreateClientSuccess.aspx.cs">
+      <DependentUpon>CreateClientSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SiteEngineer\CreateClientDone.aspx.designer.cs">
-      <DependentUpon>CreateClientDone.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\CreateClientSuccess.aspx.designer.cs">
+      <DependentUpon>CreateClientSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.cs">
       <DependentUpon>CreateIntervention.aspx</DependentUpon>
@@ -542,12 +536,12 @@
     <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.designer.cs">
       <DependentUpon>CreateIntervention.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SiteEngineer\CreateInterventionDone.aspx.cs">
-      <DependentUpon>CreateInterventionDone.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\CreateInterventionSuccess.aspx.cs">
+      <DependentUpon>CreateInterventionSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SiteEngineer\CreateInterventionDone.aspx.designer.cs">
-      <DependentUpon>CreateInterventionDone.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\CreateInterventionSuccess.aspx.designer.cs">
+      <DependentUpon>CreateInterventionSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\SiteEngineerHome.aspx.cs">
       <DependentUpon>SiteEngineerHome.aspx</DependentUpon>

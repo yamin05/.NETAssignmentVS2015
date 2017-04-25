@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewClientbyDistrict.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.ViewClientbyDistrict" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="ViewClientbyDistrict.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.ViewClientbyDistrict" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
         <br />
