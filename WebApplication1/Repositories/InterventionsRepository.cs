@@ -36,23 +36,12 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public override Interventions Update(Interventions intervention)
+        public Interventions Update_Intervention_Staus(Interventions intervention)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = command.CommandText = @"UPDATE Interventions SET InterventionId = @InterventionId,UserId = @UserId,InterventionTypeId= @InterventionTypeId,@ClientId,
-                                                            InterventionCost=@InterventionCost,InterventionHour=@InterventionHour ,InterventionComments=@InterventionComments,CreateDate=@CreateDate,
-                                                            Operater=@Operater WHERE InterventionId = @InterventionId";
-                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
-                command.Parameters.Add(command.CreateParameter("UserId", intervention.UserId));
-                command.Parameters.Add(command.CreateParameter("InterventionTypeId", intervention.InterventionTypeId));
-                command.Parameters.Add(command.CreateParameter("ClientId", intervention.ClientId));
-                command.Parameters.Add(command.CreateParameter("InterventionCost", intervention.InterventionCost));
-                command.Parameters.Add(command.CreateParameter("IInterventionHour", intervention.InterventionHour));
-                command.Parameters.Add(command.CreateParameter("InterventionComments", intervention.InterventionComments));
-                command.Parameters.Add(command.CreateParameter("CreateDate", intervention.CreateDate));
-                command.Parameters.Add(command.CreateParameter("Operater", intervention.Operater));
-                //command.ExecuteNonQuery();
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status  WHERE userid= @userid ";
+                command.Parameters.Add(command.CreateParameter("userid", intervention.UserId));
                 return this.ToList(command).FirstOrDefault();
             }
         }
@@ -77,6 +66,9 @@ namespace WebApplication1.Repositories
             }
         }
 
-       
+        public override Interventions Update(Interventions tentity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
