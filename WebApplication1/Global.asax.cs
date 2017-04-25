@@ -114,6 +114,17 @@ namespace WebApplication1
                 if (resultSiteEngineer.Succeeded)
                 {
                     userManager.AddToRole(siteEngineer.Id, Roles.SiteEngineer.ToString());
+
+                    var factory = new DbConnectionFactory("CustomDatabase");
+                    var context = new DbContext(factory);
+                    var repos = new UserRepository(context);
+                    var user = new Users();
+                    user.UserId = siteEngineer.Id;
+                    user.MaximumHours = 1000;
+                    user.MaximumCost = 1000;
+                    user.District = (int) Districts.Sydney;
+                    repos.Insert(user);
+                    Console.Write("afsa");
                 }
                 //var user = new IdentityUser() { UserName = "yams.stj", Email = "yams.stj@gmail.com" };
                 //IdentityResult result = await userManager.CreateAsync(user, "123456");

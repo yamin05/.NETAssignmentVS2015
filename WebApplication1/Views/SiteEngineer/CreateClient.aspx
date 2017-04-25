@@ -20,14 +20,18 @@
         <asp:Label ID="Label4" font-Size="Small" runat="server" Text="District: "></asp:Label>
     </p>
     <p>
-        <asp:DropDownList ID="NewClientDistrict1" runat="server">
+        <%--<asp:DropDownList ID="NewClientDistrict" runat="server">
         <asp:ListItem Value=1>Urban Indonesia</asp:ListItem>
         <asp:ListItem Value=2>Rural Indonesia</asp:ListItem>
         <asp:ListItem Value=3>Urban Papua New Guinea</asp:ListItem>
         <asp:ListItem Value=4>Rural Papua New Guinea</asp:ListItem>
         <asp:ListItem Value=5>Sydney</asp:ListItem>
+            
         <asp:ListItem Value=6>Rural New South Wales</asp:ListItem>
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
+        <asp:DropDownList id="NewClientDistrict"
+                    AutoPostBack="True"
+                    runat="server"/>
     </p>
     <p>
     </p>
