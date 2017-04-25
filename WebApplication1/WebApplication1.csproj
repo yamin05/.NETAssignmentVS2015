@@ -394,6 +394,7 @@
     <Compile Include="Repositories\DbConfigs\DbUnitOfWork.cs" />
     <Compile Include="Repositories\DbConfigs\DbConnectionFactory.cs" />
     <Compile Include="Repositories\DbConfigs\DbContext.cs" />
+    <Compile Include="Repositories\InterventionsRepository.cs" />
     <Compile Include="Repositories\DeptRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
