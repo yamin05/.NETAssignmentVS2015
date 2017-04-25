@@ -1,13 +1,16 @@
-﻿namespace WebApplication1.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+
+namespace WebApplication1.Models
 {
     public class InterventionType
     {
-        public int InterventionTypeId { get; set; }
-
+        public int InterventionId { get; set; }
         public string InterventionTypeName { get; set; }
-
-        public string InterventionTypeHour { get; set; }
-
-        public string InterventionTypeCost { get; set; }
+        public float InterventionTypeHours { get; set; }
+        public float InterventionTypeCost { get; set; }
     }
 }
