@@ -381,11 +381,12 @@
     <Compile Include="Extensions\IDbCommandExtensions.cs" />
     <Compile Include="Helpers\ChangePasswordHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
+    <Compile Include="Helpers\SiteHelper.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\Departments.cs" />
-    <Compile Include="Models\EngineersClients.cs" />
+    <Compile Include="Models\EngineerClients.cs" />
     <Compile Include="Models\Interventions.cs" />
     <Compile Include="Models\InterventionType.cs" />
     <Compile Include="Models\InterventionUpdate.cs" />
