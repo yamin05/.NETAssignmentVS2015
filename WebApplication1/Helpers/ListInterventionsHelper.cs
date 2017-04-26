@@ -54,10 +54,10 @@ namespace WebApplication1.Helpers
             return list;
         }
 
-        public IList<ListInterventions> GetInterventionsForClient (string userid, string clientid)
+        public IList<ListInterventions> GetInterventionsForClient (string clientid)
         {
             var repos = new ListInterventionsRepository(context);
-            var list = repos.GetAllInterventionsForClient(userid, Convert.ToInt32(clientid));
+            var list = repos.GetAllInterventionsForClient(HttpContext.Current.User.Identity.GetUserId(), Convert.ToInt32(clientid));
             return list;
         }
 

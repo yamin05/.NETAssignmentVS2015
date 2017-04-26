@@ -26,7 +26,7 @@ namespace WebApplication1.Views.SiteEngineer
         }
         ICollection CreateDataSource()
         {
-            var list = listInterventionsHelper.GetInterventionsForClient(HttpContext.Current.User.Identity.GetUserId(), Request.QueryString["clientid"]);
+            var list = listInterventionsHelper.GetInterventionsForClient(Request.QueryString["clientid"]);
             if (list.Count == 0)
             {
                 Response.Redirect("~/Views/SiteEngineer/NoData.aspx?message=" + "No Interventions Created for this Client");
