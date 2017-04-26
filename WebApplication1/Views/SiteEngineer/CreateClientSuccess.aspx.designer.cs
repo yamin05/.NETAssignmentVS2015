@@ -10,7 +10,7 @@
 namespace WebApplication1.Views.SiteEngineer {
     
     
-    public partial class CreateDone {
+    public partial class CreateClientSuccess {
         
         /// <summary>
         /// Label1 control.

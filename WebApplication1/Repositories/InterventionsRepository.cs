@@ -16,21 +16,20 @@ namespace WebApplication1.Repositories
             
         }
 
-        public override Interventions Insert(Interventions intervention)
+        public override Interventions Insert(Interventions tentity)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"INSERT INTO Departments VALUES(@InterventionId,@UserId,@InterventionTypeId,@ClientId,@InterventionCost
-                                                                       ,@InterventionHour ,@CreateDate,@Operater)";
-                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
-                command.Parameters.Add(command.CreateParameter("UserId", intervention.UserId));
-                command.Parameters.Add(command.CreateParameter("InterventionTypeId", intervention.InterventionTypeId));
-                command.Parameters.Add(command.CreateParameter("ClientId", intervention.ClientId));
-                command.Parameters.Add(command.CreateParameter("InterventionCost", intervention.InterventionCost));
-                command.Parameters.Add(command.CreateParameter("IInterventionHour", intervention.InterventionHour));
-                command.Parameters.Add(command.CreateParameter("CreateDate", intervention.CreateDate));
-                command.Parameters.Add(command.CreateParameter("Operater", intervention.Operater));
-                
+                command.CommandText = @"INSERT INTO Interventions VALUES(@UserId, @InterventionTypeId, @ClientId, @InterventionCost, 
+                                        @InterventionHour, @CreateDate, @Status, @Operater)";
+                command.Parameters.Add(command.CreateParameter("UserId", tentity.UserId));
+                command.Parameters.Add(command.CreateParameter("InterventionTypeId", tentity.InterventionTypeId));
+                command.Parameters.Add(command.CreateParameter("ClientId", tentity.ClientId));
+                command.Parameters.Add(command.CreateParameter("InterventionCost", tentity.InterventionCost));
+                command.Parameters.Add(command.CreateParameter("InterventionHour", tentity.InterventionHour));
+                command.Parameters.Add(command.CreateParameter("CreateDate", tentity.CreateDate));
+                command.Parameters.Add(command.CreateParameter("Status", tentity.Status));
+                command.Parameters.Add(command.CreateParameter("Operater", tentity.Operater));
                 return this.ToList(command).FirstOrDefault();
             }
         }

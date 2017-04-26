@@ -1,16 +1,9 @@
-﻿    using System;
-    using System.Collections.Generic;
-    using System.Data.SqlClient;
-    using System.Linq;
-    using System.Web;
-
-    namespace WebApplication1.Models
+﻿namespace WebApplication1.Models
+{
+    public class Clients
     {
-        public class Clients
-        {
-            public int ClientId { get; set; }
-            public string ClientName { get; set; }
-            public string ClientLocation { get; set; }
-            public int ClientDistrict { get; set; }
-        }
+        public int ClientId { get; set; }
+        public string ClientName { get; set; }
+        public string ClientLocation { get; set; }
+        public int ClientDistrict { get; set; }
     }

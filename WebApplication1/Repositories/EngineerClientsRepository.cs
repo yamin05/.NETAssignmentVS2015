@@ -7,11 +7,9 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Repositories
 {
-    public class EngClientsRepository : Repository<EngineersClients>
+    public class EngineerClientsRepository : Repository<EngineersClients>
     {
-        public EngClientsRepository(DbContext context) : base(context)
-        {
-        }
+        public EngineerClientsRepository(DbContext context) : base(context) { }
 
         public override EngineersClients Delete(EngineersClients tentity)
         {
@@ -23,16 +21,11 @@ namespace WebApplication1.Repositories
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = @"INSERT INTO EngineersClients VALUES(@UserId, @ClientId, @CreateDate)";
-                //command.Parameters.Add(command.CreateParameter("InterventionId", tentity.InterventionId));
                 command.Parameters.Add(command.CreateParameter("UserId", tentity.UserId));
                 command.Parameters.Add(command.CreateParameter("CreateDate", tentity.CreateDate));
                 command.Parameters.Add(command.CreateParameter("ClientId", tentity.ClientId));
-                //command.ExecuteNonQuery();
                 return this.ToList(command).FirstOrDefault();
             }
-
-
-
         }
 
         public override EngineersClients Update(EngineersClients tentity)

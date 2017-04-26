@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
+using WebApplication1.Exceptions;
 using WebApplication1.Models;
 using WebApplication1.Repositories;
 
@@ -32,12 +33,23 @@ namespace WebApplication1.Helpers
 
         public void CreateClient (string clientName, string clientLocation, int clientDistrict)
         {
-            var repos = new ClientRepository(context);
+            var clientRepo = new ClientRepository(context);
             Clients client = new Clients();
             client.ClientName = clientName;
             client.ClientLocation = clientLocation;
             client.ClientDistrict = clientDistrict;
-            repos.Insert(client);
+
+            var clientId = clientRepo.InsertWithGetId(client);
+            if (Utils.getInstance.isNullOrEmpty(clientId) || clientId == 0)
+            {
+                throw new FailedToCreateRecordException();
+            }
+            var engineerClientRepo = new EngineerClientsRepository(context);
+            EngineersClients engClient = new EngineersClients();
+            engClient.UserId = HttpContext.Current.User.Identity.GetUserId();
+            engClient.ClientId = clientId;
+            engClient.CreateDate = DateTime.Now;
+            engineerClientRepo.Insert(engClient);
         }
     }
 }

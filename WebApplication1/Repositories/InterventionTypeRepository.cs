@@ -1,21 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
 
 namespace WebApplication1.Repositories
 {
-    public class InterTypeRepository : Repository<InterventionType>
+    public class InterventionTypeRepository : Repository<InterventionType>
     {
-        public InterTypeRepository(DbContext context) : base(context)
-        {
-        }
+        public InterventionTypeRepository(DbContext context) : base(context) { }
 
         public override InterventionType Delete(InterventionType tentity)
         {
             throw new NotImplementedException();
+        }
+
+        public InterventionType GetInterventionTypeWithId(int id)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"SELECT * FROM InterventionType WHERE InterventionTypeId = @id";
+                command.Parameters.Add(command.CreateParameter("id", id));
+                return this.ToList(command).FirstOrDefault();
+            }
         }
 
         public override InterventionType Insert(InterventionType tentity)
@@ -23,11 +29,9 @@ namespace WebApplication1.Repositories
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = @"INSERT INTO InterventionType VALUES(@InterventionTypeName, @InterventionTypeHour, @InterventionTypeNameCost)";
-                //command.Parameters.Add(command.CreateParameter("InterventionId", tentity.InterventionId));
                 command.Parameters.Add(command.CreateParameter("InterventionTypeName", tentity.InterventionTypeName));
-                command.Parameters.Add(command.CreateParameter("InterventionTypeHour", tentity.InterventionTypeHour));
+                command.Parameters.Add(command.CreateParameter("InterventionTypeHour", tentity.InterventionTypeHours));
                 command.Parameters.Add(command.CreateParameter("InterventionTypeNameCost", tentity.InterventionTypeCost));
-                //command.ExecuteNonQuery();
                 return this.ToList(command).FirstOrDefault();
             }
         }

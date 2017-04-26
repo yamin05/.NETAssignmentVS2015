@@ -10,7 +10,7 @@
 namespace WebApplication1.Views.SiteEngineer {
     
     
-    public partial class CreateInterventionDone {
+    public partial class CreateInterventionSuccess {
         
         /// <summary>
         /// Label1 control.

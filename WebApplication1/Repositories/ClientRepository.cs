@@ -9,28 +9,7 @@ namespace WebApplication1.Repositories
 {
     public class ClientRepository : Repository<Clients>
     {
-        //private DbContext _context;
-
-        public ClientRepository(DbContext context) : base(context)
-        {
-            //_context = context;
-        }
-
-        public IList<Users> GetAllForUser(string userId)
-        {
-            using (var command = _context.CreateCommand())
-            {
-                command.CommandText = @"SELECT * FROM Users WHERE UserId = @userid";
-                command.Parameters.Add(command.CreateParameter("userid", userId));
-                //command.ExecuteReader();
-                return ToList(command).ToList();
-            }
-        }
-
-        public override Users Delete(Users tentity)
-        {
-            throw new NotImplementedException();
-        }
+        public ClientRepository(DbContext context) : base(context) { }
         
         public override Clients Insert(Clients tentity)
         {
@@ -41,6 +20,30 @@ namespace WebApplication1.Repositories
                 command.Parameters.Add(command.CreateParameter("ClientLocation", tentity.ClientLocation));
                 command.Parameters.Add(command.CreateParameter("ClientDistrict", tentity.ClientDistrict));
                 return this.ToList(command).FirstOrDefault();
+            }
+        }
+
+        public int InsertWithGetId(Clients tentity)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"INSERT INTO Clients VALUES(@ClientName, @ClientLocation, @ClientDistrict); Select Scope_Identity()";
+                command.Parameters.Add(command.CreateParameter("ClientName", tentity.ClientName));
+                command.Parameters.Add(command.CreateParameter("ClientLocation", tentity.ClientLocation));
+                command.Parameters.Add(command.CreateParameter("ClientDistrict", tentity.ClientDistrict));
+                var column = Convert.ToInt32(command.ExecuteScalar());
+                return column;
+            }
+        }
+
+        public IList<Clients> GetAllClientsForUser(string userId)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"SELECT * FROM EngineersClients inner join Clients on EngineersClients.ClientId = 
+                                            Clients.ClientId WHERE EngineersClients.UserId = @userid";
+                command.Parameters.Add(command.CreateParameter("userid", userId));
+                return this.ToList(command).ToList();
             }
         }
 
