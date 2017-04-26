@@ -57,7 +57,6 @@ namespace WebApplication1.Helpers
             string Dis = ManagerInfo.ElementAt(0);
             string maxihcost = ManagerInfo.ElementAt(1);
             string maxihour = ManagerInfo.ElementAt(2);
-
             Users manager = new Users();
             manager.District = Convert.ToInt32(Dis);
             manager.MaximumCost = Convert.ToInt32(maxihcost);
