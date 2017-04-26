@@ -37,7 +37,7 @@ namespace WebApplication1.Repositories
             }
         }
 
-        protected TEntity Map<TEntity>(IDataRecord record)
+        protected TEntity Map<tEntity>(IDataRecord record)
         {
             var objT = Activator.CreateInstance<TEntity>();
             foreach (var property in typeof(TEntity).GetProperties())

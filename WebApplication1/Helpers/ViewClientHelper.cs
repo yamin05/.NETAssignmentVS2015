@@ -23,5 +23,12 @@ namespace WebApplication1.Helpers
             var list = repos.GetAllClientsForUser(HttpContext.Current.User.Identity.GetUserId());
             return list;
         }
+
+        public IList<Clients> GetAllClientsInSameDistrict()
+        {
+            var repos = new ClientRepository(context);
+            var list = repos.GetAllClientsForUser(HttpContext.Current.User.Identity.GetUserId());
+            return list;
+        }
     }
 }

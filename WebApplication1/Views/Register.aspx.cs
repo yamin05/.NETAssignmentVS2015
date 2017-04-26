@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using WebApplication1.Models;
+using WebApplication1.Repositories;
 
 namespace WebApplication1.Account
 {
@@ -19,11 +20,16 @@ namespace WebApplication1.Account
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.DeptId);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.DeptId, Request);
-                //manager.SendEmail(user.DeptId, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
+                manager.AddToRole(user.Id, Roles.SiteEngineer.ToString());
+                var factory = new DbConnectionFactory("CustomDatabase");
+                var context = new DbContext(factory);
+                var repos = new UserRepository(context);
+                var user2 = new Users();
+                user2.UserId = user.Id;
+                user2.MaximumHours = 1000;
+                user2.MaximumCost = 1000;
+                user2.District = (int)Districts.Sydney;
+                repos.Insert(user2);
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }

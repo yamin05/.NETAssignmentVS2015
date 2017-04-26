@@ -46,10 +46,17 @@ namespace WebApplication1.Helpers
             return list;
         }
 
-        public IList<ListInterventions> GetInterventionsForUser(string userid)
+        public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
-            var list = repos.GetAllInterventionsForUser(userid);
+            var list = repos.GetAllInterventionsForUser(HttpContext.Current.User.Identity.GetUserId());
+            return list;
+        }
+
+        public IList<ListInterventions> GetInterventionsForClient (string userid, string clientid)
+        {
+            var repos = new ListInterventionsRepository(context);
+            var list = repos.GetAllInterventionsForClient(userid, Convert.ToInt32(clientid));
             return list;
         }
 

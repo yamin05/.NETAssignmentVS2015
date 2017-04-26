@@ -44,20 +44,13 @@ namespace WebApplication1.Helpers
             intervention.ClientId = clientId;
             intervention.CreateDate = DateTime.Now;
             intervention.Status = (int) Status.Proposed;
-            if (Utils.getInstance.isNullOrEmpty(interventionHour) || Utils.getInstance.isNullOrEmpty(interventionCost))
-            {
-                var intTypeRepo = new InterventionTypeRepository(context);
-                var intType = intTypeRepo.GetInterventionTypeWithId(interventionTypeId);
-                intervention.InterventionHour = (Utils.getInstance.isNullOrEmpty(interventionHour)) ?
-                    intType.InterventionTypeHours : decimal.Parse(interventionHour);
-                intervention.InterventionCost = (Utils.getInstance.isNullOrEmpty(interventionCost)) ?
-                    intType.InterventionTypeCost : decimal.Parse(interventionCost);
-            }
+            intervention.InterventionHour = Convert.ToDecimal(interventionHour);
+            intervention.InterventionCost = Convert.ToDecimal(interventionCost);
             try
             {
                 repos.Insert(intervention);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new FailedToCreateRecordException();
             }

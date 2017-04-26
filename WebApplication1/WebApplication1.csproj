@@ -195,6 +195,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Sql_Scripts\Create_Database.sql" />
     <Content Include="Sql_Scripts\database scripte.sql" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -224,10 +225,11 @@
     <Content Include="Views\SiteEngineer\CreateClientSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
     <Content Include="Views\SiteEngineer\CreateInterventionSuccess.aspx" />
+    <Content Include="Views\SiteEngineer\NoData.aspx" />
     <Content Include="Views\SiteEngineer\SiteEngineerHome.aspx" />
-    <Content Include="Views\SiteEngineer\ViewClient.aspx" />
-    <Content Include="Views\SiteEngineer\ViewClientbyDistrict.aspx" />
-    <Content Include="Views\SiteEngineer\ViewInterventionbyClient.aspx" />
+    <Content Include="Views\SiteEngineer\ViewAllClients.aspx" />
+    <Content Include="Views\SiteEngineer\ViewAllClientsInSameDistrict.aspx" />
+    <Content Include="Views\SiteEngineer\ViewInterventionsForClient.aspx" />
     <Content Include="Views\SiteEngineer\ViewInterventions.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -364,7 +366,8 @@
     <Compile Include="Exceptions\ValueIsNullException.cs" />
     <Compile Include="Exceptions\WrongInputPasswordException.cs" />
     <Compile Include="Exceptions\WrongInputEmailException.cs" />
-    <Compile Include="Exceptions\WrongUserInpuException.cs" />
+    <Compile Include="Exceptions\ValueNotSelectedException.cs" />
+    <Compile Include="Exceptions\WrongUserInputException.cs" />
     <Compile Include="Extensions\IDataRecordExtensions.cs" />
     <Compile Include="Extensions\IDbCommandExtensions.cs" />
     <Compile Include="Extensions\ListToDatasetExtension.cs" />
@@ -543,6 +546,13 @@
     <Compile Include="Views\SiteEngineer\CreateInterventionSuccess.aspx.designer.cs">
       <DependentUpon>CreateInterventionSuccess.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\SiteEngineer\NoData.aspx.cs">
+      <DependentUpon>NoData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\NoData.aspx.designer.cs">
+      <DependentUpon>NoData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\SiteEngineer\SiteEngineerHome.aspx.cs">
       <DependentUpon>SiteEngineerHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,26 +560,26 @@
     <Compile Include="Views\SiteEngineer\SiteEngineerHome.aspx.designer.cs">
       <DependentUpon>SiteEngineerHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SiteEngineer\ViewClient.aspx.cs">
-      <DependentUpon>ViewClient.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\ViewAllClients.aspx.cs">
+      <DependentUpon>ViewAllClients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SiteEngineer\ViewClient.aspx.designer.cs">
-      <DependentUpon>ViewClient.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\ViewAllClients.aspx.designer.cs">
+      <DependentUpon>ViewAllClients.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SiteEngineer\ViewClientbyDistrict.aspx.cs">
-      <DependentUpon>ViewClientbyDistrict.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\ViewAllClientsInSameDistrict.aspx.cs">
+      <DependentUpon>ViewAllClientsInSameDistrict.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SiteEngineer\ViewClientbyDistrict.aspx.designer.cs">
-      <DependentUpon>ViewClientbyDistrict.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\ViewAllClientsInSameDistrict.aspx.designer.cs">
+      <DependentUpon>ViewAllClientsInSameDistrict.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SiteEngineer\ViewInterventionbyClient.aspx.cs">
-      <DependentUpon>ViewInterventionbyClient.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\ViewInterventionsForClient.aspx.cs">
+      <DependentUpon>ViewInterventionsForClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SiteEngineer\ViewInterventionbyClient.aspx.designer.cs">
-      <DependentUpon>ViewInterventionbyClient.aspx</DependentUpon>
+    <Compile Include="Views\SiteEngineer\ViewInterventionsForClient.aspx.designer.cs">
+      <DependentUpon>ViewInterventionsForClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\ViewInterventions.aspx.cs">
       <DependentUpon>ViewInterventions.aspx</DependentUpon>

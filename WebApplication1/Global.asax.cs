@@ -88,11 +88,11 @@ namespace WebApplication1
             var findManager = userManager.FindByEmail("manager@manager.com");
             var findAccountant = userManager.FindByEmail("accountant@accountant.com");
             var findSiteEngineer = userManager.FindByEmail("siteengineer@siteengineer.com");
-            //var finduser = userManager.FindByEmail("yams.stj@gmail.com");
+            var findSiteEngineer2 = userManager.FindByEmail("siteengineer2@siteengineer.com");
 
             if (Utils.getInstance.isNullOrEmpty(findAdmin) && Utils.getInstance.isNullOrEmpty(findManager)
-                && Utils.getInstance.isNullOrEmpty(findAccountant) && Utils.getInstance.isNullOrEmpty(findSiteEngineer))
-                //&& Utils.getInstance.isNullOrEmpty(finduser))
+                && Utils.getInstance.isNullOrEmpty(findAccountant) && Utils.getInstance.isNullOrEmpty(findSiteEngineer)
+                && Utils.getInstance.isNullOrEmpty(findSiteEngineer2))
             {
                 var admin = new IdentityUser() { UserName = "Admin", Email = "admin@admin.com"};
                 IdentityResult resultAdmin = await userManager.CreateAsync(admin, "123456");
@@ -127,14 +127,23 @@ namespace WebApplication1
                     user.MaximumCost = 1000;
                     user.District = (int) Districts.Sydney;
                     repos.Insert(user);
-                    Console.Write("afsa");
                 }
-                //var user = new IdentityUser() { UserName = "yams.stj", Email = "yams.stj@gmail.com" };
-                //IdentityResult result = await userManager.CreateAsync(user, "123456");
-                //if (result.Succeeded)
-                //{
-                //    userManager.AddToRole(user.DeptId, Roles.Admin.ToString());
-                //}
+                var siteEngineer2 = new IdentityUser() { UserName = "SiteEngineer2", Email = "siteengineer2@siteengineer.com" };
+                IdentityResult resultSiteEngineer2 = await userManager.CreateAsync(siteEngineer2, "123456");
+                if (resultSiteEngineer2.Succeeded)
+                {
+                    userManager.AddToRole(siteEngineer2.Id, Roles.SiteEngineer.ToString());
+
+                    var factory = new DbConnectionFactory("CustomDatabase");
+                    var context = new DbContext(factory);
+                    var repos2 = new UserRepository(context);
+                    var user2 = new Users();
+                    user2.UserId = siteEngineer2.Id;
+                    user2.MaximumHours = 1000;
+                    user2.MaximumCost = 1000;
+                    user2.District = (int)Districts.Rural_New_South_Wales;
+                    repos2.Insert(user2);
+                }
             }
         }
     }

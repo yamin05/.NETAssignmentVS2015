@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Exceptions
 {
-    public class WrongCurrentPassword : Exception
+    public class WrongUserInputException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public WrongCurrentPassword()
+        public WrongUserInputException()
         {
-            errorCode = 109;
-            errorMessage = "The Curent Password doesn't match the database";
+            errorCode = 108;
+            errorMessage = "The user input doesn't match with the database";
         }
 
         public override string Message

@@ -3,14 +3,15 @@ using System.Collections;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApplication1.Exceptions;
 using WebApplication1.Helpers;
 
 namespace WebApplication1.Views.SiteEngineer
 {
-    public partial class ViewClient : Page
+    public partial class ViewAllClients : Page
     {
-        private ViewClientHelper viewClientHelper = new ViewClientHelper("CustomDatabase"); 
-       
+        private ViewClientHelper viewClientHelper = new ViewClientHelper("CustomDatabase");
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,6 +24,10 @@ namespace WebApplication1.Views.SiteEngineer
         ICollection CreateDataSource()
         {
             var list = viewClientHelper.GetAllClients();
+            if (list.Count == 0)
+            {
+                Response.Redirect("~/Views/SiteEngineer/NoData.aspx?message=" + "No Clients Have Been Created By You");
+            }
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("ClientId", typeof(int)));
             datatable.Columns.Add(new DataColumn("ClientName", typeof(string)));
@@ -49,6 +54,25 @@ namespace WebApplication1.Views.SiteEngineer
         protected void AddClient_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/SiteEngineer/CreateClient.aspx");
+        }
+
+        protected void ViewAssociatedInterventions_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GridView.SelectedIndex == -1)
+                {
+                    throw new ValueNotSelectedException();
+                } else
+                {
+                    Response.Redirect("~/Views/SiteEngineer/ViewInterventionsForClient.aspx?clientId=" + Convert.ToInt32(GridView.SelectedRow.Cells[1].Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                FailureText.Text = ex.Message;
+                ErrorMessage.Visible = true;
+            }
         }
     }
 }

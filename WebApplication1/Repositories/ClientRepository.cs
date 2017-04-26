@@ -47,6 +47,17 @@ namespace WebApplication1.Repositories
             }
         }
 
+        public IList<Clients> GetAllClientsInSameDistrict(string userId)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"SELECT * FROM Clients inner join Users on Clients.ClientDistrict = 
+                                            Users.District WHERE Users.UserId = @userid";
+                command.Parameters.Add(command.CreateParameter("userid", userId));
+                return this.ToList(command).ToList();
+            }
+        }
+
         public override Clients Update(Clients tentity)
         {
             throw new NotImplementedException();

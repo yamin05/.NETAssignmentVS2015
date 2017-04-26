@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Exceptions
 {
-    public class WrongUserInputException : Exception
+    public class ValueNotSelectedException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public WrongUserInputException()
+        public ValueNotSelectedException()
         {
-            errorCode = 10;
-            errorMessage = "The user input doesn't match with the database";
+            errorCode = 111;
+            errorMessage = "Please select a value first";
         }
 
         public override string Message

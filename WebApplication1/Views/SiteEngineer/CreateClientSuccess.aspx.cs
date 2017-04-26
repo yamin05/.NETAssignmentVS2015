@@ -12,7 +12,12 @@ namespace WebApplication1.Views.SiteEngineer
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Views/SiteEngineer/ViewClient.aspx");
+            Response.Redirect("~/Views/SiteEngineer/ViewAllClients.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/SiteEngineer/ViewAllClientsInSameDistrict.aspx");
         }
     }
 }

@@ -10,7 +10,7 @@
 namespace WebApplication1.Views.SiteEngineer {
     
     
-    public partial class ViewInterventionbyClient {
+    public partial class ViewInterventionsForClient {
         
         /// <summary>
         /// Label1 control.
@@ -22,12 +22,21 @@ namespace WebApplication1.Views.SiteEngineer {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ClientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.Label ClientName;
+        
+        /// <summary>
+        /// GridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView;
     }
 }
