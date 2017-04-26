@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -61,24 +62,20 @@ namespace WebApplication1.Helpers
             manager.District = Convert.ToInt32(Dis);
             manager.MaximumCost = Convert.ToInt32(maxihcost);
             manager.MaximumHours = Convert.ToDecimal(maxihour);
-
+            var ManageruserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             List<Interventions> proposedinterlist = new List<Interventions>();
 
-            for (int i = 0; i <= interlist.Count; i++)
+            for (int i = 0; i <= interlist.Count-1; i++)
             {
-                if (manager.MaximumHours >= interlist[i].InterventionHour && manager.MaximumCost >= interlist[i].InterventionCost
-                    && manager.UserId == interlist[i].UserId)
                 {
-                   
-
-                    proposedinterlist.Add(interlist[i]);
-
-
+                    if (manager.MaximumHours >= interlist[i].InterventionHour && manager.MaximumCost >= interlist[i].InterventionCost
+                        && ManageruserId == interlist[i].UserId)
+                    {
+                        proposedinterlist.Add(interlist[i]);
+                    }
                 }
             }
-
-            return proposedinterlist;
-
+                        return proposedinterlist;
          }
 
       }

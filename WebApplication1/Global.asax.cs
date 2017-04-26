@@ -29,7 +29,7 @@ namespace WebApplication1
 
         private void CreateInterventionType()
         {
-            var factory = new DbConnectionFactory("CustomDatabase");
+            var factory = new DbConnectionFactory("DefaultConnection");
             var context = new DbContext(factory);
             var repos = new InterventionTypeRepository(context);
             var interventionType = new InterventionType();

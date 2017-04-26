@@ -371,8 +371,10 @@
     <Compile Include="Exceptions\WrongUserInpuException.cs" />
     <Compile Include="Extensions\IDataRecordExtensions.cs" />
     <Compile Include="Extensions\IDbCommandExtensions.cs" />
+    <Compile Include="Extensions\ListToDatasetExtension.cs" />
     <Compile Include="Helpers\ChangePasswordHelper.cs" />
     <Compile Include="Helpers\CreateInterventionHelper.cs" />
+    <Compile Include="Helpers\ListInterventionsHelper.cs" />
     <Compile Include="Helpers\ViewClientHelper.cs" />
     <Compile Include="Helpers\CreateClientHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
@@ -393,8 +395,8 @@
     <Compile Include="Repositories\DeptRepository.cs" />
     <Compile Include="Repositories\EngineerClientsRepository.cs" />
     <Compile Include="Repositories\InterRepository.cs" />
-    <Compile Include="Repositories\InterventionTypeRepository.cs" />
     <Compile Include="Repositories\InterUpdateRepository.cs" />
+    <Compile Include="Repositories\InterventionTypeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />

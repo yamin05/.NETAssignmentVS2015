@@ -7,3 +7,4 @@
         public string ClientLocation { get; set; }
         public int ClientDistrict { get; set; }
     }
+}

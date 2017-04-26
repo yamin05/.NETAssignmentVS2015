@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <div>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  EmptyDataText="There are no interventions to Approve Or Cancel" Height="131px" Width="228px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  EmptyDataText="There are no interventions to Approve Or Cancel" Height="131px" Width="228px" >
             <Columns>
                
             </Columns>
