@@ -79,11 +79,11 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public IEnumerable<Interventions> Find_Proposed_Interventions(Interventions intervention)
+        public IEnumerable<Interventions> GetAllInterventions()
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"SELECT * FROM Interventions WHERE Status = 1";
+                command.CommandText = @"SELECT * FROM Interventions where Status= 1";
                 return ToList(command);
             }
         }
