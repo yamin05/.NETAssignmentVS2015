@@ -13,8 +13,23 @@ namespace WebApplication1.Views.SiteEngineer
     public partial class CreateIntervention : Page
     {
         private CreateInterventionHelper createInterventionHelper = new CreateInterventionHelper("CustomDatabase");
+        private IList<InterventionType> intType
+        {
+            get
+            {
+                if (this.ViewState["intType"] == null)
+                {
+                    this.ViewState["intType"] = new List<int>();
+                }
+                return (IList<InterventionType>)(this.ViewState["intType"]);
+            }
+            set
+            {
+                this.ViewState["intType"] = value;
+            }
+        }
 
-        protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
@@ -29,12 +44,15 @@ namespace WebApplication1.Views.SiteEngineer
                 ClientName.DataValueField = "ClientId";
                 ClientName.DataBind();
                 ClientName.SelectedIndex = 0;
+
+                ChangeHoursCostText();
             }
         }
 
         ICollection CreateInterventionTypeDataSource()
         {
             var list = createInterventionHelper.GetInterventionTypes();
+            intType = list;
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("InterventionType", typeof(string)));
             datatable.Columns.Add(new DataColumn("InterventionTypeId", typeof(int)));
@@ -81,6 +99,17 @@ namespace WebApplication1.Views.SiteEngineer
                 FailureText.Text = ex.Message;
                 ErrorMessage.Visible = true;
             }
+        }
+
+        protected void InterventionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeHoursCostText();
+        }
+
+        private void ChangeHoursCostText()
+        {
+            NewInterventionHours.Text = intType.FirstOrDefault(s => s.InterventionTypeId == Convert.ToInt32(InterventionType.SelectedValue)).InterventionTypeHours.ToString();
+            NewInterventionCost.Text = intType.FirstOrDefault(s => s.InterventionTypeId == Convert.ToInt32(InterventionType.SelectedValue)).InterventionTypeCost.ToString();
         }
     }
 }

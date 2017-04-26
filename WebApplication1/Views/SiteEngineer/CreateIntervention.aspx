@@ -14,6 +14,7 @@
         <asp:Label ID="Label6" font-Size="Small" runat="server" Text="Intervention Name: "></asp:Label>
         <asp:DropDownList id="InterventionType"
                     AutoPostBack="True"
+            OnSelectedIndexChanged="InterventionType_SelectedIndexChanged"
                     runat="server"/>
     </p>
     <p>

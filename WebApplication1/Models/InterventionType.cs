@@ -1,5 +1,8 @@
-﻿namespace WebApplication1.Models
+﻿using System;
+
+namespace WebApplication1.Models
 {
+    [Serializable]
     public class InterventionType
     {
         public int InterventionTypeId { get; set; }
