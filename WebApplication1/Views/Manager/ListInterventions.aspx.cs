@@ -13,7 +13,7 @@ namespace WebApplication1.Views.Manager
 {
     public partial class ListInterventions : System.Web.UI.Page
     {
-        private ListInterventionsHelper listInterventions = new ListInterventionsHelper("DefaultConnection");
+        private ListInterventionsHelper listInterventions = new ListInterventionsHelper("CustomDatabase");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

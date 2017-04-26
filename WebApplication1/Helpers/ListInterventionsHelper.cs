@@ -33,7 +33,7 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
-        public IList<Interventions> GetInterventions(string userid)
+        public IEnumerable<Interventions> GetInterventions(string userid)
         {
             var repos = new InterventionsRepository(context);
             var rows = repos.GetAllInterventions();
@@ -43,6 +43,13 @@ namespace WebApplication1.Helpers
                 list.Add(row);
 
             }
+            return list;
+        }
+
+        public IList<ListInterventions> GetInterventionsForUser(string userid)
+        {
+            var repos = new ListInterventionsRepository(context);
+            var list = repos.GetAllInterventionsForUser(userid);
             return list;
         }
 

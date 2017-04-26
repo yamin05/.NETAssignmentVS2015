@@ -24,15 +24,15 @@ namespace WebApplication1.Views.Manager
             //string conString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebApplication1-20170404072835.mdf;Initial Catalog=aspnet-WebApplication1-20170404072835;Integrated Security=True";
             //SqlConnection myConnection = new SqlConnection(conString);
             //myConnection.Open();
-            //SqlCommand cmd = new SqlCommand("Select InterventionTypeId, InterventionCost, InterventionHour,Status from Interventions;");
+            //SqlCommand cmd = new SqlCommand("Select InterventionTypeId, InterventionCost, InterventionHours,Status from Interventions;");
             //var result = cmd.ExecuteReader();
-            //SqlCommand cmd1 = new SqlCommand("Select InterventionTypeId, InterventionCost, InterventionHour,Status from Interventions;");
+            //SqlCommand cmd1 = new SqlCommand("Select InterventionTypeId, InterventionCost, InterventionHours,Status from Interventions;");
             //var result1 = cmd1.ExecuteReader();
             //while (result.Read())
             //{
                 
             //}
-            Response.Redirect("~/Views/Manager/ListInterventions.aspx");
+            Response.Redirect("~/Views/Manager/ListInterventionsModel.aspx");
         }
     }
     
