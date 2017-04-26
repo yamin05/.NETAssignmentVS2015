@@ -33,11 +33,12 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
-        public IEnumerable<Interventions> GetInterventions(string userid)
+       
+        public IList<ListInterventionForManager> GetInterventions(string userid)
         {
-            var repos = new InterventionsRepository(context);
-            var rows = repos.GetAllInterventions();
-            List<Interventions> list = new List<Interventions>();
+            var repos = new ListInterventionForManagerRepository(context);
+            var rows = repos.GetAllIntervention(userid);
+            List<ListInterventionForManager> list = new List<ListInterventionForManager>();
             foreach (var row in rows)
             {
                 list.Add(row);
@@ -60,9 +61,9 @@ namespace WebApplication1.Helpers
             return list;
         }
 
-        public IList<Interventions> ListOfProposedInterventions(string userid)
+        public IList<ListInterventionForManager> ListOfProposedInterventions(string userid)
         {
-            List<Interventions> interlist = new List<Interventions>();
+            List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
             interlist = GetInterventions(userid).ToList();
 
             List<string> ManagerInfo = new List<string>();
@@ -77,13 +78,14 @@ namespace WebApplication1.Helpers
             manager.MaximumCost = Convert.ToInt32(maxihcost);
             manager.MaximumHours = Convert.ToDecimal(maxihour);
             var ManageruserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            List<Interventions> proposedinterlist = new List<Interventions>();
+            List<ListInterventionForManager> proposedinterlist = new List<ListInterventionForManager>();
 
             for (int i = 0; i <= interlist.Count-1; i++)
             {
                 {
-                    if (manager.MaximumHours >= interlist[i].InterventionHour && manager.MaximumCost >= interlist[i].InterventionCost
-                        && ManageruserId == interlist[i].UserId)
+                    if (manager.MaximumHours >= interlist[i].InterventionHours && manager.MaximumCost >= interlist[i].InterventionCost
+                        
+                        )
                     {
                         proposedinterlist.Add(interlist[i]);
                     }

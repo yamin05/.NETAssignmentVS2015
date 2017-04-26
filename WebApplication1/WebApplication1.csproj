@@ -175,6 +175,8 @@
     <Content Include="App_Data\CustomDatabase_log.ldf">
       <DependentUpon>CustomDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap1.css" />
     <Content Include="Scripts\bootstrap.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -198,7 +200,6 @@
     <Content Include="Sql_Scripts\Create_Database.sql" />
     <Content Include="Sql_Scripts\database scripte.sql" />
     <Content Include="Contact.aspx" />
-    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Sql_Scripts\Updated_Database_Schema.sql" />
@@ -386,11 +387,13 @@
     <Compile Include="Models\Interventions.cs" />
     <Compile Include="Models\InterventionType.cs" />
     <Compile Include="Models\InterventionUpdate.cs" />
+    <Compile Include="Models\ListInterventionForManager.cs" />
     <Compile Include="Models\ListInterventions.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Repositories\DbConfigs\DbUnitOfWork.cs" />
     <Compile Include="Repositories\DbConfigs\DbConnectionFactory.cs" />
     <Compile Include="Repositories\DbConfigs\DbContext.cs" />
+    <Compile Include="Repositories\ListInterventionForManagerRepository.cs" />
     <Compile Include="Repositories\ListInterventionsRepository.cs" />
     <Compile Include="Repositories\InterventionsRepository.cs" />
     <Compile Include="Repositories\DeptRepository.cs" />
