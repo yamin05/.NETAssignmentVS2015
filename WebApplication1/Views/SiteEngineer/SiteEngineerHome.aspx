@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="SiteEngineerHome.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.SiteEngineerHome" %>
+﻿<%@ Page Title="Site Engineer Home Page" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="SiteEngineerHome.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.SiteEngineerHome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
         <br />
@@ -15,7 +15,7 @@
         <asp:Button ID="Button4" runat="server" Text="View Clients by District" Width="400px" OnClick="ViewClientDistrict_Click" />
          </p>
 
-    <hr />
+    <hr/>
 
     <p>
         <asp:Button ID="Button3" runat="server" Text="Create New Intervention" Width="400px" OnClick="CreateIntervention_Click" />

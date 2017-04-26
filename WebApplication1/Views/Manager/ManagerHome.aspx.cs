@@ -32,7 +32,7 @@ namespace WebApplication1.Views.Manager
             //{
                 
             //}
-            Response.Redirect("~/Views/Manager/ListInterventionsModel.aspx");
+            Response.Redirect("~/Views/Manager/ListInterventions.aspx");
         }
     }
     

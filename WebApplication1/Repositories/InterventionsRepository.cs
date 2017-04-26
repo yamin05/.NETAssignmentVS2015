@@ -82,7 +82,7 @@ namespace WebApplication1.Repositories
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"SELECT * FROM Interventions where Status= 1";
+                command.CommandText = @"SELECT * FROM Interventions where Status= 0";
                 return ToList(command);
             }
         }
