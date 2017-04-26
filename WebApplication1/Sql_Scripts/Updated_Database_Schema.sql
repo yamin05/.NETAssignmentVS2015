@@ -101,25 +101,11 @@ go
 /* Table: Clients                                               */
 /*==============================================================*/
 create table Clients (
-   ClientId             integer              identity,
+   ClientId             int             identity,
    ClientName           nvarchar(512)         null,
    ClientLocation       nvarchar(512)         null,
    ClientDistrict       int                  null,
    constraint PK_CLIENTS primary key (ClientId)
-)
-go
-
-/*==============================================================*/
-/* Table: DataDictionary                                        */
-/*==============================================================*/
-create table DataDictionary (
-   DictionaryId         nvarchar(16)          not null,
-   DictionaryType       nvarchar(32)          null,
-   TypeName             nvarchar(32)          null,
-   DataName             nvarchar(128)         null,
-   DataCode             nvarchar(32)          null,
-   IsUsed               int                  null,
-   constraint PK_DATADICTIONARY primary key nonclustered (DictionaryId)
 )
 go
 
@@ -141,7 +127,7 @@ go
 create table InterventionType (
    InterventionTypeId   int              identity,
    InterventionTypeName nvarchar(512)         null,
-   InterventionTypeHour decimal              null,
+   InterventionTypeHours decimal              null,
    InterventionTypeCost decimal              null,
    constraint PK_INTERVENTIONTYPE primary key (InterventionTypeId)
 )
@@ -170,10 +156,10 @@ create table Interventions (
    InterventionTypeId   int              null,
    ClientId             int             null,
    InterventionCost     decimal              null,
-   InterventionHour     decimal              null,
+   InterventionHours     decimal              null,
    CreateDate           datetime             null,
    Status               int                  null,
-   Operater             int                  null,
+   Operator             int                  null,
    constraint PK_INTERVENTIONS primary key (InterventionId)
 )
 go

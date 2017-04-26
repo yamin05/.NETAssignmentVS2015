@@ -28,9 +28,9 @@ namespace WebApplication1.Repositories
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"INSERT INTO InterventionType VALUES(@InterventionTypeName, @InterventionTypeHour, @InterventionTypeNameCost)";
+                command.CommandText = @"INSERT INTO InterventionType VALUES(@InterventionTypeName, @InterventionTypeHours, @InterventionTypeNameCost)";
                 command.Parameters.Add(command.CreateParameter("InterventionTypeName", tentity.InterventionTypeName));
-                command.Parameters.Add(command.CreateParameter("InterventionTypeHour", tentity.InterventionTypeHours));
+                command.Parameters.Add(command.CreateParameter("InterventionTypeHours", tentity.InterventionTypeHours));
                 command.Parameters.Add(command.CreateParameter("InterventionTypeNameCost", tentity.InterventionTypeCost));
                 return this.ToList(command).FirstOrDefault();
             }
