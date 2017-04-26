@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="ViewAllClients.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.ViewAllClients" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <p>
+    
         <br />
         <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
@@ -10,7 +10,6 @@
                     </asp:PlaceHolder>
         <br />
         <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Current Client List: "></asp:Label>
-    </p>
     <p>
         </p>
     <p>

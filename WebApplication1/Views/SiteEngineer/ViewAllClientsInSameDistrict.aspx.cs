@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Data;
 using System.Web.UI;
+using WebApplication1.Exceptions;
 using WebApplication1.Helpers;
 
 namespace WebApplication1.Views.SiteEngineer
@@ -47,6 +48,31 @@ namespace WebApplication1.Views.SiteEngineer
             datarow[2] = clientLocation;
             datarow[3] = clientDistrict;
             return datarow;
+        }
+
+        protected void AddClient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/SiteEngineer/CreateClient.aspx");
+        }
+
+        protected void ViewAssociatedInterventions_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GridView.SelectedIndex == -1)
+                {
+                    throw new ValueNotSelectedException();
+                }
+                else
+                {
+                    Response.Redirect("~/Views/SiteEngineer/ViewInterventionsForClientInSameDistrict.aspx?clientId=" + Convert.ToInt32(GridView.SelectedRow.Cells[1].Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                FailureText.Text = ex.Message;
+                ErrorMessage.Visible = true;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -58,6 +59,29 @@ namespace WebApplication1.Helpers
         {
             var repos = new ListInterventionsRepository(context);
             var list = repos.GetAllInterventionsForClient(HttpContext.Current.User.Identity.GetUserId(), Convert.ToInt32(clientid));
+            return list;
+        }
+
+        public IList<ListInterventions> GetInterventionsForClientInSameDistrict(string clientid)
+        {
+            var repos = new ListInterventionsRepository(context);
+            var list = repos.GetAllInterventionsForClientInSameDistrict(Convert.ToInt32(clientid));
+            return list;
+        }
+
+        public Dictionary<string, int> GetPossibleStatusUpdateForIntervention(string status)
+        {
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            if (Status.Proposed.ToString().Equals(status))
+            {
+                list.Add(Status.Approved.ToString(), (int)Status.Approved);
+                list.Add(Status.Cancelled.ToString(), (int)Status.Cancelled);
+            }
+            else if (Status.Approved.ToString().Equals(status))
+            {
+                list.Add(Status.Completed.ToString(), (int)Status.Completed);
+                list.Add(Status.Cancelled.ToString(), (int)Status.Cancelled);
+            }
             return list;
         }
 

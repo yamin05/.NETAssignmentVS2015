@@ -230,6 +230,7 @@
     <Content Include="Views\SiteEngineer\SiteEngineerHome.aspx" />
     <Content Include="Views\SiteEngineer\ViewAllClients.aspx" />
     <Content Include="Views\SiteEngineer\ViewAllClientsInSameDistrict.aspx" />
+    <Content Include="Views\SiteEngineer\ViewInterventionsForClientInSameDistrict.aspx" />
     <Content Include="Views\SiteEngineer\ViewInterventionsForClient.aspx" />
     <Content Include="Views\SiteEngineer\ViewInterventions.aspx" />
     <Content Include="Web.config">
@@ -361,6 +362,7 @@
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Enums\Status.cs" />
     <Compile Include="Exceptions\FailedToCreateRecordException.cs" />
+    <Compile Include="Exceptions\CannotEditStatusException.cs" />
     <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
@@ -576,6 +578,13 @@
     </Compile>
     <Compile Include="Views\SiteEngineer\ViewAllClientsInSameDistrict.aspx.designer.cs">
       <DependentUpon>ViewAllClientsInSameDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewInterventionsForClientInSameDistrict.aspx.cs">
+      <DependentUpon>ViewInterventionsForClientInSameDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\ViewInterventionsForClientInSameDistrict.aspx.designer.cs">
+      <DependentUpon>ViewInterventionsForClientInSameDistrict.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\ViewInterventionsForClient.aspx.cs">
       <DependentUpon>ViewInterventionsForClient.aspx</DependentUpon>

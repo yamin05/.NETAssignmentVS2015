@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading;
-using System.Web;
 using WebApplication1.Interfaces;
 
 namespace WebApplication1.Repositories
 {
     public class DbContext
     {
-
         private readonly IDbConnection _connection;
         private readonly IConnectionFactory _connectionFactory;
         private readonly ReaderWriterLockSlim _rwLock = new ReaderWriterLockSlim();

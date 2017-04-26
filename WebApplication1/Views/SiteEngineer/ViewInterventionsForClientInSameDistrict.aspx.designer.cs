@@ -10,7 +10,7 @@
 namespace WebApplication1.Views.SiteEngineer {
     
     
-    public partial class ViewAllClientsInSameDistrict {
+    public partial class ViewInterventionsForClientInSameDistrict {
         
         /// <summary>
         /// ErrorMessage control.
@@ -40,6 +40,15 @@ namespace WebApplication1.Views.SiteEngineer {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// ClientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ClientName;
+        
+        /// <summary>
         /// GridView control.
         /// </summary>
         /// <remarks>
@@ -49,21 +58,39 @@ namespace WebApplication1.Views.SiteEngineer {
         protected global::System.Web.UI.WebControls.GridView GridView;
         
         /// <summary>
-        /// AddClient control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddClient;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// Button1 control.
+        /// Status control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.DropDownList Status;
+        
+        /// <summary>
+        /// UpdateButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateButton;
+        
+        /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
     }
 }

@@ -33,11 +33,26 @@ namespace WebApplication1.Repositories
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"SELECT ClientName, InterventionTypeName, InterventionHours, InterventionCost,
-                                            CreateDate, Status FROM Interventions inner join Clients on Interventions.ClientId = Clients.ClientId
+                command.CommandText = @"SELECT ClientName, tb.UserName, InterventionTypeName, InterventionHours, InterventionCost, CreateDate, Status FROM Interventions 
+                                            inner join Clients on Interventions.ClientId = Clients.ClientId
                                             inner join InterventionType on Interventions.InterventionTypeId = InterventionType.InterventionTypeId
+                                            inner join [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUsers] as tb on Interventions.UserId = tb.Id
                                             where Interventions.UserId = @userid and Interventions.ClientId = @clientid";
                 command.Parameters.Add(command.CreateParameter("userid", userid));
+                command.Parameters.Add(command.CreateParameter("clientid", clientid));
+                return this.ToList(command).ToList();
+            }
+        }
+
+        public List<ListInterventions> GetAllInterventionsForClientInSameDistrict(int clientid)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"SELECT ClientName, tb.UserName, InterventionTypeName, InterventionHours, InterventionCost, CreateDate, Status FROM Interventions 
+                                            inner join Clients on Interventions.ClientId = Clients.ClientId
+                                            inner join InterventionType on Interventions.InterventionTypeId = InterventionType.InterventionTypeId
+                                            inner join [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUsers] as tb on Interventions.UserId = tb.Id
+                                            where Interventions.ClientId = @clientid";
                 command.Parameters.Add(command.CreateParameter("clientid", clientid));
                 return this.ToList(command).ToList();
             }

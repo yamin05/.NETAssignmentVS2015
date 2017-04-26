@@ -11,7 +11,7 @@
         <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Current Client List: "></asp:Label>
 
     <p>
-        <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView" runat="server" AutoGenerateSelectButton="true" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="ClientId" HeaderText="Client ID" SortExpression="ClientName" />
                 <asp:BoundField DataField="ClientName" HeaderText="Client Name" SortExpression="ClientName" />
@@ -22,6 +22,12 @@
                 forecolor="DarkBlue"
                 font-bold="true"/> 
         </asp:GridView>
+    </p>
+    <p>
+        <asp:Button ID="AddClient" runat="server" Text="Add client" OnClick="AddClient_Click" />
+    </p>
+    <p>
+        <asp:Button ID="Button1" runat="server" Text="View associated Interventions" OnClick="ViewAssociatedInterventions_Click" Width="300px" />
     </p>
     <p>
     </p>

@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApplication1.Exceptions;
 using WebApplication1.Helpers;
 
 namespace WebApplication1.Views.SiteEngineer
@@ -55,6 +53,82 @@ namespace WebApplication1.Views.SiteEngineer
             datarow[3] = date;
             datarow[4] = status;
             return datarow;
+        }
+
+        protected void ChangeState_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GridView.SelectedIndex == -1)
+                {
+                    throw new ValueNotSelectedException();
+                }
+                else
+                {
+                    Status.DataSource = CreateDataSourceForStatus();
+                    Status.DataTextField = "StatusName";
+                    Status.DataValueField = "StatusValue";
+                    Status.DataBind();
+                    Status.Visible = true;
+                    UpdateButton.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                FailureText.Text = ex.Message;
+                ErrorMessage.Visible = true;
+            }
+        }
+
+        protected void EditQMInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GridView.SelectedIndex == -1)
+                {
+                    throw new ValueNotSelectedException();
+                }
+                else
+                {
+                    Response.Redirect("~/Views/SiteEngineer/ViewInterventionsForClient.aspx?clientId=" + Convert.ToInt32(GridView.SelectedRow.Cells[1].Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                FailureText.Text = ex.Message;
+                ErrorMessage.Visible = true;
+            }
+        }
+
+        ICollection CreateDataSourceForStatus()
+        {
+            var list = listInterventionsHelper.GetPossibleStatusUpdateForIntervention(GridView.SelectedRow.Cells[5].Text);
+            if (list.Count == 0)
+            {
+                throw new CannotEditStatusException();
+            }
+            DataTable datatable = new DataTable();
+            datatable.Columns.Add(new DataColumn("StatusName", typeof(string)));
+            datatable.Columns.Add(new DataColumn("StatusValue", typeof(int)));
+            foreach (var row in list)
+            {
+                datatable.Rows.Add(CreateRowForStatus(row.Key, row.Value, datatable));
+            }
+            DataView dataview = new DataView(datatable);
+            return dataview;
+        }
+
+        DataRow CreateRowForStatus(string statusName, int statusValue, DataTable datatable)
+        {
+            DataRow datarow = datatable.NewRow();
+            datarow[0] = statusName;
+            datarow[1] = statusValue;
+            return datarow;
+        }
+
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
