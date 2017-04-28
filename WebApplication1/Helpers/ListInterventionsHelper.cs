@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿    using Microsoft.AspNet.Identity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,7 +38,7 @@ namespace WebApplication1.Helpers
         public IList<ListInterventionForManager> GetInterventions(string userid)
         {
             var repos = new ListInterventionForManagerRepository(context);
-            var rows = repos.GetAllIntervention(userid);
+            var rows = repos.GetAllProposedInterventiond();
             List<ListInterventionForManager> list = new List<ListInterventionForManager>();
             foreach (var row in rows)
             {
@@ -84,7 +84,28 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
+        public IList<ListInterventionForManager> ListOfPropInterventions(string userid,int InterventionId)
+        { List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
+            ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
+            interlist = repo.GetAllInterventionByInterventionId(InterventionId).ToList();
+            return interlist;
+        }
+        public IList<InterventionsRepository> CancelIntervention(int InterventionId)
+        {
+            InterventionsRepository repo = new InterventionsRepository(context);
+            List<InterventionsRepository> interlist = new List<InterventionsRepository>();
+            repo.Update_Intervention_Status_As_Cancelled(InterventionId);
+            return interlist;
 
+        }
+        public IList<InterventionsRepository> ApproveIntervention(int InterventionId)
+        {
+            InterventionsRepository repo = new InterventionsRepository(context);
+            List<InterventionsRepository> interlist = new List<InterventionsRepository>();
+            repo.Update_Intervention_Status_As_Approved (InterventionId);
+            return interlist;
+            
+        }
         public IList<ListInterventionForManager> ListOfProposedInterventions(string userid)
         {
             List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();

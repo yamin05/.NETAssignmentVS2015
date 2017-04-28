@@ -1,48 +1,32 @@
-﻿<%@ Page Title="Manager Home Page" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="ManagerOperation.aspx.cs" Inherits="WebApplication1.Views.Manager.ManagerHome" %>
+﻿<%@ PreviousPageType VirtualPath="ListInterventions.aspx" %>
+<%@ Page Title="Approve or cancel the below intervention" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="ManagerOperation.aspx.cs" Inherits="WebApplication1.Views.Manager.ManagerOperation" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        <h1>Manager Operation</h1>
-    </div>
-    <div>
-        
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+      <p>
+        <br />
+        <asp:Label ID="Label1" font-size="Large" runat="server" Text="Please Approve or cancel the below intervention "></asp:Label>
+    </p>
+    <p>
+     
+       <asp:GridView ID="Grid" runat="server" AutoGenerateColumns="False" EmptyDataText="There are no interventions to Approve Or Cancel">
+            <Columns>
+               <asp:BoundField DataField="ClientName" HeaderText="Client Name" SortExpression="ClientName" />
+                <asp:BoundField DataField="InterventionTypeName" HeaderText="Intervention Name" SortExpression="InterventionTypeName" />
+                <asp:BoundField DataField="InterventionHours" HeaderText="Hours" SortExpression="InterventionHours" />
+                <asp:BoundField DataField="InterventionCost" HeaderText="Cost" SortExpression="InterventionCost" />
+                <asp:BoundField DataField="CreateDate" HeaderText="Date Created" SortExpression="CreateDate" />
+                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+            </Columns>
+        </asp:GridView>
+        </p>
         <div>
-            Intervention<div class="col-md-10">
-                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Enabled="False" Height="50px" TextMode="Password" Width="232px" />
+        <asp:Panel ID="Panel1" runat="server"> 
+                <asp:button id="approve" runat="server"  Text="Approve" OnClick="Approve"/>
+                &nbsp;&nbsp;
+                <asp:button id="Button1" runat="server"  Text="Cancel" OnClick="Cancel"/>
+            &nbsp;&nbsp;
+                <asp:button id="Button2" runat="server"  Text="Back To Prposed Interventions" OnClick="GotoList"/>
+        </asp:Panel>
             </div>
-        </div>
-        
-    </div>
-
-    <br />
-    <div >
-        Cost<div class="col-md-10">
-            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Enabled="False" Height="50px" TextMode="Password" Width="232px" />
-        </div>
-    </div>
-    <div >
-        Hour<div class="col-md-10">
-            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Enabled="False" Height="50px" TextMode="Password" Width="229px" />
-        </div>
-    </div>
-    <br />
-    <div style="width: 728px">
-        Status<div class="col-md-10">
-            <asp:DropDownList ID="DropDownList1" runat="server">
-                <asp:ListItem>Proposed</asp:ListItem>
-                <asp:ListItem>Approved</asp:ListItem>
-                <asp:ListItem>Cancelled</asp:ListItem>
-            </asp:DropDownList>
-        </div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Submit" runat="server" Text="Submit" />
-    </div>
-
-    <div style="width: 728px">
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    </div>
-
 </asp:Content>
+

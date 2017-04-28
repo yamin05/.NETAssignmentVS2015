@@ -44,25 +44,25 @@ namespace WebApplication1.Repositories
                 return this.ToList(command).FirstOrDefault();
             }
         }
-        public Interventions Update_Intervention_Status_As_Approved(Interventions intervention)
+        public Interventions Update_Intervention_Status_As_Approved(int interventionid)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @Status WHERE userid= @userid and @interventionId";
-                command.Parameters.Add(command.CreateParameter("userid", intervention.UserId));
-                command.Parameters.Add(command.CreateParameter("status=2", intervention.Status));
-                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @status WHERE InterventionId= @interventionId";
+               
+                command.Parameters.Add(command.CreateParameter("status", 1));
+                command.Parameters.Add(command.CreateParameter("InterventionId", interventionid));
                 return this.ToList(command).FirstOrDefault();
             }
         }
-        public Interventions Update_Intervention_Status_As_Cancelled(Interventions intervention)
+        public Interventions Update_Intervention_Status_As_Cancelled(int interventionid)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @Status WHERE userid= @userid and @InterventionId";
-                command.Parameters.Add(command.CreateParameter("userid", intervention.UserId));
-                command.Parameters.Add(command.CreateParameter("Status=3", intervention.Status));
-                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @status WHERE InterventionId= @interventionId";
+
+                command.Parameters.Add(command.CreateParameter("status", 2  ));
+                command.Parameters.Add(command.CreateParameter("InterventionId", interventionid));
                 return this.ToList(command).FirstOrDefault();
             }
         }

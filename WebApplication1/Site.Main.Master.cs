@@ -48,7 +48,7 @@ namespace WebApplication1
 
             Page.PreLoad += master_Page_PreLoad;
         }
-
+        
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -77,6 +77,7 @@ namespace WebApplication1
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+        
     }
 
 }
