@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web;
 using WebApplication1.Exceptions;
 
 namespace WebApplication1
@@ -46,9 +48,12 @@ namespace WebApplication1
             }
         }
 
-        public bool isNullOrEmpty(object obj)
+        public bool isNullOrEmpty<T>(T value)
         {
-            return obj == null || obj.Equals("");
+            if (typeof(T) == typeof(string))
+                return string.IsNullOrEmpty(value as string);
+
+            return value == null || value.Equals(default(T));
         }
 
         public string getHomePageURL(Roles role)
@@ -56,15 +61,24 @@ namespace WebApplication1
             return role.ToString() +  "/" + role.ToString() + "Home.aspx";
         }
 
-        public string getHomePageURL(string username)
+        public string getHomePageURL()
+        {
+            var role = GetCurrentUserRole();
+
+            return "~/Views/" + role + "/" + role + "Home.aspx";
+        }
+
+        public string GetCurrentUserRole()
         {
             var userStore = new UserStore<IdentityUser>();
             var userManager = new UserManager<IdentityUser>(userStore);
+            var roles = userManager.GetRoles(GetCurrentUserId());
+            return roles.FirstOrDefault();
+        }
 
-            var findUser = userManager.FindByName(username);
-            var roles = userManager.GetRoles(findUser.Id);
-
-            return "~/Views/" + roles[0] + "/" + roles[0] + "Home.aspx";
+        public string GetCurrentUserId()
+        {
+            return HttpContext.Current.User.Identity.GetUserId();
         }
     }
 }

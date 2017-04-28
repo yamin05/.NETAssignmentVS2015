@@ -19,16 +19,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
-        public IList<int> GetDistrictsForSiteManager (string userId)
+        public int GetDistrictsForSiteManager (string userId)
         {
             var repos = new UserRepository(context);
-            var rows = repos.GetAllForUser(userId);
-            List<int> list = new List<int>();
-            foreach(var row in rows)
-            {
-                list.Add(row.District);
-            }
-            return list;
+            var row = repos.GetAllForUser(userId);
+            return row.District;
         }
 
         public void CreateClient (string clientName, string clientLocation, int clientDistrict)

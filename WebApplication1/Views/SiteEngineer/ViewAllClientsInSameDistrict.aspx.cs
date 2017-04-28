@@ -18,6 +18,10 @@ namespace WebApplication1.Views.SiteEngineer
                 GridView.DataSource = CreateDataSource();
                 GridView.DataBind();
             }
+            else
+            {
+                ErrorMessage.Visible = false;
+            }
         }
 
         ICollection CreateDataSource()

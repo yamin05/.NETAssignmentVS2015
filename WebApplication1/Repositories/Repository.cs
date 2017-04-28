@@ -53,7 +53,6 @@ namespace WebApplication1.Repositories
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = @"SELECT * FROM " + typeof(TEntity).Name.ToString();
-                //command.ExecuteReader();
                 return ToList(command).ToList() ;
             }
         }

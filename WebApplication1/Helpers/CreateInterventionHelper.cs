@@ -44,7 +44,7 @@ namespace WebApplication1.Helpers
             intervention.ClientId = clientId;
             intervention.CreateDate = DateTime.Now;
             intervention.Status = (int) Status.Proposed;
-            intervention.InterventionHour = Convert.ToDecimal(interventionHour);
+            intervention.InterventionHours = Convert.ToDecimal(interventionHour);
             intervention.InterventionCost = Convert.ToDecimal(interventionCost);
             try
             {

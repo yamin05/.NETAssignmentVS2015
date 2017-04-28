@@ -2,15 +2,15 @@
 
 namespace WebApplication1.Exceptions
 {
-    public class CannotEditStatusException : Exception
+    public class FailedToUpdateRecordException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public CannotEditStatusException()
+        public FailedToUpdateRecordException()
         {
-            errorCode = 112;
-            errorMessage = "The status is not editable from the current state";
+            errorCode = 114;
+            errorMessage = "Failed to update a record in database";
         }
 
         public override string Message

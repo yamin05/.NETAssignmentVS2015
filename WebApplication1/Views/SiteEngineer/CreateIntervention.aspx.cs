@@ -47,6 +47,10 @@ namespace WebApplication1.Views.SiteEngineer
 
                 ChangeHoursCostText();
             }
+            else
+            {
+                ErrorMessage.Visible = false;
+            }
         }
 
         ICollection CreateInterventionTypeDataSource()

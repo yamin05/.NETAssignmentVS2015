@@ -2,15 +2,15 @@
 
 namespace WebApplication1.Exceptions
 {
-    public class CannotEditStatusException : Exception
+    public class EditStatusPermissionException : Exception
     {
         private int errorCode { get; set; }
         private string errorMessage { get; set; }
 
-        public CannotEditStatusException()
+        public EditStatusPermissionException()
         {
-            errorCode = 112;
-            errorMessage = "The status is not editable from the current state";
+            errorCode = 113;
+            errorMessage = "You don't have enough permission to change the status";
         }
 
         public override string Message

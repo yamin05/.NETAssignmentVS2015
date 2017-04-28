@@ -22,19 +22,20 @@ namespace WebApplication1.Views.SiteEngineer
                 NewClientDistrict.DataBind();
                 NewClientDistrict.SelectedIndex = 0;
             }
+            else
+            {
+                ErrorMessage.Visible = false;
+            }
         }
 
         ICollection CreateDataSource()
         {
             var userId = HttpContext.Current.User.Identity.GetUserId();
-            var list = createClientHelper.GetDistrictsForSiteManager(userId);
+            var row = createClientHelper.GetDistrictsForSiteManager(userId);
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("District", typeof(string)));
-            datatable.Columns.Add(new DataColumn("DistrictInt", typeof(string)));
-            foreach (var row in list)
-            {
-                datatable.Rows.Add(CreateRow(Enum.GetName(typeof(Districts), row) , row, datatable));
-            }
+            datatable.Columns.Add(new DataColumn("DistrictInt", typeof(string)));          
+            datatable.Rows.Add(CreateRow(Enum.GetName(typeof(Districts), row) , row, datatable));
             DataView dataview = new DataView(datatable);
             return dataview;
         }

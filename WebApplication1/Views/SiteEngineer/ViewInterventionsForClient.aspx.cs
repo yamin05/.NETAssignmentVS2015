@@ -19,8 +19,12 @@ namespace WebApplication1.Views.SiteEngineer
             {
                 GridView.DataSource = CreateDataSource();
                 GridView.DataBind();
+                GridView.Columns[5].Visible = false;
             }
-
+            else
+            {
+                ErrorMessage.Visible = false;
+            }
         }
         ICollection CreateDataSource()
         {
@@ -36,15 +40,16 @@ namespace WebApplication1.Views.SiteEngineer
             datatable.Columns.Add(new DataColumn("InterventionCost", typeof(decimal)));
             datatable.Columns.Add(new DataColumn("CreateDate", typeof(DateTime)));
             datatable.Columns.Add(new DataColumn("Status", typeof(string)));
+            datatable.Columns.Add(new DataColumn("InterventionId", typeof(int)));
             foreach (var row in list)
             {
-                datatable.Rows.Add(CreateRow(row.InterventionTypeName, row.InterventionHours, row.InterventionCost, row.CreateDate, Enum.GetName(typeof(Status), row.Status), datatable));
+                datatable.Rows.Add(CreateRow(row.InterventionId, row.InterventionTypeName, row.InterventionHours, row.InterventionCost, row.CreateDate, Enum.GetName(typeof(Status), row.Status), datatable));
             }
             DataView dataview = new DataView(datatable);
             return dataview;
         }
 
-        DataRow CreateRow(string typeName, decimal hours, decimal cost, DateTime date, string status, DataTable datatable)
+        DataRow CreateRow(int intid, string typeName, decimal hours, decimal cost, DateTime date, string status, DataTable datatable)
         {
             DataRow datarow = datatable.NewRow();
             datarow[0] = typeName;
@@ -52,6 +57,7 @@ namespace WebApplication1.Views.SiteEngineer
             datarow[2] = cost;
             datarow[3] = date;
             datarow[4] = status;
+            datarow[5] = intid;
             return datarow;
         }
 
@@ -128,7 +134,17 @@ namespace WebApplication1.Views.SiteEngineer
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var changeStatusHelper = new ChangeStatusHelper("CustomDatabase");
+                changeStatusHelper.ChangeStatus(GridView.SelectedRow.Cells[6].Text, GridView.SelectedRow.Cells[5].Text, Status.SelectedValue);
+                Response.Redirect("~/Views/SiteEngineer/UpdateInterventionSuccess.aspx");
+            }
+            catch (Exception ex)
+            {
+                FailureText.Text = ex.Message;
+                ErrorMessage.Visible = true;
+            }
         }
     }
 }

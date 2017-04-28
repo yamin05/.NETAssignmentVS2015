@@ -19,6 +19,7 @@
                 <asp:BoundField DataField="InterventionCost" HeaderText="Cost" SortExpression="InterventionCost" />
                 <asp:BoundField DataField="CreateDate" HeaderText="Date Created" SortExpression="CreateDate" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                <asp:BoundField DataField="InterventionId" HeaderText="InterventionId" SortExpression="InterventionId" />
             </Columns>
             <selectedrowstyle backcolor="LightCyan"
                 forecolor="DarkBlue"

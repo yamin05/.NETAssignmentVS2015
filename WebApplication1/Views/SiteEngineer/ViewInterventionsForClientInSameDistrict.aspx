@@ -20,6 +20,7 @@
                 <asp:BoundField DataField="CreatedBy" HeaderText="Created By" SortExpression="CreatedBy" />
                 <asp:BoundField DataField="CreateDate" HeaderText="Date Created" SortExpression="CreateDate" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                <asp:BoundField DataField="InterventionId" HeaderText="InterventionId" SortExpression="InterventionId" />
             </Columns>
             <selectedrowstyle backcolor="LightCyan"
                 forecolor="DarkBlue"

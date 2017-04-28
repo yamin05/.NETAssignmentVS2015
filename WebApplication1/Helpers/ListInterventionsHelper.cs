@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,17 +20,14 @@ namespace WebApplication1.Helpers
 
         }
 
-        public IList<string> Get_District_MaxCost_MaxHour_ForManager(string userId)
+        private IList<string> Get_District_MaxCost_MaxHour_ForManager(string userId)
         {
             var repos = new UserRepository(context);
-            var rows = repos.GetAllForUser(userId);
+            var row = repos.GetAllForUser(userId);
             List<string> list = new List<string>();
-            foreach (var row in rows)
-            {
-                list.Add(row.District.ToString());
-                list.Add(row.MaximumCost.ToString());
-                list.Add(row.MaximumHours.ToString());
-            }
+            list.Add(row.District.ToString());
+            list.Add(row.MaximumCost.ToString());
+            list.Add(row.MaximumHours.ToString());
             return list;
         }
        
@@ -51,14 +47,14 @@ namespace WebApplication1.Helpers
         public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
-            var list = repos.GetAllInterventionsForUser(HttpContext.Current.User.Identity.GetUserId());
+            var list = repos.GetAllInterventionsForUser(Utils.getInstance.GetCurrentUserId());
             return list;
         }
 
         public IList<ListInterventions> GetInterventionsForClient (string clientid)
         {
             var repos = new ListInterventionsRepository(context);
-            var list = repos.GetAllInterventionsForClient(HttpContext.Current.User.Identity.GetUserId(), Convert.ToInt32(clientid));
+            var list = repos.GetAllInterventionsForClient(Utils.getInstance.GetCurrentUserId(), Convert.ToInt32(clientid));
             return list;
         }
 
@@ -101,7 +97,7 @@ namespace WebApplication1.Helpers
             manager.District = Convert.ToInt32(Dis);
             manager.MaximumCost = Convert.ToInt32(maxihcost);
             manager.MaximumHours = Convert.ToDecimal(maxihour);
-            var ManageruserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            var ManageruserId = HttpContext.Current.User.Identity.GetUserId();
             List<ListInterventionForManager> proposedinterlist = new List<ListInterventionForManager>();
 
             for (int i = 0; i <= interlist.Count-1; i++)

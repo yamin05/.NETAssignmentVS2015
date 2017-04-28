@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
@@ -9,21 +8,16 @@ namespace WebApplication1.Repositories
 {
     public class UserRepository : Repository<Users>
     {
-        //private DbContext _context;
 
-        public UserRepository(DbContext context) : base(context)
-        {
-            //_context = context;
-        }
+        public UserRepository(DbContext context) : base(context) { }
 
-        public IList<Users> GetAllForUser(string userId)
+        public Users GetAllForUser(string userId)
         {
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = @"SELECT * FROM Users WHERE UserId = @userid";
                 command.Parameters.Add(command.CreateParameter("userid", userId));
-                //command.ExecuteReader();
-                return ToList(command).ToList();
+                return ToList(command).FirstOrDefault();
             }
         }
 
