@@ -19,8 +19,8 @@ namespace WebApplication1.Views.Manager
             if (!IsPostBack)
 
             {
-                GridView1.DataSource = CreateSource();
-                GridView1.DataBind();
+                Grid.DataSource = CreateSource();
+                Grid.DataBind();
             }
         }
 
@@ -40,14 +40,17 @@ namespace WebApplication1.Views.Manager
             datatable.Columns.Add(new DataColumn("InterventionCost", typeof(decimal)));
             datatable.Columns.Add(new DataColumn("CreateDate", typeof(DateTime)));
             datatable.Columns.Add(new DataColumn("Status", typeof(string)));
+            datatable.Columns.Add(new DataColumn("InterventionId", typeof(int)));
             foreach (var row in ProposedInterList)
             {
-                datatable.Rows.Add(CreateRow(Enum.GetName(typeof(Districts), row.District), Enum.GetName(typeof(Districts), row.ClientDistrict),row.ClientName, row.InterventionTypeName, row.InterventionHours, row.InterventionCost, row.CreateDate, Enum.GetName(typeof(Status), row.Status), datatable));
+                datatable.Rows.Add(CreateRow(Enum.GetName(typeof(Districts), row.District), Enum.GetName(typeof(Districts), row.ClientDistrict), row.ClientName, row.InterventionTypeName, row.InterventionHours, row.InterventionCost, row.CreateDate, Enum.GetName(typeof(Status), row.Status), row.InterventionId, datatable));
             }
+
             return datatable;
         }
 
-        DataRow CreateRow(string district,string clientdistrict,string clientName, string InterventionName, decimal hours, decimal cost, DateTime date, string status, DataTable datatable)
+   
+        DataRow CreateRow(string district,string clientdistrict,string clientName, string InterventionName, decimal hours, decimal cost, DateTime date, string status,int interventionid,DataTable datatable)
         {
             DataRow datarow = datatable.NewRow();
             datarow[0] = district;
@@ -58,6 +61,7 @@ namespace WebApplication1.Views.Manager
             datarow[5] = cost;
             datarow[6] = date;
             datarow[7] = status;
+            datarow[8] = interventionid;
             return datarow;
         }
      }     

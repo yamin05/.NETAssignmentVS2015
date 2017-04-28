@@ -16,19 +16,34 @@ namespace WebApplication1.Repositories
 
             }
 
-            public List<ListInterventionForManager> GetAllIntervention(string userid)
+            public List<ListInterventionForManager> GetAllProposedInterventiond()
             {
                 using (var command = _context.CreateCommand())
                 {
                     command.CommandText = @"SELECT District,ClientDistrict,ClientName, InterventionTypeName, InterventionHours, InterventionCost,
-                                            CreateDate,Status FROM Interventions inner join Clients on Interventions.ClientID = Clients.ClientId
+                                            CreateDate,Status,InterventionId FROM Interventions inner join Clients on Interventions.ClientID = Clients.ClientId
                                             inner join InterventionType on Interventions.InterventionTypeId = InterventionType.InterventionTypeId 
-                                            inner join Users on Interventions.UserId = Users.UserId where Interventions.UserId = @userid";
+                                            inner join Users on Interventions.UserId = Users.UserId where Interventions.Status = @Proposed";
 
-                command.Parameters.Add(command.CreateParameter("userid", userid));
-                    return this.ToList(command).ToList();
+                command.Parameters.Add(command.CreateParameter("Proposed", 0));
+                return this.ToList(command).ToList();
                 }
             }
+
+        public List<ListInterventionForManager> GetAllInterventionByInterventionId(int interventionid)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"SELECT District,ClientDistrict,ClientName, InterventionTypeName, InterventionHours, InterventionCost,
+                                            CreateDate,Status,InterventionId FROM Interventions inner join Clients on Interventions.ClientID = Clients.ClientId
+                                            inner join InterventionType on Interventions.InterventionTypeId = InterventionType.InterventionTypeId 
+                                            inner join Users on Interventions.UserId = Users.UserId where Interventions.InterventionId=@interventionid";
+
+                
+                command.Parameters.Add(command.CreateParameter("interventionid", interventionid));
+                return this.ToList(command).ToList();
+            }
+        }
 
         public override ListInterventionForManager Insert(ListInterventionForManager tentity)
         {

@@ -51,8 +51,10 @@ namespace WebApplication1.Repositories
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"DELETE FROM Interventions WHERE InterventionId = @InterventionId";
-                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @status WHERE InterventionId= @interventionId";
+               
+                command.Parameters.Add(command.CreateParameter("status", 1));
+                command.Parameters.Add(command.CreateParameter("InterventionId", interventionid));
                 return this.ToList(command).FirstOrDefault();
             }
         }

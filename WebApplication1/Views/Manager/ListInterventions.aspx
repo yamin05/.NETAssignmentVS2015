@@ -5,7 +5,7 @@
         <asp:Label ID="Label1" font-size="Large" runat="server" Text="List of Proposed Interventions: "></asp:Label>
     </p>
     <p>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  EmptyDataText="There are no interventions to Approve Or Cancel"  >
+    <asp:GridView ID="Grid" runat="server" AutoGenerateColumns="False" EmptyDataText="There are no interventions to Approve Or Cancel">
             <Columns>
                <asp:BoundField DataField="ClientName" HeaderText="Client Name" SortExpression="ClientName" />
                 <asp:BoundField DataField="InterventionTypeName" HeaderText="Intervention Name" SortExpression="InterventionTypeName" />
@@ -13,7 +13,13 @@
                 <asp:BoundField DataField="InterventionCost" HeaderText="Cost" SortExpression="InterventionCost" />
                 <asp:BoundField DataField="CreateDate" HeaderText="Date Created" SortExpression="CreateDate" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+        <asp:TemplateField HeaderText="View Details">
+                <ItemTemplate>
+                <asp:HyperLink ID="lnkSelect" runat='server' NavigateUrl='<%# String.Format("ManagerOperation.aspx?ID={0}", Eval("InterventionId")) %>'>Select</asp:HyperLink>
+                </ItemTemplate>
+        </asp:TemplateField>
             </Columns>
      </asp:GridView>
+        
      </p>
     </asp:Content>
