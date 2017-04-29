@@ -85,7 +85,7 @@ namespace WebApplication1.Repositories
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"SELECT * FROM Interventions where Status = @status";
+                command.CommandText = @"SELECT * FROM Interventions a inner join aspnetusers b on a.userid=b.id  where Status = @status";
                 command.Parameters.Add(command.CreateParameter("status", status));
                 return this.ToList(command).ToList();
             }

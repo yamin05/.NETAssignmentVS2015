@@ -172,6 +172,10 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\_references.js" />
+    <Content Include="App_Data\aspnet-WebApplication1-20170404072835.mdf" />
+    <Content Include="App_Data\aspnet-WebApplication1-20170404072835_log.ldf">
+      <DependentUpon>aspnet-WebApplication1-20170404072835.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\CustomDatabase.mdf" />
     <Content Include="App_Data\CustomDatabase_log.ldf">
       <DependentUpon>CustomDatabase.mdf</DependentUpon>
@@ -205,6 +209,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Sql_Scripts\Updated_Database_Schema.sql" />
     <Content Include="Views\Accountant\AccountantHome.aspx" />
+    <Content Include="Views\Accountant\AverageCostByEngineer.aspx" />
+    <Content Include="Views\Accountant\ChangeDistrict.aspx" />
+    <Content Include="Views\Accountant\CostByDistrict.aspx" />
+    <Content Include="Views\Accountant\MonthlyCostForDistrict.aspx" />
+    <Content Include="Views\Accountant\TotalCostByEngineer.aspx" />
+    <Content Include="Views\Accountant\UsersList.aspx" />
     <Content Include="Views\Admin\AdminHome.aspx" />
     <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\Index.aspx" />
@@ -386,6 +396,7 @@
     <Compile Include="Helpers\CreateClientHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Helpers\SiteHelper.cs" />
+    <Compile Include="Helpers\ViewUsersHelper.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Clients.cs" />
@@ -418,6 +429,48 @@
     </Compile>
     <Compile Include="Views\Accountant\AccountantHome.aspx.designer.cs">
       <DependentUpon>AccountantHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\AverageCostByEngineer.aspx.cs">
+      <DependentUpon>AverageCostByEngineer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\AverageCostByEngineer.aspx.designer.cs">
+      <DependentUpon>AverageCostByEngineer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\ChangeDistrict.aspx.cs">
+      <DependentUpon>ChangeDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\ChangeDistrict.aspx.designer.cs">
+      <DependentUpon>ChangeDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\CostByDistrict.aspx.cs">
+      <DependentUpon>CostByDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\CostByDistrict.aspx.designer.cs">
+      <DependentUpon>CostByDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\MonthlyCostForDistrict.aspx.cs">
+      <DependentUpon>MonthlyCostForDistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\MonthlyCostForDistrict.aspx.designer.cs">
+      <DependentUpon>MonthlyCostForDistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\TotalCostByEngineer.aspx.cs">
+      <DependentUpon>TotalCostByEngineer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\TotalCostByEngineer.aspx.designer.cs">
+      <DependentUpon>TotalCostByEngineer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accountant\UsersList.aspx.cs">
+      <DependentUpon>UsersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accountant\UsersList.aspx.designer.cs">
+      <DependentUpon>UsersList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
