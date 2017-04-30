@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="EditQMInfoIntervention.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.EditQMInfoIntervention" %>
+﻿<%@ Page Title="Edit Quality Management Info" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="EditQMInfoIntervention.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.EditQMInfoIntervention" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
     </p>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="ViewAllClientsInSameDistrict.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.ViewAllClientsInSameDistrict" %>
+﻿<%@ Page Title="View Clients In Same District" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="ViewAllClientsInSameDistrict.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.ViewAllClientsInSameDistrict" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
         <br />

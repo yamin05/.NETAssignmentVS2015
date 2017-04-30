@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="NoData.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.NoData" %>
+﻿<%@ Page Title="No Data" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="NoData.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.NoData" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
         <br/>
