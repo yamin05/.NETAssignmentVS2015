@@ -25,8 +25,12 @@
     <p>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Condition"  ErrorMessage="The Remaining Life is required." style="color:brown" />
     </p>
-    <p>
-    </p>
+        <p>
+        <asp:RangeValidator  runat="server" 
+            ControlToValidate="Condition" ErrorMessage="Please enter correct number" MaximumValue="0" 
+            MinimumValue="100" style="color:brown" ></asp:RangeValidator>
+</p>
+    
     <p>
         <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="NewClientSubmit_Click" />
     </p>

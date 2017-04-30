@@ -5,12 +5,14 @@ using System.Collections;
 using WebApplication1.Helpers;
 using Microsoft.AspNet.Identity;
 using System.Data;
+using WebApplication1.Extensions;
 
 namespace WebApplication1.Views.SiteEngineer
 {
     public partial class CreateClient : Page
     {
         private CreateClientHelper createClientHelper = new CreateClientHelper("CustomDatabase");
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
