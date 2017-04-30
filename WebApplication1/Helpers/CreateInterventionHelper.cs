@@ -43,9 +43,9 @@ namespace WebApplication1.Helpers
             intervention.InterventionTypeId = interventionTypeId;
             intervention.ClientId = clientId;
             intervention.CreateDate = DateTime.Now;
-            intervention.Status = validateUserForStatus(interventionTypeId) ? (int) Status.Approved : (int) Status.Proposed;
             intervention.InterventionHours = Convert.ToDecimal(interventionHour);
             intervention.InterventionCost = Convert.ToDecimal(interventionCost);
+            intervention.Status = validateUserForStatus(intervention.InterventionHours, intervention.InterventionCost) ? (int)Status.Approved : (int)Status.Proposed;
             try
             {
                 repos.Insert(intervention);
@@ -56,19 +56,17 @@ namespace WebApplication1.Helpers
             }
         }
 
-        private bool validateUserForStatus(int intTypeId)
+        private bool validateUserForStatus(decimal hours, decimal cost)
         {
             var userRepo = new UserRepository(context);
             var currentUser = userRepo.GetAllForUser(Utils.getInstance.GetCurrentUserId());
-            var intTypeRepo = new InterventionTypeRepository(context);
-            var intType = intTypeRepo.GetInterventionTypeWithId(intTypeId);
-            if (currentUser.MaximumHours >= intType.InterventionTypeHours && currentUser.MaximumCost >= intType.InterventionTypeCost)
+            if (currentUser.MaximumHours >= hours && currentUser.MaximumCost >= cost)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
     }

@@ -27,8 +27,8 @@
     </p>
         <p>
         <asp:RangeValidator  runat="server" 
-            ControlToValidate="Condition" ErrorMessage="Please enter correct number" MaximumValue="0" 
-            MinimumValue="100" style="color:brown" ></asp:RangeValidator>
+            ControlToValidate="Condition" ErrorMessage="Please enter correct number" MaximumValue="100" 
+            MinimumValue="0" style="color:brown" ></asp:RangeValidator>
 </p>
     
     <p>
