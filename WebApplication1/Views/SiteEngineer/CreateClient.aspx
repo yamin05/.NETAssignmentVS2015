@@ -16,10 +16,22 @@
         <asp:TextBox ID="NewClientName" runat="server" Width="300px"></asp:TextBox>
     </p>
     <p>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="NewClientName"  ErrorMessage="The Client Name is required." style="color:brown" />
+    </p>
+    <p>
+        <asp:RangeValidator  runat="server" 
+            ControlToValidate="NewClientName" ErrorMessage="Please enter correct words" MaximumValue="z" 
+            MinimumValue="A" style="color:brown" ></asp:RangeValidator>
+    </p>
+
+    <p>
         <asp:Label ID="Label3" font-size="Small" runat="server" Text="Address or Other Location Information: "></asp:Label>
     </p>
     <p>
-        <asp:TextBox ID="NewClientAddress" runat="server" Width="300px"></asp:TextBox>
+        <asp:TextBox ID="NewClientAddress" runat="server" Width="300px"></asp:TextBox>    
+    </p>
+    <p>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="NewClientAddress"  ErrorMessage="The Client Address is required." style="color:brown" />
     </p>
     <p>
         <asp:Label ID="Label4" font-Size="Small" runat="server" Text="District: "></asp:Label>

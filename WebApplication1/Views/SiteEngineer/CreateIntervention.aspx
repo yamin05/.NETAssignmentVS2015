@@ -29,12 +29,30 @@
     <p>
         <asp:TextBox ID="NewInterventionHours" runat="server" Width="300px"></asp:TextBox>
     </p>
+       <p>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="NewInterventionHours"  ErrorMessage="The Hours is required." 
+            style="color:brown"/>
+    </p>
+    <p>
+     <asp:RangeValidator  runat="server" 
+            ControlToValidate="NewInterventionHours" ErrorMessage="please enter correct hours" MaximumValue="10000" 
+            MinimumValue="0" Type="Double" style="color:brown" ></asp:RangeValidator>
+    </p>
     <p>
         <asp:Label ID="Label8" font-Size="Small" runat="server" Text="Cost: "></asp:Label>
     </p>
     <p>
         <asp:TextBox ID="NewInterventionCost" runat="server" Width="300px"></asp:TextBox>
     </p>
+      <p>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="NewInterventionCost"  ErrorMessage="The Cost Amount is required." 
+            style="color:brown"/>
+    </p>
+    <p>
+    <asp:RangeValidator  runat="server" 
+            ControlToValidate="NewInterventionCost" ErrorMessage="please enter correct amount" MaximumValue="10000" 
+            MinimumValue="0" Type="Currency" style="color:brown" ></asp:RangeValidator>
+        </p>
     
     <p>
         <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="NewInterventionSubmit_Click" />
