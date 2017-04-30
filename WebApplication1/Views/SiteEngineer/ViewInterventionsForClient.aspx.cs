@@ -96,7 +96,7 @@ namespace WebApplication1.Views.SiteEngineer
                 }
                 else
                 {
-                    Response.Redirect("~/Views/SiteEngineer/ViewInterventionsForClient.aspx?clientId=" + Convert.ToInt32(GridView.SelectedRow.Cells[1].Text));
+                    Response.Redirect("~/Views/SiteEngineer/EditQMInfoIntervention.aspx?intid=" + Convert.ToInt32(GridView.SelectedRow.Cells[6].Text));
                 }
             }
             catch (Exception ex)

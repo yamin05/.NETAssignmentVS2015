@@ -97,7 +97,7 @@ namespace WebApplication1.Views.SiteEngineer
                 }
                 else
                 {
-                    Response.Redirect("~/Views/SiteEngineer/ViewInterventionsForClient.aspx?clientId=" + GridView.SelectedRow.Cells[1].Text);
+                    Response.Redirect("~/Views/SiteEngineer/EditQMInfoIntervention.aspx?intid=" + GridView.SelectedRow.Cells[7].Text);
                 }
             }
             catch (Exception ex)

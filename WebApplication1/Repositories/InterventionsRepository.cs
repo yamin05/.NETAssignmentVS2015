@@ -107,7 +107,7 @@ namespace WebApplication1.Repositories
             {
                 command.CommandText = @"SELECT * FROM Interventions 
                                             inner join Clients on Interventions.ClientId = Clients.ClientId
-                                            inner join Users on Clients.District = Users.District
+                                            inner join Users on Clients.ClientDistrict = Users.District
                                             where Interventions.InterventionId = @intid
                                             and Users.UserId = @userid";
                 command.Parameters.Add(command.CreateParameter("intid", intId));

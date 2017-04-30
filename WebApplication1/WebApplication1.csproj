@@ -233,6 +233,7 @@
     <Content Include="Views\Manager\ManagerHome.aspx" />
     <Content Include="Views\Manager\ManagerOperation.aspx" />
     <Content Include="Views\Register.aspx" />
+    <Content Include="Views\SiteEngineer\EditQMInfoIntervention.aspx" />
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
@@ -373,10 +374,13 @@
     <Compile Include="Enums\Districts.cs" />
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Enums\Status.cs" />
+    <Compile Include="Exceptions\EditQMInfoPermissionException.cs" />
     <Compile Include="Exceptions\EditStatusPermissionException.cs" />
     <Compile Include="Exceptions\FailedToUpdateRecordException.cs" />
     <Compile Include="Exceptions\FailedToCreateRecordException.cs" />
     <Compile Include="Exceptions\CannotEditStatusException.cs" />
+    <Compile Include="Exceptions\InvalidConditionUpdateException.cs" />
+    <Compile Include="Exceptions\InvalidConditionLimitException.cs" />
     <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
@@ -388,6 +392,7 @@
     <Compile Include="Extensions\IDataRecordExtensions.cs" />
     <Compile Include="Extensions\IDbCommandExtensions.cs" />
     <Compile Include="Extensions\ListToDatasetExtension.cs" />
+    <Compile Include="Helpers\EditQMInfoHelper.cs" />
     <Compile Include="Helpers\ChangeStatusHelper.cs" />
     <Compile Include="Helpers\ChangePasswordHelper.cs" />
     <Compile Include="Helpers\CreateInterventionHelper.cs" />
@@ -416,8 +421,7 @@
     <Compile Include="Repositories\InterventionsRepository.cs" />
     <Compile Include="Repositories\DeptRepository.cs" />
     <Compile Include="Repositories\EngineerClientsRepository.cs" />
-    <Compile Include="Repositories\InterRepository.cs" />
-    <Compile Include="Repositories\InterUpdateRepository.cs" />
+    <Compile Include="Repositories\InterventionUpdateRepository.cs" />
     <Compile Include="Repositories\InterventionTypeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
@@ -580,6 +584,13 @@
     </Compile>
     <Compile Include="Views\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\EditQMInfoIntervention.aspx.cs">
+      <DependentUpon>EditQMInfoIntervention.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\EditQMInfoIntervention.aspx.designer.cs">
+      <DependentUpon>EditQMInfoIntervention.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\CreateClient.aspx.cs">
       <DependentUpon>CreateClient.aspx</DependentUpon>
