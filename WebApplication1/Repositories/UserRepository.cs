@@ -21,26 +21,25 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public IList<Users> GetAllUsers()
-        {
-            using (var command = _context.CreateCommand())
-            {
-                command.CommandText = @"SELECT u.UserId, anu.UserName, anr.Name RoleName, u.MaximumCost,u.MaximumHours, 
-                                        u.District,
-                                        case when u.District='1' then 'Urban Indonesia'
-                                        when u.District='2' then 'Rural Indonesia'
-                                        when u.District='3' then 'Urban Papua New Guinea'
-                                        when u.District='4' then 'Rural Papua New Guinea'
-                                        when u.District='5' then 'Sydney'
-                                        when u.District='6' then 'Rural New South Wales' end DistrictName 
-                                        FROM Users u inner join [aspnet-WebApplication1-20170404072835].[dbo].[aspnetusers] anu on anu.id=u.userid 
-                                        inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUserRoles] anur on anu.id=anur.userid
-                                        inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetRoles] anr on anur.roleid=anr.id 
-										where anr.Name='siteengineer' or anr.Name='manager' ";
-                //command.Parameters.Add(command.CreateParameter("userid", userId));
-                return this.ToList(command).ToList();
-            }
-        }
+        //public IList<Users> GetAllUsers()
+        //{
+        //    using (var command = _context.CreateCommand())
+        //    {
+        //        command.CommandText = @"SELECT u.UserId, anu.UserName, anr.Name RoleName, u.MaximumCost,u.MaximumHours, 
+        //                                u.District,
+        //                                case when u.District='1' then 'Urban Indonesia'
+        //                                when u.District='2' then 'Rural Indonesia'
+        //                                when u.District='3' then 'Urban Papua New Guinea'
+        //                                when u.District='4' then 'Rural Papua New Guinea'
+        //                                when u.District='5' then 'Sydney'
+        //                                when u.District='6' then 'Rural New South Wales' end DistrictName 
+        //                                FROM Users u inner join [aspnet-WebApplication1-20170404072835].[dbo].[aspnetusers] anu on anu.id=u.userid 
+        //                                inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUserRoles] anur on anu.id=anur.userid
+        //                                inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetRoles] anr on anur.roleid=anr.id 
+								//		where anr.Name='siteengineer' or anr.Name='manager' ";
+        //        return this.ToList(command).ToList();
+        //    }
+        //}
         public override Users Delete(Users tentity)
         {
             throw new NotImplementedException();

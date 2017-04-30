@@ -25,5 +25,11 @@
                 font-bold="true"/> 
         </asp:GridView>
 
-
+    <hr />
+    <p>
+        <asp:Button ID="ChangeDistrict" runat="server" Text="Change District" OnClick="ChangeDistrict_Click" Width="300px" />
+        <asp:DropDownList id="District" AutoPostBack="True" runat="server" Visible="false"/>
+        <asp:Button ID="Confirm" runat="server" Text="Confirm" OnClick="Confirm_Click" Width="300px" Visible="false"/>
+        <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="300px" Visible="false"/>
+    </p>
 </asp:Content>

@@ -11,21 +11,17 @@ namespace WebApplication1.Helpers
     {
         private DbConnectionFactory factory;
         private DbContext context;
-        private DbConnectionFactory factory1;
-        private DbContext context1;
 
-        public ViewUsersHelper(string connectionString, string connectionString1)
+        public ViewUsersHelper(string connectionString)
         {
             factory = new DbConnectionFactory(connectionString);
             context = new DbContext(factory);
-            factory1 = new DbConnectionFactory(connectionString1);
-            context1 = new DbContext(factory1);
         }
 
 
-        public IList<Users> GetAllUsers()
+        public IList<UserDetail> GetAllUsers()
         {
-            var repos = new UserRepository(context);
+            var repos = new UserDetailRepository(context);
             var list = repos.GetAllUsers();
             return list;
         }

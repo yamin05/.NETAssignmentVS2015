@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -80,5 +81,8 @@ namespace WebApplication1
         {
             return HttpContext.Current.User.Identity.GetUserId();
         }
+
+
+
     }
 }
