@@ -236,6 +236,7 @@
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
+    <Content Include="Views\SiteEngineer\QualityManagement.aspx" />
     <Content Include="Views\SiteEngineer\UpdateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\NoData.aspx" />
@@ -601,6 +602,13 @@
     </Compile>
     <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.designer.cs">
       <DependentUpon>CreateIntervention.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\QualityManagement.aspx.cs">
+      <DependentUpon>QualityManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SiteEngineer\QualityManagement.aspx.designer.cs">
+      <DependentUpon>QualityManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\UpdateInterventionSuccess.aspx.cs">
       <DependentUpon>UpdateInterventionSuccess.aspx</DependentUpon>
