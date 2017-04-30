@@ -27,7 +27,7 @@ namespace WebApplication1.Helpers
         public IList<Clients> GetAllClientsInSameDistrict()
         {
             var repos = new ClientRepository(context);
-            var list = repos.GetAllClientsForUser(HttpContext.Current.User.Identity.GetUserId());
+            var list = repos.GetAllClientsInSameDistrict(HttpContext.Current.User.Identity.GetUserId());
             return list;
         }
     }

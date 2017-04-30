@@ -1,4 +1,4 @@
-
+﻿
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('EngineersClients') and o.name = 'FK_ENGINEER_CLIENTS_E_CLIENTS')
@@ -101,25 +101,11 @@ go
 /* Table: Clients                                               */
 /*==============================================================*/
 create table Clients (
-   ClientId             integer              identity,
-   ClientName           varchar(512)         null,
-   ClientLocation       varchar(512)         null,
+   ClientId             int             identity,
+   ClientName           nvarchar(512)         null,
+   ClientLocation       nvarchar(512)         null,
    ClientDistrict       int                  null,
    constraint PK_CLIENTS primary key (ClientId)
-)
-go
-
-/*==============================================================*/
-/* Table: DataDictionary                                        */
-/*==============================================================*/
-create table DataDictionary (
-   DictionaryId         varchar(16)          not null,
-   DictionaryType       varchar(32)          null,
-   TypeName             varchar(32)          null,
-   DataName             varchar(128)         null,
-   DataCode             varchar(32)          null,
-   IsUsed               int                  null,
-   constraint PK_DATADICTIONARY primary key nonclustered (DictionaryId)
 )
 go
 
@@ -127,9 +113,9 @@ go
 /* Table: EngineersClients                                      */
 /*==============================================================*/
 create table EngineersClients (
-   EngineersClientsId   integer              identity,
-   UserId               integer              null,
-   ClientId             integer              null,
+   EngineersClientsId   int              identity,
+   UserId               nvarchar(128)        null,
+   ClientId             int              null,
    CreateDate           datetime             null,
    constraint PK_ENGINEERSCLIENTS primary key (EngineersClientsId)
 )
@@ -139,9 +125,9 @@ go
 /* Table: InterventionType                                      */
 /*==============================================================*/
 create table InterventionType (
-   InterventionTypeId   integer              identity,
-   InterventionTypeName varchar(512)         null,
-   InterventionTypeHour decimal              null,
+   InterventionTypeId   int              identity,
+   InterventionTypeName nvarchar(512)         null,
+   InterventionTypeHours decimal              null,
    InterventionTypeCost decimal              null,
    constraint PK_INTERVENTIONTYPE primary key (InterventionTypeId)
 )
@@ -151,11 +137,12 @@ go
 /* Table: InterventionUpdate                                    */
 /*==============================================================*/
 create table InterventionUpdate (
-   InterventionUpdateId integer              identity,
-   InterventionId       integer              null,
-   UserId               integer              null,
+   InterventionUpdateId int              identity,
+   InterventionId       int              null,
+   UserId               nvarchar(128)             null,
    Condition            int                  null,
    ModifyDate           datetime             null,
+   InterventionComments nvarchar(4000)        null,
    constraint PK_INTERVENTIONUPDATE primary key (InterventionUpdateId)
 )
 go
@@ -164,16 +151,15 @@ go
 /* Table: Interventions                                         */
 /*==============================================================*/
 create table Interventions (
-   InterventionId       integer              identity,
-   UserId               integer              null,
-   InterventionTypeId   integer              null,
-   ClientId             integer              null,
+   InterventionId       int              identity,
+   UserId               nvarchar(128)              null,
+   InterventionTypeId   int              null,
+   ClientId             int             null,
    InterventionCost     decimal              null,
-   InterventionHour     decimal              null,
-   InterventionComments varchar(5000)        null,
+   InterventionHours     decimal              null,
    CreateDate           datetime             null,
    Status               int                  null,
-   Operater             int                  null,
+   Operator             int                  null,
    constraint PK_INTERVENTIONS primary key (InterventionId)
 )
 go
@@ -182,14 +168,9 @@ go
 /* Table: Users                                                 */
 /*==============================================================*/
 create table Users (
-   UserId               integer              identity,
-   UserName             varchar(128)         null,
-   UserPassword         varchar(128)         null,
-   FirstName            varchar(128)         null,
-   LastName             varchar(128)         null,
-   Roles                int                  null,
-   MaximunHours         decimal              null,
-   MaximunCosts         decimal              null,
+   UserId               nvarchar(128)        not null,
+   MaximumHours         decimal              null,
+   MaximumCost         decimal              null,
    District             int                  null,
    constraint PK_USERS primary key (UserId)
 )

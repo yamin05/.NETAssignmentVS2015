@@ -48,6 +48,58 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfoExtended, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.ConnectionInfoExtended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Utility, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.Management.Utility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.UtilityEnum, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.Management.UtilityEnum.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.RegSvrEnum, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.RegSvrEnum.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.ServiceBrokerEnum.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.Smo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.SqlEnum.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlWmiManagement, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.SqlWmiManagement.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftSQLServerSMO2014Wmi.1.0.1\lib\net45\Microsoft.SqlServer.WmiEnum.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -155,22 +207,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Account\Confirm.aspx" />
-    <Content Include="Account\Forgot.aspx" />
-    <Content Include="Account\Lockout.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Manage.aspx" />
-    <Content Include="Account\ManageLogins.aspx" />
-    <Content Include="Account\ManagePassword.aspx" />
-    <Content Include="Account\OpenAuthProviders.ascx" />
-    <Content Include="Account\Register.aspx" />
-    <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="Account\ResetPassword.aspx" />
-    <Content Include="Account\ResetPasswordConfirmation.aspx" />
-    <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
-    <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Account\Web.config" />
     <None Include="Scripts\_references.js" />
     <Content Include="App_Data\aspnet-WebApplication1-20170404072835.mdf" />
     <Content Include="App_Data\aspnet-WebApplication1-20170404072835_log.ldf">
@@ -202,9 +238,6 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Sql_Scripts\Create_Database.sql" />
-    <Content Include="Sql_Scripts\database scripte.sql" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Sql_Scripts\Updated_Database_Schema.sql" />
@@ -215,7 +248,6 @@
     <Content Include="Views\Accountant\MonthlyCostForDistrict.aspx" />
     <Content Include="Views\Accountant\TotalCostByEngineer.aspx" />
     <Content Include="Views\Accountant\UsersList.aspx" />
-    <Content Include="Views\Admin\AdminHome.aspx" />
     <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -223,10 +255,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Manager\ListInterventions.aspx" />
@@ -237,7 +267,6 @@
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
-    <Content Include="Views\SiteEngineer\QualityManagement.aspx" />
     <Content Include="Views\SiteEngineer\UpdateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\NoData.aspx" />
@@ -263,125 +292,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Confirm.aspx.cs">
-      <DependentUpon>Confirm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Confirm.aspx.designer.cs">
-      <DependentUpon>Confirm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.designer.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Lockout.aspx.cs">
-      <DependentUpon>Lockout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Lockout.aspx.designer.cs">
-      <DependentUpon>Lockout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Manage.aspx.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Manage.aspx.designer.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ManageLogins.aspx.cs">
-      <DependentUpon>ManageLogins.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ManageLogins.aspx.designer.cs">
-      <DependentUpon>ManageLogins.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ManagePassword.aspx.cs">
-      <DependentUpon>ManagePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ManagePassword.aspx.designer.cs">
-      <DependentUpon>ManagePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\OpenAuthProviders.ascx.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ResetPassword.aspx.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ResetPassword.aspx.designer.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ResetPasswordConfirmation.aspx.cs">
-      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
-      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.cs">
-      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.cs">
-      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\VerifyPhoneNumber.aspx.cs">
-      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
-      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Enums\Districts.cs" />
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Enums\Status.cs" />
+    <Compile Include="Exceptions\ClientAdditionConflictException.cs" />
     <Compile Include="Exceptions\EditQMInfoPermissionException.cs" />
     <Compile Include="Exceptions\EditStatusPermissionException.cs" />
+    <Compile Include="Exceptions\FailedToCreateClientOrIntervention.cs" />
+    <Compile Include="Exceptions\FailedToUpdateClientListOrInterventionList.cs" />
     <Compile Include="Exceptions\FailedToUpdateRecordException.cs" />
     <Compile Include="Exceptions\FailedToCreateRecordException.cs" />
     <Compile Include="Exceptions\CannotEditStatusException.cs" />
+    <Compile Include="Exceptions\InterventionAdditionConflictExpection.cs" />
     <Compile Include="Exceptions\InvalidConditionUpdateException.cs" />
     <Compile Include="Exceptions\InvalidConditionLimitException.cs" />
+    <Compile Include="Exceptions\LostClientInformationException.cs" />
+    <Compile Include="Exceptions\QualityManagementAdditionConflict.cs" />
     <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
@@ -430,6 +360,7 @@
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\UserDetailRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Sql_Scripts\AutoDatabaseCreate.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Views\Accountant\AccountantHome.aspx.cs">
       <DependentUpon>AccountantHome.aspx</DependentUpon>
@@ -480,13 +411,6 @@
     <Compile Include="Views\Accountant\UsersList.aspx.designer.cs">
       <DependentUpon>UsersList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\AdminHome.aspx.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Admin\AdminHome.aspx.designer.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -502,20 +426,6 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="For_Test_Purpose\PasswordChanger.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Exceptions\ExcedesAllowedCostException.cs" />
     <Compile Include="Exceptions\ExcedesAllowedHoursException.cs" />
     <Compile Include="For_Test_Purpose\UnitTestLogics.cs" />
@@ -530,13 +440,6 @@
     </Compile>
     <Compile Include="Site.Main.Master.designer.cs">
       <DependentUpon>Site.Main.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
@@ -616,13 +519,6 @@
     </Compile>
     <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.designer.cs">
       <DependentUpon>CreateIntervention.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SiteEngineer\QualityManagement.aspx.cs">
-      <DependentUpon>QualityManagement.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\SiteEngineer\QualityManagement.aspx.designer.cs">
-      <DependentUpon>QualityManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\UpdateInterventionSuccess.aspx.cs">
       <DependentUpon>UpdateInterventionSuccess.aspx</DependentUpon>

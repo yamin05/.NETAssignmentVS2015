@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="EditQMInfoIntervention.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.EditQMInfoIntervention" %>
+﻿<%@ Page Title="Edit Quality Management Info" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="EditQMInfoIntervention.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.EditQMInfoIntervention" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
     </p>
@@ -25,8 +25,12 @@
     <p>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Condition"  ErrorMessage="The Remaining Life is required." style="color:brown" />
     </p>
-    <p>
-    </p>
+        <p>
+        <asp:RangeValidator  runat="server" 
+            ControlToValidate="Condition" ErrorMessage="Please enter correct number" MaximumValue="100" 
+            MinimumValue="0" style="color:brown" ></asp:RangeValidator>
+</p>
+    
     <p>
         <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="NewClientSubmit_Click" />
     </p>

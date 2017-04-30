@@ -43,9 +43,9 @@ namespace WebApplication1.Helpers
             intervention.InterventionTypeId = interventionTypeId;
             intervention.ClientId = clientId;
             intervention.CreateDate = DateTime.Now;
-            intervention.Status = (int) Status.Proposed;
             intervention.InterventionHours = Convert.ToDecimal(interventionHour);
             intervention.InterventionCost = Convert.ToDecimal(interventionCost);
+            intervention.Status = validateUserForStatus(intervention.InterventionHours, intervention.InterventionCost) ? (int)Status.Approved : (int)Status.Proposed;
             try
             {
                 repos.Insert(intervention);
@@ -53,6 +53,20 @@ namespace WebApplication1.Helpers
             catch (Exception)
             {
                 throw new FailedToCreateRecordException();
+            }
+        }
+
+        private bool validateUserForStatus(decimal hours, decimal cost)
+        {
+            var userRepo = new UserRepository(context);
+            var currentUser = userRepo.GetAllForUser(Utils.getInstance.GetCurrentUserId());
+            if (currentUser.MaximumHours >= hours && currentUser.MaximumCost >= cost)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

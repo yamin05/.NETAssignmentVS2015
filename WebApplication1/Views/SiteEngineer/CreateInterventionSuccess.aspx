@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="CreateInterventionSuccess.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.CreateInterventionSuccess" %>
+﻿<%@ Page Title="Create Intervention Success" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="CreateInterventionSuccess.aspx.cs" Inherits="WebApplication1.Views.SiteEngineer.CreateInterventionSuccess" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
         <br />
