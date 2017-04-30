@@ -237,7 +237,6 @@
     <Content Include="Views\SiteEngineer\CreateClient.aspx" />
     <Content Include="Views\SiteEngineer\CreateClientSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateIntervention.aspx" />
-    <Content Include="Views\SiteEngineer\QualityManagement.aspx" />
     <Content Include="Views\SiteEngineer\UpdateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\CreateInterventionSuccess.aspx" />
     <Content Include="Views\SiteEngineer\NoData.aspx" />
@@ -375,13 +374,19 @@
     <Compile Include="Enums\Districts.cs" />
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Enums\Status.cs" />
+    <Compile Include="Exceptions\ClientAdditionConflictException.cs" />
     <Compile Include="Exceptions\EditQMInfoPermissionException.cs" />
     <Compile Include="Exceptions\EditStatusPermissionException.cs" />
+    <Compile Include="Exceptions\FailedToCreateClientOrIntervention.cs" />
+    <Compile Include="Exceptions\FailedToUpdateClientListOrInterventionList.cs" />
     <Compile Include="Exceptions\FailedToUpdateRecordException.cs" />
     <Compile Include="Exceptions\FailedToCreateRecordException.cs" />
     <Compile Include="Exceptions\CannotEditStatusException.cs" />
+    <Compile Include="Exceptions\InterventionAdditionConflictExpection.cs" />
     <Compile Include="Exceptions\InvalidConditionUpdateException.cs" />
     <Compile Include="Exceptions\InvalidConditionLimitException.cs" />
+    <Compile Include="Exceptions\LostClientInformationException.cs" />
+    <Compile Include="Exceptions\QualityManagementAdditionConflict.cs" />
     <Compile Include="Exceptions\WrongCurrentPassword.cs" />
     <Compile Include="Exceptions\InvalidPasswordFormatException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
@@ -613,13 +618,6 @@
     </Compile>
     <Compile Include="Views\SiteEngineer\CreateIntervention.aspx.designer.cs">
       <DependentUpon>CreateIntervention.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SiteEngineer\QualityManagement.aspx.cs">
-      <DependentUpon>QualityManagement.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\SiteEngineer\QualityManagement.aspx.designer.cs">
-      <DependentUpon>QualityManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SiteEngineer\UpdateInterventionSuccess.aspx.cs">
       <DependentUpon>UpdateInterventionSuccess.aspx</DependentUpon>
