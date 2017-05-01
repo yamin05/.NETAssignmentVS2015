@@ -30,7 +30,7 @@ namespace WebApplication1.Helpers
             list.Add(row.MaximumHours.ToString());
             return list;
         }
-       
+
         public IList<ListInterventionForManager> GetInterventions(string userid)
         {
             var repos = new ListInterventionForManagerRepository(context);
@@ -43,7 +43,6 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
-
         public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
@@ -51,7 +50,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
-        public IList<ListInterventions> GetInterventionsForClient (string clientid)
+        public IList<ListInterventions> GetInterventionsForClient(string clientid)
         {
             var repos = new ListInterventionsRepository(context);
             var list = repos.GetAllInterventionsForClient(Utils.getInstance.GetCurrentUserId(), Convert.ToInt32(clientid));
@@ -80,8 +79,9 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
-        public IList<ListInterventionForManager> ListOfPropInterventions(string userid,int InterventionId)
-        { List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
+        public IList<ListInterventionForManager> ListOfPropInterventions(string userid, int InterventionId)
+        {
+            List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
             ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
             interlist = repo.GetAllInterventionByInterventionId(InterventionId).ToList();
             return interlist;
@@ -98,46 +98,54 @@ namespace WebApplication1.Helpers
         {
             InterventionsRepository repo = new InterventionsRepository(context);
             List<InterventionsRepository> interlist = new List<InterventionsRepository>();
-            repo.Update_Intervention_Status_As_Approved (InterventionId);
+            repo.Update_Intervention_Status_As_Approved(InterventionId);
             return interlist;
-            
+
         }
         public IList<ListInterventionForManager> ListOfProposedInterventions(string userid)
         {
             List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
             interlist = GetInterventions(userid).ToList();
+            var ManageruserId = HttpContext.Current.User.Identity.GetUserId();
+            List<ListInterventionForManager> proposedinterlist = new List<ListInterventionForManager>();
+            var manager = GetManagerInfo(ManageruserId);
+            proposedinterlist = ValidateProposedInterventions(manager, interlist).ToList();
+            return proposedinterlist;
 
+        }
+
+        public Users GetManagerInfo(string userid)
+        {
             List<string> ManagerInfo = new List<string>();
             ManagerInfo = Get_District_MaxCost_MaxHour_ForManager(userid).ToList();
-
             string Dis = ManagerInfo.ElementAt(0);
             string maxihcost = ManagerInfo.ElementAt(1);
             string maxihour = ManagerInfo.ElementAt(2);
-
             Users manager = new Users();
             manager.District = Convert.ToInt32(Dis);
             manager.MaximumCost = Convert.ToInt32(maxihcost);
             manager.MaximumHours = Convert.ToDecimal(maxihour);
-            var ManageruserId = HttpContext.Current.User.Identity.GetUserId();
-            List<ListInterventionForManager> proposedinterlist = new List<ListInterventionForManager>();
+            return manager;
 
-            for (int i = 0; i <= interlist.Count-1; i++)
+        }
+        public IList<ListInterventionForManager> ValidateProposedInterventions(Users manager, List<ListInterventionForManager> InterList)
+        {
+            List<ListInterventionForManager> ProposedList = new List<ListInterventionForManager>();
+            for (int i = 0; i <= InterList.Count - 1; i++)
             {
                 {
-                    if (manager.MaximumHours >= interlist[i].InterventionHours && manager.MaximumCost >= interlist[i].InterventionCost
-                        
-                        )
+                    if (manager.MaximumHours >= InterList[i].InterventionHours && manager.MaximumCost >= InterList[i].InterventionCost && manager.District == InterList[i].District)
                     {
-                        proposedinterlist.Add(interlist[i]);
+                        ProposedList.Add(InterList[i]);
                     }
                 }
             }
-                        return proposedinterlist;
-         }
-
-      }
-
+            return ProposedList;
+        }
+    }
 }
+
+
 
     
     

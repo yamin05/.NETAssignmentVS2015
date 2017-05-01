@@ -38,8 +38,6 @@ namespace WebApplication1.Repositories
                                             CreateDate,Status,InterventionId FROM Interventions inner join Clients on Interventions.ClientID = Clients.ClientId
                                             inner join InterventionType on Interventions.InterventionTypeId = InterventionType.InterventionTypeId 
                                             inner join Users on Interventions.UserId = Users.UserId where Interventions.InterventionId=@interventionid";
-
-                
                 command.Parameters.Add(command.CreateParameter("interventionid", interventionid));
                 return this.ToList(command).ToList();
             }
