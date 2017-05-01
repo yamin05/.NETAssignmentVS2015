@@ -13,9 +13,9 @@
                 <asp:BoundField DataField="InterventionCost" HeaderText="Cost" SortExpression="InterventionCost" />
                 <asp:BoundField DataField="CreateDate" HeaderText="Date Created" SortExpression="CreateDate" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-        <asp:TemplateField HeaderText="View Details">
+        <asp:TemplateField HeaderText="Select Intervention to Apprrove Or Cancel ">
                 <ItemTemplate>
-                <asp:HyperLink ID="lnkSelect" runat='server' NavigateUrl='<%# String.Format("ManagerOperation.aspx?ID={0}", Eval("InterventionId")) %>'>Select</asp:HyperLink>
+                <asp:HyperLink ID="lnkSelect" runat='server' NavigateUrl='<%# String.Format("ManagerOperation.aspx?ID={0}", Eval("InterventionId")) %>'>Select Intervention</asp:HyperLink>
                 </ItemTemplate>
         </asp:TemplateField>
             </Columns>
