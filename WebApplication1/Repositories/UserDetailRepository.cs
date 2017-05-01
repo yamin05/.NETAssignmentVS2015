@@ -21,15 +21,7 @@ namespace WebApplication1.Repositories
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUserRoles] anur on anu.id=anur.userid
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetRoles] anr on anur.roleid=anr.id 
 										where anr.Name='siteengineer' or anr.Name='manager' ";
-                //command.Parameters.Add(command.CreateParameter("userid", userId));
                 return this.ToList(command).ToList();
-                
-                                        //,case when u.District = '1' then 'Urban Indonesia'
-                                        //when u.District = '2' then 'Rural Indonesia'
-                                        //when u.District = '3' then 'Urban Papua New Guinea'
-                                        //when u.District = '4' then 'Rural Papua New Guinea'
-                                        //when u.District = '5' then 'Sydney'
-                                        //when u.District = '6' then 'Rural New South Wales' end DistrictName
             }
         }
 

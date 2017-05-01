@@ -22,11 +22,6 @@ namespace WebApplication1.Views.Accountant
             Response.Redirect("~/Views/Accountant/UsersList.aspx");
         }
 
-        protected void ChangeDistrict_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Views/Accountant/ChangeDistrict.aspx");
-        }
-
         protected void TotalCostByEngineer_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/Accountant/TotalCostByEngineer.aspx");

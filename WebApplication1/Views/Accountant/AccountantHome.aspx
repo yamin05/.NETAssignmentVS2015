@@ -12,9 +12,6 @@
              <asp:Button ID="UsersList" runat="server" Text="UsersList" OnClick="UsersList_Click" Width="400px" />
              </p>
              <p>
-             <asp:Button ID="ChangeDistrict" runat="server" Text="Change District" OnClick="ChangeDistrict_Click" Width="400px" />
-             </p>
-             <p>
              <asp:Button ID="TotalCostByEngineer" runat="server" Text="Total Costs by Engineer Report" OnClick="TotalCostByEngineer_Click" Width="400px" />
              </p>
              <p>
