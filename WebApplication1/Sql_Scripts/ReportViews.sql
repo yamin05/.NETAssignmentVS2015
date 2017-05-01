@@ -40,14 +40,13 @@ select '5', 'Rural New South Wales' ) D left join
 ) I on I.ClientDistrict=D.DistrictId group by D.DistrictId,D.DistrictName
 
 GO
-
 IF EXISTS(SELECT 1 FROM sys.views WHERE name='Report_MonthlyCostsforDistrict')
 DROP VIEW Report_MonthlyCostsforDistrict
 GO
 create view Report_MonthlyCostsforDistrict
 as
-select D.DistrictId,D.DistrictName,m.y, M.m, 
-isnull(sum(I.InterventionCost),0) MonthlyCost, isnull(sum(I.InterventionHours),0) MonthlyHours from (
+select D.DistrictId,D.DistrictName,m.Year, M.Month, 
+isnull(sum(I.InterventionCost),0) MonthlyCosts, isnull(sum(I.InterventionHours),0) MonthlyHours from (
 select '0' DistrictId, 'Urban Indonesia' DistrictName
 union all
 select '1','Rural Indonesia'
@@ -60,9 +59,9 @@ select '4', 'Sydney'
 union all
 select '5', 'Rural New South Wales' ) D cross join 
 (
-select '2017' y,'01' m union all select '2017' y,'02' union all select '2017' y,'03' union all select '2017' y,'04' 
+select '2017' "Year",'01' "Month" union all select '2017' y,'02' union all select '2017' y,'03' union all select '2017' y,'04' 
 union all select '2017' y,'05' union all select '2017' y,'06' union all select '2017' y,'07' union all select '2017' y,'08' 
 union all select '2017' y,'09' union all select '2017' y,'10' union all select '2017' y,'11' union all select '2017' y,'12' ) M 
 left join (select I.InterventionCost,I.InterventionHours,I.CreateDate,I.Status,C.ClientDistrict from Interventions I inner join Clients C on I.ClientId=C.ClientId 
-where I.Status=3 ) I on I.ClientDistrict=D.DistrictId and month(I.CreateDate)=M.m and year(I.CreateDate)=M.y
-group by D.DistrictId,D.DistrictName,m.y, M.m
+where I.Status=3 ) I on I.ClientDistrict=D.DistrictId and month(I.CreateDate)=M.Month and year(I.CreateDate)=M.Year
+group by D.DistrictId,D.DistrictName,m.Year, M.Month

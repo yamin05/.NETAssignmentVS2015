@@ -49,7 +49,6 @@ namespace WebApplication1.Helpers
         public Dictionary<string, int> GetDistrictForUser()
         {
             Dictionary<string, int> list = new Dictionary<string, int>();
-            list.Add("All District", 999);
             list.Add(Districts.Urban_Indonesia.ToString().Replace("_", " "), (int)Districts.Urban_Indonesia);
             list.Add(Districts.Rural_Indonesia.ToString().Replace("_", " "), (int)Districts.Rural_Indonesia);
             list.Add(Districts.Urban_Papua_New_Guinea.ToString().Replace("_", " "), (int)Districts.Urban_Papua_New_Guinea);

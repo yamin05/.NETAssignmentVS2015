@@ -52,8 +52,8 @@ namespace WebApplication1.Repositories
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = @"SELECT R.DistrictId, R.DistrictName, R.m, R.Costs, R.Hours
-                                        FROM Report_MonthlyCostForDistrict R WHERE DistrictId= @DistrictId";
+                command.CommandText = @"SELECT R.DistrictId, R.DistrictName, R.Month, R.MonthlyCosts, R.MonthlyHours
+                                        FROM Report_MonthlyCostsForDistrict R WHERE DistrictId= @DistrictId";
                 command.Parameters.Add(command.CreateParameter("DistrictId", districtId));
                 return this.ToList(command).ToList();
             }

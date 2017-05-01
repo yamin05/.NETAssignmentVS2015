@@ -10,8 +10,8 @@
                 <asp:BoundField DataField="DistrictId" HeaderText="District ID" SortExpression="DistrictId" />
                 <asp:BoundField DataField="DistrictName" HeaderText="District Name" SortExpression="DistrictName" />
                 <asp:BoundField DataField="Month" HeaderText="User Role" SortExpression="RoleName" />
-                <asp:BoundField DataField="Costs" HeaderText="Costs" SortExpression="Costs" />
-                <asp:BoundField DataField="Hours" HeaderText="Hours" SortExpression="Hours" />
+                <asp:BoundField DataField="MonthlyCosts" HeaderText="Costs" SortExpression="MonthlyCosts" />
+                <asp:BoundField DataField="MonthlyHours" HeaderText="Hours" SortExpression="MonthlyHours" />
             </Columns>
             <selectedrowstyle backcolor="LightCyan"
                 forecolor="DarkBlue"
