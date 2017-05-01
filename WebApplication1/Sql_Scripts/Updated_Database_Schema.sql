@@ -127,8 +127,8 @@ go
 create table InterventionType (
    InterventionTypeId   int              identity,
    InterventionTypeName nvarchar(512)         null,
-   InterventionTypeHours decimal              null,
-   InterventionTypeCost decimal              null,
+   InterventionTypeHours decimal(10,2)              null,
+   InterventionTypeCost decimal(10,2)              null,
    constraint PK_INTERVENTIONTYPE primary key (InterventionTypeId)
 )
 go
@@ -155,8 +155,8 @@ create table Interventions (
    UserId               nvarchar(128)              null,
    InterventionTypeId   int              null,
    ClientId             int             null,
-   InterventionCost     decimal              null,
-   InterventionHours     decimal              null,
+   InterventionCost     decimal(10,2)              null,
+   InterventionHours     decimal(10,2)              null,
    CreateDate           datetime             null,
    Status               int                  null,
    Operator             int                  null,
@@ -169,8 +169,8 @@ go
 /*==============================================================*/
 create table Users (
    UserId               nvarchar(128)        not null,
-   MaximumHours         decimal              null,
-   MaximumCost         decimal              null,
+   MaximumHours         decimal(10,2)              null,
+   MaximumCost         decimal(10,2)              null,
    District             int                  null,
    constraint PK_USERS primary key (UserId)
 )
