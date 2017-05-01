@@ -159,7 +159,7 @@ create table Interventions (
    InterventionHours     decimal              null,
    CreateDate           datetime             null,
    Status               int                  null,
-   Operator             int                  null,
+  Operator          NVARCHAR(128)           NULL,
    constraint PK_INTERVENTIONS primary key (InterventionId)
 )
 go

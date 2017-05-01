@@ -12,6 +12,6 @@ namespace WebApplication1.Models
         public decimal InterventionHours { get; set; }
         public DateTime CreateDate { get; set; }
         public int Status { get; set; }
-        public int Operater { get; set; }
+        public string Operator { get; set; }
     }
 }
