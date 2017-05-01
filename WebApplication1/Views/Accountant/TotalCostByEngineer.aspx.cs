@@ -34,10 +34,7 @@ namespace WebApplication1.Views.Accountant
         ICollection CreateDataSourceForGridView()
         {
             var list = viewReportHelper.ViewTotalCostsByEngineer();
-            //if (list.Count == 0)
-            //{
-            //    Response.Redirect("~/Views/SiteEngineer/NoData.aspx?message=" + "No Interventions Have Been Created By You");
-            //}
+          
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("UserId", typeof(string)));
             datatable.Columns.Add(new DataColumn("UserName", typeof(string)));

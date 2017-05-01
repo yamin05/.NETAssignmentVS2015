@@ -21,9 +21,9 @@ namespace WebApplication1.Models
 
         public decimal AverageCosts { get; set; }
 
-        public decimal Hours { get; set; }
+        public decimal MonthlyHours { get; set; }
 
-        public decimal Costs { get; set; }
+        public decimal MonthlyCosts { get; set; }
 
         public string DistrictId { get; set; }
 
@@ -32,5 +32,10 @@ namespace WebApplication1.Models
         public string Month { get; set; }
 
         public string Year { get; set; }
+
+        public decimal Hours { get; set; }
+
+        public decimal Costs { get; set; }
+
     }
 }
