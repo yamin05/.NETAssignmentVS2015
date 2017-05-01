@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using WebApplication1.Helpers;
 using Microsoft.AspNet.Identity;
 using WebApplication1.Models;
+using WebApplication1.Exceptions;
 
 namespace WebApplication1.Views.Manager
 {
@@ -19,6 +20,7 @@ namespace WebApplication1.Views.Manager
             {
                 Grid.DataSource = CreateSource();
                 Grid.DataBind();
+                backtolist1.Visible = false;
             }
         }
         public DataTable CreateSource()
@@ -66,22 +68,43 @@ namespace WebApplication1.Views.Manager
         {
             string interventionId = Request.QueryString["ID"];
             int interid = Convert.ToInt32(interventionId);
-            listInterventions.ApproveIntervention(interid);
-            Grid.DataSource = CreateSource();
-            Grid.DataBind();
-            approve.Visible = false;
-            Button1.Visible = false;
+            try
+                {
+                listInterventions.ApproveIntervention(interid);
+                Grid.DataSource = CreateSource();
+                Grid.DataBind();
+                approve.Visible = false;
+                cancel.Visible = true;
+                backtolist.Visible = false;
+                backtolist1.Visible = true;
+                Label2.Text = "The Intervention has been approved";
+                
+                }
+            catch
+                {
+                    throw new FailedToUpdateRecordException();
+                }
         }
 
         protected void Cancel(object sender, EventArgs e)
         {
             string interventionId = Request.QueryString["ID"];
             int interid = Convert.ToInt32(interventionId);
-            listInterventions.CancelIntervention(interid);
-            Grid.DataSource = CreateSource();
-            Grid.DataBind();
-            approve.Visible = false;
-            Button1.Visible = false;
+            try
+                {
+                    listInterventions.CancelIntervention(interid);
+                    Grid.DataSource = CreateSource();
+                    Grid.DataBind();
+                    approve.Visible = false;
+                    cancel.Visible = false;
+                    backtolist.Visible = false;
+                    backtolist1.Visible = true;
+                    Label2.Text = "The Intervention has been cancelled";
+                }
+           catch
+                {
+                    throw new FailedToUpdateRecordException();
+                }
         }
         protected void GotoList(object sender, EventArgs e)
         {

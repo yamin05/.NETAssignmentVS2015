@@ -22,6 +22,15 @@ namespace WebApplication1.Views.Manager {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// Grid control.
         /// </summary>
         /// <remarks>
@@ -49,33 +58,30 @@ namespace WebApplication1.Views.Manager {
         protected global::System.Web.UI.WebControls.Button approve;
         
         /// <summary>
-        /// Button1 control.
+        /// cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button cancel;
         
         /// <summary>
-        /// Button2 control.
+        /// backtolist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button backtolist;
         
         /// <summary>
-        /// PreviousPage property.
+        /// backtolist1 control.
         /// </summary>
         /// <remarks>
-        /// Auto-generated property.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public new WebApplication1.Views.Manager.ListInterventions PreviousPage {
-            get {
-                return ((WebApplication1.Views.Manager.ListInterventions)(base.PreviousPage));
-            }
-        }
+        protected global::System.Web.UI.WebControls.Button backtolist1;
     }
 }
