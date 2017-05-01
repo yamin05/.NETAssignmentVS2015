@@ -240,10 +240,10 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Sql_Scripts\ReportViews.sql" />
     <Content Include="Sql_Scripts\Updated_Database_Schema.sql" />
     <Content Include="Views\Accountant\AccountantHome.aspx" />
     <Content Include="Views\Accountant\AverageCostByEngineer.aspx" />
-    <Content Include="Views\Accountant\ChangeDistrict.aspx" />
     <Content Include="Views\Accountant\CostByDistrict.aspx" />
     <Content Include="Views\Accountant\MonthlyCostForDistrict.aspx" />
     <Content Include="Views\Accountant\TotalCostByEngineer.aspx" />
@@ -333,12 +333,14 @@
     <Compile Include="Helpers\CreateClientHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Helpers\SiteHelper.cs" />
+    <Compile Include="Helpers\ViewReportHelper.cs" />
     <Compile Include="Helpers\ViewUsersHelper.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\EngineerClients.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Interventions.cs" />
     <Compile Include="Models\InterventionType.cs" />
     <Compile Include="Models\InterventionUpdate.cs" />
@@ -360,6 +362,7 @@
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\UserDetailRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\ViewReportRepository.cs" />
     <Compile Include="Sql_Scripts\AutoDatabaseCreate.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Views\Accountant\AccountantHome.aspx.cs">
@@ -375,13 +378,6 @@
     </Compile>
     <Compile Include="Views\Accountant\AverageCostByEngineer.aspx.designer.cs">
       <DependentUpon>AverageCostByEngineer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accountant\ChangeDistrict.aspx.cs">
-      <DependentUpon>ChangeDistrict.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accountant\ChangeDistrict.aspx.designer.cs">
-      <DependentUpon>ChangeDistrict.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Accountant\CostByDistrict.aspx.cs">
       <DependentUpon>CostByDistrict.aspx</DependentUpon>
