@@ -30,8 +30,6 @@ namespace WebApplication1.Views.Manager
             var userId = HttpContext.Current.User.Identity.GetUserId();
             List<ListInterventionForManager> InterList = new List<ListInterventionForManager>();
             InterList = listInterventions.ListOfPropInterventions(userId, interid).ToList();
-            //DataSet ds = ListToDatasetExtension.ToDataSet<ListInterventionForManager>(ProposedInterList);
-            //return ds;
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("District", typeof(string)));
             datatable.Columns.Add(new DataColumn("ClientDistrict", typeof(string)));
@@ -72,44 +70,28 @@ namespace WebApplication1.Views.Manager
             string oldstatus = Request.QueryString["Status"];
             int newstatus = (int)Status.Approved;
             int old_status = (int)((Status)Enum.Parse(typeof(Status), oldstatus));
-            try
-            {
-                listInterventions.ApproveIntervention(interid, old_status, newstatus, userid);
-                Grid.DataSource = CreateSource();
-                Grid.DataBind();
-                approve.Visible = false;
-                cancel.Visible = true;
-                backtolist.Visible = false;
-                backtolist1.Visible = true;
-                Label2.Text = "The Intervention has been approved";
-
+            listInterventions.ApproveIntervention(interid, old_status, newstatus, userid);
+            Grid.DataSource = CreateSource();
+            Grid.DataBind();
+            approve.Visible = false;
+            cancel.Visible = true;
+            backtolist.Visible = false;
+            backtolist1.Visible = true;
+            Label2.Text = "The Intervention has been approved";
         }
-            catch
-                {
-                    throw new FailedToUpdateRecordException();
-    }
-}
 
         protected void Cancel(object sender, EventArgs e)
         {
             string interventionId = Request.QueryString["ID"];
             int interid = Convert.ToInt32(interventionId);
-
-            try
-            {
-                listInterventions.CancelIntervention(interid);
-                Grid.DataSource = CreateSource();
-                Grid.DataBind();
-                approve.Visible = false;
-                cancel.Visible = false;
-                backtolist.Visible = false;
-                backtolist1.Visible = true;
-                Label2.Text = "The Intervention has been cancelled";
-            }
-            catch
-            {
-                throw new FailedToUpdateRecordException();
-            }
+            listInterventions.CancelIntervention(interid);
+            Grid.DataSource = CreateSource();
+            Grid.DataBind();
+            approve.Visible = false;
+            cancel.Visible = false;
+            backtolist.Visible = false;
+            backtolist1.Visible = true;
+            Label2.Text = "The Intervention has been cancelled";
         }
         protected void GotoList(object sender, EventArgs e)
         {

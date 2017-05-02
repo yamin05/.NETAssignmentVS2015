@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using WebApplication1.Models;
 using WebApplication1.Repositories;
-
+using WebApplication1.Exceptions;
 namespace WebApplication1.Helpers
 {
     public class ListInterventionsHelper
@@ -22,27 +22,41 @@ namespace WebApplication1.Helpers
 
         private IList<string> Get_District_MaxCost_MaxHour_ForManager(string userId)
         {
-            var repos = new UserRepository(context);
-            var row = repos.GetAllForUser(userId);
-            List<string> list = new List<string>();
-            list.Add(row.District.ToString());
-            list.Add(row.MaximumCost.ToString());
-            list.Add(row.MaximumHours.ToString());
-            return list;
+            try
+            {
+                var repos = new UserRepository(context);
+                var row = repos.GetAllForUser(userId);
+                List<string> list = new List<string>();
+                list.Add(row.District.ToString());
+                list.Add(row.MaximumCost.ToString());
+                list.Add(row.MaximumHours.ToString());
+                return list;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
         }
 
         public IList<ListInterventionForManager> GetInterventions(string userid)
         {
-            var repos = new ListInterventionForManagerRepository(context);
-            var rows = repos.GetAllProposedInterventiond();
-            List<ListInterventionForManager> list = new List<ListInterventionForManager>();
-            foreach (var row in rows)
+            try
             {
-                list.Add(row);
+                var repos = new ListInterventionForManagerRepository(context);
+                var rows = repos.GetAllProposedInterventiond();
+                List<ListInterventionForManager> list = new List<ListInterventionForManager>();
+                foreach (var row in rows)
+                {
+                    list.Add(row);
 
+                }
+                return list;
             }
-            return list;
-        }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
+         }
         public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
@@ -52,16 +66,30 @@ namespace WebApplication1.Helpers
 
         public IList<ListInterventions> GetInterventionsForClient(string clientid)
         {
-            var repos = new ListInterventionsRepository(context);
-            var list = repos.GetAllInterventionsForClient(Utils.getInstance.GetCurrentUserId(), Convert.ToInt32(clientid));
-            return list;
+            try
+            {
+                var repos = new ListInterventionsRepository(context);
+                var list = repos.GetAllInterventionsForClient(Utils.getInstance.GetCurrentUserId(), Convert.ToInt32(clientid));
+                return list;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
         }
 
         public IList<ListInterventions> GetInterventionsForClientInSameDistrict(string clientid)
         {
-            var repos = new ListInterventionsRepository(context);
-            var list = repos.GetAllInterventionsForClientInSameDistrict(Convert.ToInt32(clientid));
-            return list;
+            try
+            {
+                var repos = new ListInterventionsRepository(context);
+                var list = repos.GetAllInterventionsForClientInSameDistrict(Convert.ToInt32(clientid));
+                return list;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
         }
 
         public Dictionary<string, int> GetPossibleStatusUpdateForIntervention(string status)
@@ -82,58 +110,99 @@ namespace WebApplication1.Helpers
         }
         public IList<ListInterventionForManager> ListOfPropInterventions(string userid, int InterventionId)
         {
-            List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
-            ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
-            interlist = repo.GetAllInterventionByInterventionId(InterventionId).ToList();
-            return interlist;
+            try
+            {
+                List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
+                ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
+                interlist = repo.GetAllInterventionByInterventionId(InterventionId).ToList();
+                return interlist;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
         }
         public IList<InterventionsRepository> CancelIntervention(int interventionId)
         {
-            InterventionsRepository repo = new InterventionsRepository(context);
-            List<InterventionsRepository> interlist = new List<InterventionsRepository>();
-            repo.Delete(interventionId);
-            return interlist;
+            try
+            {
+                InterventionsRepository repo = new InterventionsRepository(context);
+                List<InterventionsRepository> interlist = new List<InterventionsRepository>();
+                repo.Delete(interventionId);
+                return interlist;
 
+            }
+            catch
+            {
+                throw new FailedToUpdateRecordException();
+            }
         }
-        public IList<InterventionsRepository> ApproveIntervention(int InterventionId, int OldStatus, int NewStatus, string Userid)
+    public IList<InterventionsRepository> ApproveIntervention(int InterventionId, int OldStatus, int NewStatus, string Userid)
         {
-            InterventionsRepository repo = new InterventionsRepository(context);
-            List<InterventionsRepository> interlist = new List<InterventionsRepository>();
-            repo.Update_Intervention_Status(InterventionId, OldStatus, NewStatus, Userid);
-            return interlist;
-
+            try
+            {
+                InterventionsRepository repo = new InterventionsRepository(context);
+                List<InterventionsRepository> interlist = new List<InterventionsRepository>();
+                repo.Update_Intervention_Status(InterventionId, OldStatus, NewStatus, Userid);
+                return interlist;
+            }
+            catch
+            {
+                throw new FailedToUpdateRecordException();
+            }
         }
         public IList<ListInterventionForManager> ListOfProposedInterventions(string userid)
         {
-            List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
-            interlist = GetInterventions(userid).ToList();
-            var ManageruserId = HttpContext.Current.User.Identity.GetUserId();
-            List<ListInterventionForManager> proposedinterlist = new List<ListInterventionForManager>();
-            var manager = GetManagerInfo(ManageruserId);
-            proposedinterlist = ValidateProposedInterventions(manager, interlist).ToList();
-            return proposedinterlist;
+            try
+            {
+                List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
+                interlist = GetInterventions(userid).ToList();
+                var ManageruserId = HttpContext.Current.User.Identity.GetUserId();
+                List<ListInterventionForManager> proposedinterlist = new List<ListInterventionForManager>();
+                var manager = GetManagerInfo(ManageruserId);
+                proposedinterlist = ValidateProposedInterventions(manager, interlist).ToList();
+                return proposedinterlist;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
 
         }
         public IList<ListInterventionForManager> ListOfAssociatedIntrevention(string userid)
         {
-            List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
-            ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
-            List<ListInterventionForManager> associatedlist = new List<ListInterventionForManager>();
-            associatedlist = repo.GetAllInterventionAssociatedWithManager(userid);
-            return associatedlist;
+            try
+            {
+                List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
+                ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
+                List<ListInterventionForManager> associatedlist = new List<ListInterventionForManager>();
+                associatedlist = repo.GetAllInterventionAssociatedWithManager(userid);
+                return associatedlist;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
         }
         public Users GetManagerInfo(string userid)
         {
-            List<string> ManagerInfo = new List<string>();
-            ManagerInfo = Get_District_MaxCost_MaxHour_ForManager(userid).ToList();
-            string Dis = ManagerInfo.ElementAt(0);
-            string maxihcost = ManagerInfo.ElementAt(1);
-            string maxihour = ManagerInfo.ElementAt(2);
-            Users manager = new Users();
-            manager.District = Convert.ToInt32(Dis);
-            manager.MaximumCost = Convert.ToDecimal(maxihcost);
-            manager.MaximumHours = Convert.ToDecimal(maxihour);
-            return manager;
+            try
+            {
+                List<string> ManagerInfo = new List<string>();
+                ManagerInfo = Get_District_MaxCost_MaxHour_ForManager(userid).ToList();
+                string Dis = ManagerInfo.ElementAt(0);
+                string maxihcost = ManagerInfo.ElementAt(1);
+                string maxihour = ManagerInfo.ElementAt(2);
+                Users manager = new Users();
+                manager.District = Convert.ToInt32(Dis);
+                manager.MaximumCost = Convert.ToDecimal(maxihcost);
+                manager.MaximumHours = Convert.ToDecimal(maxihour);
+                return manager;
+            }
+            catch
+            {
+                throw new FaliedToRetriveRecordException();
+            }
 
         }
         public IList<ListInterventionForManager> ValidateProposedInterventions(Users manager, List<ListInterventionForManager> InterList)

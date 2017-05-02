@@ -304,6 +304,7 @@
     <Compile Include="Exceptions\FailedToUpdateRecordException.cs" />
     <Compile Include="Exceptions\FailedToCreateRecordException.cs" />
     <Compile Include="Exceptions\CannotEditStatusException.cs" />
+    <Compile Include="Exceptions\FaliedToRetriveRecordException.cs" />
     <Compile Include="Exceptions\InterventionAdditionConflictExpection.cs" />
     <Compile Include="Exceptions\InvalidConditionUpdateException.cs" />
     <Compile Include="Exceptions\InvalidConditionLimitException.cs" />
@@ -329,7 +330,6 @@
     <Compile Include="Helpers\ViewClientHelper.cs" />
     <Compile Include="Helpers\CreateClientHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
-    <Compile Include="Helpers\SiteHelper.cs" />
     <Compile Include="Helpers\ViewReportHelper.cs" />
     <Compile Include="Helpers\ViewUsersHelper.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
