@@ -18,11 +18,10 @@
     <p>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="NewClientName"  ErrorMessage="The Client Name is required." style="color:brown" />
     </p>
-    <p>
-        <asp:RangeValidator  runat="server" 
-            ControlToValidate="NewClientName" ErrorMessage="Please enter correct words" MaximumValue="z" 
-            MinimumValue="A" style="color:brown" ></asp:RangeValidator>
-    </p>
+   <asp:RegularExpressionValidator runat="server" 
+        controlToValidate="NewClientName" ValidationExpression="[a-zA-Z]{1,}" ErrorMessage="Please enter correct words"  style="color:brown"
+
+        />
 
     <p>
         <asp:Label ID="Label3" font-size="Small" runat="server" Text="Address or Other Location Information: "></asp:Label>
