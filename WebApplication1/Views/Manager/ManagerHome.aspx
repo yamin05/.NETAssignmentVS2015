@@ -10,7 +10,10 @@
              <asp:Button ID="ChangePassword" runat="server" Text="Change Password" OnClick="ChangePassword_Click" Width="400px" />
                 </p>
              <p>
-             <asp:Button ID="ListOfIntervention" runat="server" Text="List of Proposed Interventions" OnClick="Manager_Intervention_List_Click" Width="400px" />
+             <asp:Button ID="ListOfIntervention" runat="server" Text="List of Interventions to Aprrove or Cancel in your District" OnClick="Manager_Intervention_List_Click" Width="400px" />
+            </p>
+             <p>
+             <asp:Button ID="ListofAssoiciatedInterventions" runat="server" Text="List of Interventions Associated with you" OnClick="Manager_Assoiciated_Interventions" Width="400px" />
             </p>
           </div>
     

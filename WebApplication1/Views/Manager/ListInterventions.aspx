@@ -15,7 +15,7 @@
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
         <asp:TemplateField HeaderText="Select Intervention to Apprrove Or Cancel ">
                 <ItemTemplate>
-                <asp:HyperLink ID="lnkSelect" runat='server' NavigateUrl='<%# String.Format("ManagerOperation.aspx?ID={0}", Eval("InterventionId")) %>'>Select Intervention</asp:HyperLink>
+                <asp:HyperLink ID="lnkSelect" runat='server' NavigateUrl='<%# String.Format("ManagerOperation.aspx?ID={0}&Status={1}&UID={2}", Eval("InterventionId"), Eval("Status"), HttpContext.Current.User.Identity.GetUserId()) %>'>Select Intervention</asp:HyperLink>
                 </ItemTemplate>
         </asp:TemplateField>
             </Columns>

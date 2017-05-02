@@ -1,4 +1,4 @@
-﻿    using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,19 +86,19 @@ namespace WebApplication1.Helpers
             interlist = repo.GetAllInterventionByInterventionId(InterventionId).ToList();
             return interlist;
         }
-        public IList<InterventionsRepository> CancelIntervention(int InterventionId)
+        public IList<InterventionsRepository> CancelIntervention(int interventionId)
         {
             InterventionsRepository repo = new InterventionsRepository(context);
             List<InterventionsRepository> interlist = new List<InterventionsRepository>();
-            repo.Update_Intervention_Status_As_Cancelled(InterventionId);
+            repo.Delete(interventionId);
             return interlist;
 
         }
-        public IList<InterventionsRepository> ApproveIntervention(int InterventionId)
+        public IList<InterventionsRepository> ApproveIntervention(int InterventionId, int OldStatus, int NewStatus, string Userid)
         {
             InterventionsRepository repo = new InterventionsRepository(context);
             List<InterventionsRepository> interlist = new List<InterventionsRepository>();
-            repo.Update_Intervention_Status_As_Approved(InterventionId);
+            repo.Update_Intervention_Status(InterventionId, OldStatus, NewStatus, Userid);
             return interlist;
 
         }
@@ -113,7 +113,14 @@ namespace WebApplication1.Helpers
             return proposedinterlist;
 
         }
-
+        public IList<ListInterventionForManager> ListOfAssociatedIntrevention(string userid)
+        {
+            List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
+            ListInterventionForManagerRepository repo = new ListInterventionForManagerRepository(context);
+            List<ListInterventionForManager> associatedlist = new List<ListInterventionForManager>();
+            associatedlist = repo.GetAllInterventionAssociatedWithManager(userid);
+            return associatedlist;
+        }
         public Users GetManagerInfo(string userid)
         {
             List<string> ManagerInfo = new List<string>();
@@ -142,6 +149,8 @@ namespace WebApplication1.Helpers
             }
             return ProposedList;
         }
+
+
     }
 }
 

@@ -259,6 +259,7 @@
     <Content Include="Global.asax" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Manager\AssociatedInterventions.aspx" />
     <Content Include="Views\Manager\ListInterventions.aspx" />
     <Content Include="Views\Manager\ManagerHome.aspx" />
     <Content Include="Views\Manager\ManagerOperation.aspx" />
@@ -459,6 +460,13 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\AssociatedInterventions.aspx.cs">
+      <DependentUpon>AssociatedInterventions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\AssociatedInterventions.aspx.designer.cs">
+      <DependentUpon>AssociatedInterventions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Manager\ListInterventions.aspx.cs">
       <DependentUpon>ListInterventions.aspx</DependentUpon>
