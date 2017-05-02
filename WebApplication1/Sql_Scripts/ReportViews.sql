@@ -3,8 +3,12 @@ DROP VIEW Report_TotalCostsByEngineer
 GO
 create view Report_TotalCostsByEngineer
 as
-select userid, sum(InterventionHours) TotalHours, sum(InterventionCost) TotalCosts 
-from interventions where status=3 group by userid
+select u.userid,isnull(I.TotalHours,0) TotalHours, isnull(I.TotalCosts,0) TotalCosts  from 
+(select * from users ) u left join
+(select userid, sum(InterventionHours) TotalHours, sum(InterventionCost) TotalCosts 
+from interventions where status=3 group by userid) I on u.userid=i.userid
+
+
 
 Go
 
@@ -13,9 +17,12 @@ DROP VIEW Report_AverageCostsByEngineer
 GO
 create view Report_AverageCostsByEngineer
 as
-select userid, Convert(decimal(10,2),sum(InterventionHours)/count(InterventionHours)) AverageHours, 
+select u.userid,isnull(I.AverageHours,0) AverageHours, isnull(I.AverageCosts,0) AverageCosts  from 
+(select * from users ) u left join 
+(select userid, Convert(decimal(10,2),sum(InterventionHours)/count(InterventionHours)) AverageHours, 
 Convert(decimal(10,2),sum(InterventionCost)/count(InterventionCost)) AverageCosts 
-from interventions where status=3 group by userid
+from interventions where status=3 group by userid) I on u.userid=i.userid
+
 
 GO
 

@@ -34,7 +34,7 @@
     </p>
     <hr />
     <p>
-        <asp:Button ID="Button3" runat="server" Text="Edit Quality Management Information" OnClick="EditQMInfo_Click" Width="300px" />
+        <asp:Button ID="QMInfoButton" runat="server" Text="Edit Quality Management Information" OnClick="EditQMInfo_Click" Width="300px" />
     </p>
 </asp:Content>
 

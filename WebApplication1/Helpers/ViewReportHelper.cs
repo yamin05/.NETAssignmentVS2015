@@ -12,11 +12,14 @@ namespace WebApplication1.Helpers
         private DbConnectionFactory factory;
         private DbContext context;
 
+
         public ViewReportHelper(string connectionString)
         {
             factory = new DbConnectionFactory(connectionString);
             context = new DbContext(factory);
         }
+
+        //run the repository for View Total Costs By Engineer and return the list.
         public IList<Report> ViewTotalCostsByEngineer()
         {
             var repos = new ViewReportRepository(context);
@@ -24,6 +27,8 @@ namespace WebApplication1.Helpers
             return list;
         }
 
+
+        //run the repository for View Average Costs By Engineer and return the list.
         public IList<Report> ViewAverageCostsByEngineer()
         {
             var repos = new ViewReportRepository(context);
@@ -31,6 +36,8 @@ namespace WebApplication1.Helpers
             return list;
         }
 
+
+        //run the repository for View Cost By District and return the list.
         public IList<Report> ViewCostsByDistrict()
         {
             var repos = new ViewReportRepository(context);
@@ -38,6 +45,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
+        //run the repository for View Monthly Cost For District and return the list.
         public IList<Report> ViewMonthlyCostForDistrict(string districtId)
         {
             var repos = new ViewReportRepository(context);
@@ -45,7 +53,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
-
+        //get the available District for user.
         public Dictionary<string, int> GetDistrictForUser()
         {
             Dictionary<string, int> list = new Dictionary<string, int>();

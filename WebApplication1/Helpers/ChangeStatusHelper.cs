@@ -24,14 +24,15 @@ namespace WebApplication1.Helpers
             intervention = intRepo.GetInterventionWithInterventionId(intervention.InterventionId);
             var oldStatus = (int)Enum.Parse(typeof(Status), oldStatusText);
             var newStatus = Convert.ToInt32(newStatusNumber);
-            validateUser();
+            validateUserRole();
+            validateUserDistrict();
             validateHoursCost();
             validateOldStatus(oldStatus);
             var repo = new InterventionsRepository(context);
             var row = repo.UpdateInterventionStatus(intervention.InterventionId, oldStatus, newStatus);
         }
 
-        private bool validateUser()
+        private bool validateUserRole()
         {
             var role = Utils.getInstance.GetCurrentUserRole();
             if(role.Equals(Roles.SiteEngineer.ToString()))
@@ -41,6 +42,20 @@ namespace WebApplication1.Helpers
             {
                 return isInterventionClientInSameDistrict();
             } else
+            {
+                throw new EditStatusPermissionException();
+            }
+        }
+
+        private bool validateUserDistrict()
+        {
+            var repo = new InterventionsRepository(context);
+            var checkedIntervention = repo.GetInterventionForClientInSameDistrict(intervention.InterventionId, Utils.getInstance.GetCurrentUserId());
+            if (!Utils.getInstance.isNullOrEmpty(checkedIntervention))
+            {
+                return true;
+            }
+            else
             {
                 throw new EditStatusPermissionException();
             }

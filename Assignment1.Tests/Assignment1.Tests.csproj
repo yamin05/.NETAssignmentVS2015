@@ -112,6 +112,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestForGetUsers.cs" />
     <Compile Include="UnitTestforVerify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
