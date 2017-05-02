@@ -32,9 +32,11 @@ namespace WebApplication1.Helpers
         public void RunSqlScript(string conString)
         {
             string script = File.ReadAllText(@"Sql_Scripts\Updated_Database_Schema.sql");
+            string script1 = File.ReadAllText(@"Sql_Scripts\ReportViews.sql");
             SqlConnection conn = new SqlConnection(conString);
             Server server = new Server(new ServerConnection(conn));
             server.ConnectionContext.ExecuteNonQuery(script);
+            server.ConnectionContext.ExecuteNonQuery(script1);
             conn.Close();
         }
 

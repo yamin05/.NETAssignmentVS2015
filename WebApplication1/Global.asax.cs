@@ -118,8 +118,8 @@ namespace WebApplication1
                     var repos = new UserRepository(context);
                     var user = new Users();
                     user.UserId = siteEngineer.Id;
-                    user.MaximumHours = 1000;
-                    user.MaximumCost = 1000;
+                    user.MaximumHours = 50;
+                    user.MaximumCost = 2000;
                     user.District = (int) Districts.Sydney;
                     repos.Insert(user);
                 }
@@ -134,8 +134,8 @@ namespace WebApplication1
                     var repos2 = new UserRepository(context);
                     var user2 = new Users();
                     user2.UserId = siteEngineer2.Id;
-                    user2.MaximumHours = 1000;
-                    user2.MaximumCost = 1000;
+                    user2.MaximumHours = 50;
+                    user2.MaximumCost = 2000;
                     user2.District = (int)Districts.Rural_New_South_Wales;
                     repos2.Insert(user2);
                 }

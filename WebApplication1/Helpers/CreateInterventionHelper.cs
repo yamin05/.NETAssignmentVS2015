@@ -46,6 +46,7 @@ namespace WebApplication1.Helpers
             intervention.InterventionHours = Convert.ToDecimal(interventionHour);
             intervention.InterventionCost = Convert.ToDecimal(interventionCost);
             intervention.Status = validateUserForStatus(intervention.InterventionHours, intervention.InterventionCost) ? (int)Status.Approved : (int)Status.Proposed;
+            intervention.Operator = "";
             try
             {
                 repos.Insert(intervention);

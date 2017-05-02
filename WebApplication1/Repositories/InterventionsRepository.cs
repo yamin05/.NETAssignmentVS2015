@@ -21,7 +21,7 @@ namespace WebApplication1.Repositories
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = @"INSERT INTO Interventions VALUES(@UserId, @InterventionTypeId, @ClientId, @InterventionCost, 
-                                        @InterventionHours, @CreateDate, @Status, @Operater)";
+                                        @InterventionHours, @CreateDate, @Status, @Operator)";
                 command.Parameters.Add(command.CreateParameter("UserId", tentity.UserId));
                 command.Parameters.Add(command.CreateParameter("InterventionTypeId", tentity.InterventionTypeId));
                 command.Parameters.Add(command.CreateParameter("ClientId", tentity.ClientId));
@@ -29,7 +29,7 @@ namespace WebApplication1.Repositories
                 command.Parameters.Add(command.CreateParameter("InterventionHours", tentity.InterventionHours));
                 command.Parameters.Add(command.CreateParameter("CreateDate", tentity.CreateDate));
                 command.Parameters.Add(command.CreateParameter("Status", tentity.Status));
-                command.Parameters.Add(command.CreateParameter("Operater", tentity.Operater));
+                command.Parameters.Add(command.CreateParameter("Operator", tentity.Operator));
                 return this.ToList(command).FirstOrDefault();
             }
         }
