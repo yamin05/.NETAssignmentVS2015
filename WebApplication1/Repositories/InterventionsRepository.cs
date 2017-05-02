@@ -34,13 +34,15 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public Interventions Update_Intervention_Status_As_Approved(int interventionid)
+        public Interventions Update_Intervention_Status(int InterventionId,int OldStatus, int NewStatus, string Userid)
         {
             using (var command = _context.CreateCommand())
             {
-                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @status WHERE InterventionId= @interventionId";
-                command.Parameters.Add(command.CreateParameter("status", 1));
-                command.Parameters.Add(command.CreateParameter("InterventionId", interventionid));
+                command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @status,Operator=@operator WHERE InterventionId= @interventionId and Status=@oldStatus";
+                command.Parameters.Add(command.CreateParameter("oldstatus", OldStatus));
+                command.Parameters.Add(command.CreateParameter("status", NewStatus));
+                command.Parameters.Add(command.CreateParameter("operator", Userid));
+                command.Parameters.Add(command.CreateParameter("interventionId", InterventionId));
                 command.ExecuteNonQuery();
                 return this.ToList(command).FirstOrDefault();
             }
@@ -70,14 +72,14 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public override Interventions Delete(Interventions intervention)
+        public Interventions Delete(int InterventionId)
         {
             using (var command = _context.CreateCommand())
             {
                 command.CommandText = command.CommandText = @"UPDATE Interventions SET Status = @status WHERE InterventionId= @interventionId";
                
-                command.Parameters.Add(command.CreateParameter("status", 1));
-                command.Parameters.Add(command.CreateParameter("InterventionId", intervention.InterventionId));
+                command.Parameters.Add(command.CreateParameter("status", (int)Status.Cancelled));
+                command.Parameters.Add(command.CreateParameter("InterventionId", InterventionId));
                 return this.ToList(command).FirstOrDefault();
             }
         }
@@ -118,6 +120,11 @@ namespace WebApplication1.Repositories
         }
 
         public override Interventions Update(Interventions tentity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Interventions Delete(Interventions tentity)
         {
             throw new NotImplementedException();
         }
