@@ -20,10 +20,12 @@ namespace WebApplication1.Views.SiteEngineer
                 GridView.DataSource = CreateDataSource();
                 GridView.DataBind();
                 GridView.Columns[6].Visible = false;
+                Button3.Visible = false;
             }
             else
             {
                 ErrorMessage.Visible = false;
+                Button3.Visible = false;
             }
         }
         ICollection CreateDataSource()
@@ -74,11 +76,11 @@ namespace WebApplication1.Views.SiteEngineer
                 }
                 else
                 {
-                    Status.DataSource = CreateDataSourceForStatus();
-                    Status.DataTextField = "StatusName";
-                    Status.DataValueField = "StatusValue";
-                    Status.DataBind();
-                    Status.Visible = true;
+                    Sts.DataSource = CreateDataSourceForStatus();
+                    Sts.DataTextField = "StatusName";
+                    Sts.DataValueField = "StatusValue";
+                    Sts.DataBind();
+                    Sts.Visible = true;
                     UpdateButton.Visible = true;
                 }
             }
@@ -140,13 +142,22 @@ namespace WebApplication1.Views.SiteEngineer
             try
             {
                 var changeStatusHelper = new ChangeStatusHelper("CustomDatabase");
-                changeStatusHelper.ChangeStatus(GridView.SelectedRow.Cells[7].Text, GridView.SelectedRow.Cells[6].Text, Status.SelectedValue);
+                changeStatusHelper.ChangeStatus(GridView.SelectedRow.Cells[7].Text, GridView.SelectedRow.Cells[6].Text, Sts.SelectedValue);
                 Response.Redirect("~/Views/SiteEngineer/UpdateInterventionSuccess.aspx");
             }
             catch (Exception ex)
             {
                 FailureText.Text = ex.Message;
                 ErrorMessage.Visible = true;
+            }
+        }
+        protected void GridView_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            if (!(GridView.SelectedRow.Cells[6].Text.Equals(Status.Proposed.ToString())))
+            {
+
+                Button3.Visible = true;
+
             }
         }
     }

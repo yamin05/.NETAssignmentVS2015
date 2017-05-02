@@ -45,7 +45,7 @@ namespace WebApplication1.Helpers
             intervention.CreateDate = DateTime.Now;
             intervention.InterventionHours = Convert.ToDecimal(interventionHour);
             intervention.InterventionCost = Convert.ToDecimal(interventionCost);
-            intervention.Status = validateUserForStatus(intervention.InterventionHours, intervention.InterventionCost) ? (int)Status.Approved : (int)Status.Proposed;
+            intervention.Status = (int)Status.Proposed;
             intervention.Operator = "";
             try
             {
@@ -57,18 +57,18 @@ namespace WebApplication1.Helpers
             }
         }
 
-        private bool validateUserForStatus(decimal hours, decimal cost)
-        {
-            var userRepo = new UserRepository(context);
-            var currentUser = userRepo.GetAllForUser(Utils.getInstance.GetCurrentUserId());
-            if (currentUser.MaximumHours >= hours && currentUser.MaximumCost >= cost)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //private bool validateUserForStatus(decimal hours, decimal cost)
+        //{
+        //    var userRepo = new UserRepository(context);
+        //    var currentUser = userRepo.GetAllForUser(Utils.getInstance.GetCurrentUserId());
+        //    if (currentUser.MaximumHours >= hours && currentUser.MaximumCost >= cost)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

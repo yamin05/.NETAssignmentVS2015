@@ -12,7 +12,7 @@
         <asp:Label ID="ClientName" font-size="Large" runat="server" Text=""></asp:Label>
     </p>
     <p>
-        <asp:GridView ID="GridView" runat="server" AutoGenerateSelectButton="true" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView" runat="server" AutoGenerateSelectButton="true" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView_SelectedIndexChanged1">
             <Columns>
                 <asp:BoundField DataField="InterventionTypeName" HeaderText="Type Name" SortExpression="InterventionTypeName" />
                 <asp:BoundField DataField="InterventionHours" HeaderText="Hours" SortExpression="InterventionHours" />
@@ -29,7 +29,7 @@
     <hr />
     <p>
         <asp:Button ID="Button2" runat="server" Text="Change State" OnClick="ChangeState_Click" Width="300px" />
-        <asp:DropDownList id="Status" AutoPostBack="True" runat="server" Visible="false"/>
+        <asp:DropDownList id="Sts" AutoPostBack="True" runat="server" Visible="false"/>
         <asp:Button ID="UpdateButton" runat="server" Text="Update State" OnClick="UpdateButton_Click" Width="300px" Visible="false"/>
     </p>
     <hr />

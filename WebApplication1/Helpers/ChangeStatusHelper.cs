@@ -80,7 +80,7 @@ namespace WebApplication1.Helpers
             if (oldStatus == (int)Status.Cancelled || oldStatus == (int)Status.Completed)
             {
                 throw new CannotEditStatusException();
-            } else if (oldStatus == (int)Status.Approved)
+            } else if (oldStatus == (int)Status.Approved )
             {
                 if (Utils.getInstance.GetCurrentUserRole().Equals(Roles.SiteEngineer.ToString()))
                 {
