@@ -8,7 +8,7 @@
                         </p>
                     </asp:PlaceHolder>
         <br />
-        <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Current Client List: "></asp:Label>
+        <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Current Client List In Same District: "></asp:Label>
 
     <p>
         <asp:GridView ID="GridView" runat="server" AutoGenerateSelectButton="true" AutoGenerateColumns="False">
