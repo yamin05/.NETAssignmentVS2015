@@ -137,7 +137,7 @@ namespace WebApplication1.Helpers
             string maxihour = ManagerInfo.ElementAt(2);
             Users manager = new Users();
             manager.District = Convert.ToInt32(Dis);
-            manager.MaximumCost = Convert.ToInt32(maxihcost);
+            manager.MaximumCost = Convert.ToDecimal(maxihcost);
             manager.MaximumHours = Convert.ToDecimal(maxihour);
             return manager;
 
