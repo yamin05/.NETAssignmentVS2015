@@ -43,6 +43,7 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
+
         public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
@@ -70,7 +71,6 @@ namespace WebApplication1.Helpers
             if (Status.Proposed.ToString().Equals(status))
             {
                 list.Add(Status.Approved.ToString(), (int)Status.Approved);
-                //list.Add(Status.Completed.ToString(), (int)Status.Completed);
                 list.Add(Status.Cancelled.ToString(), (int)Status.Cancelled);
             }
             else if (Status.Approved.ToString().Equals(status))
@@ -80,6 +80,7 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
+
         public IList<ListInterventionForManager> ListOfPropInterventions(string userid, int InterventionId)
         {
             List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
@@ -87,6 +88,7 @@ namespace WebApplication1.Helpers
             interlist = repo.GetAllInterventionByInterventionId(InterventionId).ToList();
             return interlist;
         }
+
         public IList<InterventionsRepository> CancelIntervention(int interventionId)
         {
             InterventionsRepository repo = new InterventionsRepository(context);
@@ -95,6 +97,7 @@ namespace WebApplication1.Helpers
             return interlist;
 
         }
+
         public IList<InterventionsRepository> ApproveIntervention(int InterventionId, int OldStatus, int NewStatus, string Userid)
         {
             InterventionsRepository repo = new InterventionsRepository(context);
@@ -103,6 +106,7 @@ namespace WebApplication1.Helpers
             return interlist;
 
         }
+
         public IList<ListInterventionForManager> ListOfProposedInterventions(string userid)
         {
             List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
@@ -114,6 +118,7 @@ namespace WebApplication1.Helpers
             return proposedinterlist;
 
         }
+
         public IList<ListInterventionForManager> ListOfAssociatedIntrevention(string userid)
         {
             List<ListInterventionForManager> interlist = new List<ListInterventionForManager>();
@@ -122,6 +127,7 @@ namespace WebApplication1.Helpers
             associatedlist = repo.GetAllInterventionAssociatedWithManager(userid);
             return associatedlist;
         }
+
         public Users GetManagerInfo(string userid)
         {
             List<string> ManagerInfo = new List<string>();
@@ -136,13 +142,16 @@ namespace WebApplication1.Helpers
             return manager;
 
         }
+
         public IList<ListInterventionForManager> ValidateProposedInterventions(Users manager, List<ListInterventionForManager> InterList)
         {
             List<ListInterventionForManager> ProposedList = new List<ListInterventionForManager>();
             for (int i = 0; i <= InterList.Count - 1; i++)
             {
                 {
-                    if (manager.MaximumHours >= InterList[i].InterventionHours && manager.MaximumCost >= InterList[i].InterventionCost && manager.District == InterList[i].District)
+                    if (manager.MaximumHours >= InterList[i].InterventionHours && 
+                        manager.MaximumCost >= InterList[i].InterventionCost && 
+                        manager.District == InterList[i].District)
                     {
                         ProposedList.Add(InterList[i]);
                     }
@@ -150,8 +159,6 @@ namespace WebApplication1.Helpers
             }
             return ProposedList;
         }
-
-
     }
 }
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
 using System.Web;
 using WebApplication1.Exceptions;
 using WebApplication1.Models;
@@ -33,7 +32,6 @@ namespace WebApplication1.Helpers
             client.ClientName = clientName;
             client.ClientLocation = clientLocation;
             client.ClientDistrict = clientDistrict;
-
             var clientId = clientRepo.InsertWithGetId(client);
             if (Utils.getInstance.isNullOrEmpty(clientId) || clientId == 0)
             {

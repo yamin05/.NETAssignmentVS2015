@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
@@ -8,7 +7,6 @@ namespace WebApplication1.Repositories
 {
     public class UserRepository : Repository<Users>
     {
-
         public UserRepository(DbContext context) : base(context) { }
 
         public Users GetAllForUser(string userId)
@@ -43,7 +41,5 @@ namespace WebApplication1.Repositories
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

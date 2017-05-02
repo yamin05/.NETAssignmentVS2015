@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 
 namespace WebApplication1.Extensions
 {
@@ -10,7 +8,6 @@ namespace WebApplication1.Extensions
     {
         public static DataSet ToDataSet<T>(this IList<T> list)
         {
-
             Type elementType = typeof(T);
             DataSet ds = new DataSet();
             DataTable t = new DataTable();
@@ -30,12 +27,8 @@ namespace WebApplication1.Extensions
                 {
                     row[propInfo.Name] = propInfo.GetValue(item, null);
                 }
-
-                //This line was missing:
                 t.Rows.Add(row);
             }
-
-
             return ds;
         }
     }

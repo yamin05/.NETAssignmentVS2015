@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
 
@@ -9,9 +8,7 @@ namespace WebApplication1.Repositories
 {
     public class InterventionUpdateRepository : Repository<InterventionUpdate>
     {
-        public InterventionUpdateRepository(DbContext context) : base(context)
-        {
-        }
+        public InterventionUpdateRepository(DbContext context) : base(context) { }
 
         public override InterventionUpdate Delete(InterventionUpdate tentity)
         {

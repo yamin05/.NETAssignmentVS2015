@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using System.Data.SqlClient;
 using WebApplication1.Helpers;
 using System.Collections;
 using System.Data;
@@ -13,6 +12,7 @@ namespace WebApplication1.Views.SiteEngineer
     public partial class CreateIntervention : Page
     {
         private CreateInterventionHelper createInterventionHelper = new CreateInterventionHelper("CustomDatabase");
+
         private IList<InterventionType> intType
         {
             get

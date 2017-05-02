@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Web;
 using System.Web.UI;
 using System.Collections;
 using WebApplication1.Helpers;
-using Microsoft.AspNet.Identity;
 using System.Data;
-using WebApplication1.Extensions;
 
 namespace WebApplication1.Views.SiteEngineer
 {
@@ -13,7 +10,6 @@ namespace WebApplication1.Views.SiteEngineer
     {
         private CreateClientHelper createClientHelper = new CreateClientHelper("CustomDatabase");
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -32,8 +28,7 @@ namespace WebApplication1.Views.SiteEngineer
 
         ICollection CreateDataSource()
         {
-            var userId = HttpContext.Current.User.Identity.GetUserId();
-            var row = createClientHelper.GetDistrictsForSiteManager(userId);
+            var row = createClientHelper.GetDistrictsForSiteManager(Utils.getInstance.GetCurrentUserId());
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("District", typeof(string)));
             datatable.Columns.Add(new DataColumn("DistrictInt", typeof(string)));          

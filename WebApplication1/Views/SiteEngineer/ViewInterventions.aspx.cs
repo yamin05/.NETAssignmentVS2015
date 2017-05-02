@@ -5,7 +5,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebApplication1.Exceptions;
 using WebApplication1.Helpers;
-using WebApplication1;
 
 namespace WebApplication1.Views.SiteEngineer
 {
@@ -27,7 +26,6 @@ namespace WebApplication1.Views.SiteEngineer
                 ErrorMessage.Visible = false;
                 GridView_SelectedIndexChanged1(this, EventArgs.Empty);
             }
-
         }
 
         ICollection CreateDataSourceForGridView()

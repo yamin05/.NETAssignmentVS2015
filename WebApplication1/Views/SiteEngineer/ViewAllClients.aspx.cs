@@ -67,7 +67,8 @@ namespace WebApplication1.Views.SiteEngineer
                 if (GridView.SelectedIndex == -1)
                 {
                     throw new ValueNotSelectedException();
-                } else
+                }
+                else
                 {
                     Response.Redirect("~/Views/SiteEngineer/ViewInterventionsForClient.aspx?clientId=" + Convert.ToInt32(GridView.SelectedRow.Cells[1].Text));
                 }

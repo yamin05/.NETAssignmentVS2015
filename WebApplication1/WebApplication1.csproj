@@ -329,13 +329,11 @@
     <Compile Include="Helpers\ViewClientHelper.cs" />
     <Compile Include="Helpers\CreateClientHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
-    <Compile Include="Helpers\SiteHelper.cs" />
     <Compile Include="Helpers\ViewReportHelper.cs" />
     <Compile Include="Helpers\ViewUsersHelper.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Clients.cs" />
-    <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\EngineerClients.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Interventions.cs" />
@@ -351,7 +349,6 @@
     <Compile Include="Repositories\ListInterventionForManagerRepository.cs" />
     <Compile Include="Repositories\ListInterventionsRepository.cs" />
     <Compile Include="Repositories\InterventionsRepository.cs" />
-    <Compile Include="Repositories\DeptRepository.cs" />
     <Compile Include="Repositories\EngineerClientsRepository.cs" />
     <Compile Include="Repositories\InterventionUpdateRepository.cs" />
     <Compile Include="Repositories\InterventionTypeRepository.cs" />

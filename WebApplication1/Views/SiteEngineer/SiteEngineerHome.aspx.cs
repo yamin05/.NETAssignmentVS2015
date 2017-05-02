@@ -40,9 +40,8 @@ namespace WebApplication1.Views.SiteEngineer
             Response.Redirect("~/Views/SiteEngineer/ViewAllClientsInSameDistrict.aspx");
         }
 
-        protected void Button7_Click(object sender, EventArgs e)
+        protected void ChangePassword_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("~/Views/ChangePassword.aspx");
         }
    

@@ -57,11 +57,8 @@ namespace WebApplication1.Repositories
             }
         }
 
-
         public abstract TEntity Insert(TEntity tentity);
         public abstract TEntity Update(TEntity tentity);
         public abstract TEntity Delete(TEntity tentity);
-
-
     }
 }
