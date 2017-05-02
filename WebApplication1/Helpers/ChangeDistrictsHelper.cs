@@ -19,14 +19,13 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+
+
         public void ChangeDistricts(string userId, string oldDistrict, int newDistrict)
         {
             userDetail.UserId = userId;
             var userDetailRepo = new UserDetailRepository(context);
             userDetail = userDetailRepo.GetUserWithUserId(userDetail.UserId);
-            //var oldDistrictText = (int)Enum.Parse(typeof(Districts), oldDistrict.Replace(" ","_"));
-            //var newDistrictText = Convert.ToInt32(newDistrict);
-            //var newDistrictText = (int)Enum.Parse(typeof(Districts), newDistrict.Replace(" ", "_"));
             var oldDistrictText = Convert.ToInt32(oldDistrict);
             var repo = new UserDetailRepository(context);
             var row = repo.ChangeUserDistrict(userDetail.UserId, oldDistrictText, newDistrict);

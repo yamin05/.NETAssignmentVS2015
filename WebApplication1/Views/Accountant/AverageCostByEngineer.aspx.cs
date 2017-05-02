@@ -31,13 +31,12 @@ namespace WebApplication1.Views.Accountant
 
         }
 
+
+        //Create DataSource for the GridView
         ICollection CreateDataSourceForGridView()
         {
             var list = viewReportHelper.ViewAverageCostsByEngineer();
-            //if (list.Count == 0)
-            //{
-            //    Response.Redirect("~/Views/SiteEngineer/NoData.aspx?message=" + "No Interventions Have Been Created By You");
-            //}
+
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("UserId", typeof(string)));
             datatable.Columns.Add(new DataColumn("UserName", typeof(string)));
@@ -52,6 +51,7 @@ namespace WebApplication1.Views.Accountant
             return dataview;
         }
 
+        //Create the row for GridView
         DataRow CreateRowForGridView(string UserId, string UserName, string RoleName, decimal AverageCosts, decimal AverageHours, DataTable datatable)
         {
 

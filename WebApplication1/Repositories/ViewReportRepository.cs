@@ -12,6 +12,7 @@ namespace WebApplication1.Repositories
     {
         public ViewReportRepository(DbContext context) : base(context) { }
 
+        //Get Total Costs by Engineer data from database into the list and return list.
         public IList<Report> ViewTotalCostsByEngineer()
         {
             using (var command = _context.CreateCommand())
@@ -25,6 +26,8 @@ namespace WebApplication1.Repositories
             }
         }
 
+
+        //Get Total Costs by Engineer data from database into the list and return list.
         public IList<Report> ViewAverageCostsByEngineer()
         {
             using (var command = _context.CreateCommand())
@@ -38,6 +41,8 @@ namespace WebApplication1.Repositories
             }
         }
 
+
+        //Get Costs by District data from database into the list and return list.
         public IList<Report> ViewCostsByDistrict()
         {
             using (var command = _context.CreateCommand())
@@ -48,6 +53,8 @@ namespace WebApplication1.Repositories
             }
         }
 
+
+        //Get Monthly Cost for District data from database into the list and return list.
         public IList<Report> ViewMonthlyCostForDistrict(string districtId)
         {
             using (var command = _context.CreateCommand())
@@ -58,6 +65,7 @@ namespace WebApplication1.Repositories
                 return this.ToList(command).ToList();
             }
         }
+
 
         public override Report Delete(Report tentity)
         {
