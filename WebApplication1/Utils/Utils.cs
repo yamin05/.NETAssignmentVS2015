@@ -82,7 +82,10 @@ namespace WebApplication1
             return HttpContext.Current.User.Identity.GetUserId();
         }
 
-
+        public string GetDistrictName(string district)
+        {
+            return district.Replace("_", " ");
+        }
 
     }
 }

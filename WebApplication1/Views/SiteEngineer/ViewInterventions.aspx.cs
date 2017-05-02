@@ -20,12 +20,12 @@ namespace WebApplication1.Views.SiteEngineer
                 GridView.DataSource = CreateDataSourceForGridView();
                 GridView.DataBind();
                 GridView.Columns[6].Visible = false;
-                Button3.Visible = false;
+                QMInfoButton.Visible = false;
 
             } else
             {
                 ErrorMessage.Visible = false;
-                Button3.Visible = false;
+                GridView_SelectedIndexChanged1(this, EventArgs.Empty);
             }
 
         }
@@ -151,16 +151,16 @@ namespace WebApplication1.Views.SiteEngineer
                 ErrorMessage.Visible = true;
             }
         }
-
         
-
         protected void GridView_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            if (!(GridView.SelectedRow.Cells[6].Text.Equals(Status.Proposed.ToString())))
+            if (GridView.SelectedRow != null && !(GridView.SelectedRow.Cells[6].Text.Equals(Status.Proposed.ToString())))
             {
-
-                Button3.Visible = true;
-
+                QMInfoButton.Visible = true;
+            }
+            else
+            {
+                QMInfoButton.Visible = false;
             }
         }
     }

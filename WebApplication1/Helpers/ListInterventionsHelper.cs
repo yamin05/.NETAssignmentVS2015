@@ -70,7 +70,7 @@ namespace WebApplication1.Helpers
             if (Status.Proposed.ToString().Equals(status))
             {
                 list.Add(Status.Approved.ToString(), (int)Status.Approved);
-                list.Add(Status.Completed.ToString(), (int)Status.Completed);
+                //list.Add(Status.Completed.ToString(), (int)Status.Completed);
                 list.Add(Status.Cancelled.ToString(), (int)Status.Cancelled);
             }
             else if (Status.Approved.ToString().Equals(status))
