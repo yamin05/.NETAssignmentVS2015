@@ -18,7 +18,5 @@ namespace WebApplication1.Models
         public decimal MaximumCost { get; set; }
 
         public int District { get; set; }
-
-        public string DistrictName { get; set; }
     }
 }

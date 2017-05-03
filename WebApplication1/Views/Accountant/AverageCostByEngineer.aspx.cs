@@ -22,7 +22,6 @@ namespace WebApplication1.Views.Accountant
                 GridView.DataSource = CreateDataSourceForGridView();
                 GridView.DataBind();
                 GridView.Columns[0].Visible = false;
-
             }
             else
             {
@@ -36,7 +35,6 @@ namespace WebApplication1.Views.Accountant
         ICollection CreateDataSourceForGridView()
         {
             var list = viewReportHelper.ViewAverageCostsByEngineer();
-
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("UserId", typeof(string)));
             datatable.Columns.Add(new DataColumn("UserName", typeof(string)));
@@ -54,7 +52,6 @@ namespace WebApplication1.Views.Accountant
         //Create the row for GridView
         DataRow CreateRowForGridView(string UserId, string UserName, string RoleName, decimal AverageCosts, decimal AverageHours, DataTable datatable)
         {
-
             DataRow datarow = datatable.NewRow();
             datarow[0] = UserId;
             datarow[1] = UserName;

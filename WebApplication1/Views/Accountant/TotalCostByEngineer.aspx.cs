@@ -22,7 +22,6 @@ namespace WebApplication1.Views.Accountant
                 GridView.DataSource = CreateDataSourceForGridView();
                 GridView.DataBind();
                 GridView.Columns[0].Visible = false;
-                
             }
             else
             {
@@ -33,8 +32,7 @@ namespace WebApplication1.Views.Accountant
 
         ICollection CreateDataSourceForGridView()
         {
-            var list = viewReportHelper.ViewTotalCostsByEngineer();
-          
+            var list = viewReportHelper.ViewTotalCostsByEngineer();     
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("UserId", typeof(string)));
             datatable.Columns.Add(new DataColumn("UserName", typeof(string)));
@@ -51,7 +49,6 @@ namespace WebApplication1.Views.Accountant
 
         DataRow CreateRowForGridView(string UserId, string UserName, string RoleName, decimal TotalCosts, decimal TotalHours, DataTable datatable)
         {
-
             DataRow datarow = datatable.NewRow();
             datarow[0] = UserId;
             datarow[1] = UserName;
