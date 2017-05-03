@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="Accountant Home Page" Language="C#" MasterPageFile="~/Site.Main.Master" AutoEventWireup="true" CodeBehind="AccountantHome.aspx.cs" Inherits="WebApplication1.Views.Accountant.AccountantHome" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <p>
+        <br />
+        <asp:Label ID="Label1" runat="server" font-size="Large" Text="Accountant Home Page"></asp:Label>
+    </p>
 
-    <div class="jumbotron">
-        <h1>Accountant Home Page</h1>
-         <div class="form-horizontal">
              <p>
              <asp:Button ID="ChangePassword" runat="server" Text="Change Password" OnClick="ChangePassword_Click" Width="400px" />
              </p>
@@ -23,8 +24,6 @@
              <p>
              <asp:Button ID="MonthlyCostForDistrict" runat="server" Text="Monthly Costs for District Report" OnClick="MonthlyCostForDistrict_Click" Width="400px" />
              </p>
-
-          </div>
-    </div>
+  
 
 </asp:Content>
