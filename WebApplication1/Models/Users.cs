@@ -1,4 +1,7 @@
-﻿namespace WebApplication1.Models
+﻿using WebApplication1.Interfaces;
+
+namespace WebApplication1.Models
+
 {
     public class Users
     {
