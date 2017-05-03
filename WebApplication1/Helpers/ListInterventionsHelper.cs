@@ -24,12 +24,7 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
 
         }
-
-        public ListInterventionsHelper()
-        {
-
-        }
-
+        
         private IList<string> Get_District_MaxCost_MaxHour_ForManager(string userId)
         {
             try
