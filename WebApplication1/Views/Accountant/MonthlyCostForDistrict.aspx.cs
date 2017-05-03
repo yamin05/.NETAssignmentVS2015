@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -80,10 +81,14 @@ namespace WebApplication1.Views.Accountant
             DataRow datarow = datatable.NewRow();
             datarow[0] = DistrictId;
             datarow[1] = DistrictName;
-            datarow[2] = Month;
+            datarow[2] = new DateTime(2000, Convert.ToInt32(Month), 1).ToString("MMMM", CultureInfo.GetCultureInfo("en-US"));
             datarow[3] = MonthlyCosts;
             datarow[4] = MonthlyHours;
             return datarow;
+           
         }
+
+
+
     }
 }
