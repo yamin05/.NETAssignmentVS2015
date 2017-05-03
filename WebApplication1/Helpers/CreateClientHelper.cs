@@ -23,6 +23,7 @@ namespace WebApplication1.Helpers
            
         }
 
+        //get the district for site manager
         public int GetDistrictsForSiteManager (string userId)
         {
             var repos = new UserRepository(context);
@@ -30,6 +31,7 @@ namespace WebApplication1.Helpers
             return row.District;
         }
 
+        //create client function
         public void CreateClient (string clientName, string clientLocation, int clientDistrict)
         {
             var clientRepo = new ClientRepository(context);
