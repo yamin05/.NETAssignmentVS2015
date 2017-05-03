@@ -17,6 +17,12 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+
+        public ChangeStatusHelper()
+        {
+
+        }
+
         public void ChangeStatus(string intId, string oldStatusText, string newStatusNumber)
         {
             intervention.InterventionId = Convert.ToInt32(intId);

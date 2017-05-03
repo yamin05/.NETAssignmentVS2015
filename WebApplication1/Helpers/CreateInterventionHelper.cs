@@ -20,6 +20,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public CreateInterventionHelper()
+        {
+     
+        }
+
         public IList<InterventionType> GetInterventionTypes ()
         {
             var repos = new InterventionTypeRepository(context);

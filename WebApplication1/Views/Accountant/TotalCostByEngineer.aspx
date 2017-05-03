@@ -10,7 +10,7 @@
         <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Total Costs By Engineer: "></asp:Label>
     <p>
         </p>
-            <asp:GridView ID="GridView" runat="server" AutoGenerateSelectButton="true" AutoGenerateColumns="False">
+            <asp:GridView ID="GridView" runat="server" AutoGenerateSelectButton="false" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="UserId" HeaderText="User ID" SortExpression="UserId" />
                 <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName" />

@@ -18,6 +18,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public CreateClientHelper()
+        {
+           
+        }
+
         public int GetDistrictsForSiteManager (string userId)
         {
             var repos = new UserRepository(context);
