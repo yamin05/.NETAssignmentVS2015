@@ -6,7 +6,6 @@ namespace WebApplication1.Account
 {
     public partial class ViewLogin : Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";

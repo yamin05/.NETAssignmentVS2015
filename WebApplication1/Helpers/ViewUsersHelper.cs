@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using WebApplication1.Models;
 using WebApplication1.Repositories;
 
@@ -17,7 +14,6 @@ namespace WebApplication1.Helpers
             factory = new DbConnectionFactory(connectionString);
             context = new DbContext(factory);
         }
-
 
         public IList<UserDetail> GetAllUsers()
         {

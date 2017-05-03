@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using WebApplication1.Models;
 using WebApplication1.Repositories;
 
@@ -11,7 +8,6 @@ namespace WebApplication1.Helpers
     {
         private DbConnectionFactory factory;
         private DbContext context;
-
 
         public ViewReportHelper(string connectionString)
         {

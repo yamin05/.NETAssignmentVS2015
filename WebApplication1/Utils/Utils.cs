@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -65,7 +64,6 @@ namespace WebApplication1
         public string getHomePageURL()
         {
             var role = GetCurrentUserRole();
-
             return "~/Views/" + role + "/" + role + "Home.aspx";
         }
 
@@ -86,6 +84,5 @@ namespace WebApplication1
         {
             return district.Replace("_", " ");
         }
-
     }
 }

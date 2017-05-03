@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
 
@@ -9,12 +8,7 @@ namespace WebApplication1.Repositories
 {
     public class ListInterventionsRepository : Repository<ListInterventions>
     {
-        
-
-        public ListInterventionsRepository(DbContext context) : base(context)
-        {
-            
-        }
+        public ListInterventionsRepository(DbContext context) : base(context) { }
 
         public List<ListInterventions> GetAllInterventionsForUser(string userid)
         {

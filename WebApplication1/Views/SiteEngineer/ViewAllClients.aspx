@@ -9,7 +9,7 @@
                         </p>
                     </asp:PlaceHolder>
         <br />
-        <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Current Client List: "></asp:Label>
+        <asp:Label ID="Label1" font-size="Larger" runat="server" Text="Current Client List Created By You: "></asp:Label>
     <p>
         </p>
     <p>

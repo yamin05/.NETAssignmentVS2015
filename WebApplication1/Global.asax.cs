@@ -43,8 +43,7 @@ namespace WebApplication1
                 interventionType.InterventionTypeHours = 50;
                 interventionType.InterventionTypeCost = 500;
                 repos.Insert(interventionType);
-            }
-            
+            }    
         }
 
         private async void CreateOrCheckAdminUser()
@@ -99,7 +98,6 @@ namespace WebApplication1
             var findManager6 = userManager.FindByEmail("manager6@enet.com");
             var findSiteEngineer11 = userManager.FindByEmail("siteengineer11@enet.com");
             var findSiteEngineer12 = userManager.FindByEmail("siteengineer12@enet.com");
-           
 
             if (Utils.getInstance.isNullOrEmpty(findAdmin) && Utils.getInstance.isNullOrEmpty(findManager)
                 && Utils.getInstance.isNullOrEmpty(findAccountant) && Utils.getInstance.isNullOrEmpty(findSiteEngineer)
@@ -124,6 +122,7 @@ namespace WebApplication1
                 if (resultManager1.Succeeded)
                 {
                     userManager.AddToRole(manager1.Id, Roles.Manager.ToString());
+
                     var factory = new DbConnectionFactory("CustomDatabase");
                     var context = new DbContext(factory);
                     var repos = new UserRepository(context);
@@ -133,13 +132,13 @@ namespace WebApplication1
                     user.MaximumCost = 5000;
                     user.District = (int)Districts.Urban_Indonesia;
                     repos.Insert(user);
-
                 }
                 var manager2 = new IdentityUser() { UserName = "Manager2", Email = "manager2@enet.com" };
                 IdentityResult resultManager2 = await userManager.CreateAsync(manager2, "123456");
                 if (resultManager2.Succeeded)
                 {
                     userManager.AddToRole(manager2.Id, Roles.Manager.ToString());
+
                     var factory = new DbConnectionFactory("CustomDatabase");
                     var context = new DbContext(factory);
                     var repos = new UserRepository(context);
@@ -149,13 +148,13 @@ namespace WebApplication1
                     user.MaximumCost = 5000;
                     user.District = (int)Districts.Rural_Indonesia;
                     repos.Insert(user);
-
                 }
                 var manager3 = new IdentityUser() { UserName = "Manager3", Email = "manager3@enet.com" };
                 IdentityResult resultManager3 = await userManager.CreateAsync(manager3, "123456");
                 if (resultManager3.Succeeded)
                 {
                     userManager.AddToRole(manager3.Id, Roles.Manager.ToString());
+
                     var factory = new DbConnectionFactory("CustomDatabase");
                     var context = new DbContext(factory);
                     var repos = new UserRepository(context);
@@ -165,13 +164,13 @@ namespace WebApplication1
                     user.MaximumCost = 5000;
                     user.District = (int)Districts.Urban_Papua_New_Guinea;
                     repos.Insert(user);
-
                 }
                 var manager4 = new IdentityUser() { UserName = "Manager4", Email = "manager4@enet.com" };
                 IdentityResult resultManager4 = await userManager.CreateAsync(manager4, "123456");
                 if (resultManager4.Succeeded)
                 {
                     userManager.AddToRole(manager4.Id, Roles.Manager.ToString());
+
                     var factory = new DbConnectionFactory("CustomDatabase");
                     var context = new DbContext(factory);
                     var repos = new UserRepository(context);
@@ -181,13 +180,13 @@ namespace WebApplication1
                     user.MaximumCost = 5000;
                     user.District = (int)Districts.Rural_Papua_New_Guinea;
                     repos.Insert(user);
-
                 }
                 var manager5 = new IdentityUser() { UserName = "Manager5", Email = "manager5@enet.com" };
                 IdentityResult resultManager5 = await userManager.CreateAsync(manager5, "123456");
                 if (resultManager5.Succeeded)
                 {
                     userManager.AddToRole(manager5.Id, Roles.Manager.ToString());
+
                     var factory = new DbConnectionFactory("CustomDatabase");
                     var context = new DbContext(factory);
                     var repos = new UserRepository(context);
@@ -197,13 +196,13 @@ namespace WebApplication1
                     user.MaximumCost = 5000;
                     user.District = (int)Districts.Sydney;
                     repos.Insert(user);
-
                 }
                 var manager6 = new IdentityUser() { UserName = "Manager6", Email = "manager6@enet.com" };
                 IdentityResult resultManager6 = await userManager.CreateAsync(manager6, "123456");
                 if (resultManager6.Succeeded)
                 {
                     userManager.AddToRole(manager6.Id, Roles.Manager.ToString());
+
                     var factory = new DbConnectionFactory("CustomDatabase");
                     var context = new DbContext(factory);
                     var repos = new UserRepository(context);
@@ -213,14 +212,12 @@ namespace WebApplication1
                     user.MaximumCost = 5000;
                     user.District = (int)Districts.Rural_New_South_Wales;
                     repos.Insert(user);
-
                 }
                 var accountant = new IdentityUser() { UserName = "Accountant", Email = "accountant@enet.com" };
                 IdentityResult resultAccountant = await userManager.CreateAsync(accountant, "123456");
                 if (resultAccountant.Succeeded)
                 {
                     userManager.AddToRole(accountant.Id, Roles.Accountant.ToString());
-
                 }
                 var siteEngineer1 = new IdentityUser() { UserName = "siteengineer1", Email = "siteengineer1@enet.com" };
                 IdentityResult resultSiteEngineer1 = await userManager.CreateAsync(siteEngineer1, "123456");
@@ -286,9 +283,8 @@ namespace WebApplication1
                 user2.MaximumCost = 1000;
                 user2.District = (int)Districts.Rural_Indonesia;
                 repos2.Insert(user2);
-            }
-        
-        var siteEngineer5 = new IdentityUser() { UserName = "Siteengineer5", Email = "siteengineer5@enet.com" };
+            }   
+            var siteEngineer5 = new IdentityUser() { UserName = "Siteengineer5", Email = "siteengineer5@enet.com" };
             IdentityResult resultsiteEngineer5 = await userManager.CreateAsync(siteEngineer5, "123456");
             if (resultsiteEngineer5.Succeeded)
             {

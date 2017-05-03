@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Web;
 using System.Web.UI;
 using System.Collections;
 using WebApplication1.Helpers;
-using Microsoft.AspNet.Identity;
 using System.Data;
 
 namespace WebApplication1.Views.SiteEngineer

@@ -29,7 +29,7 @@
     <hr />
 
     <p>
-        <asp:Button ID="Button7" runat="server" Onclick="Button7_Click" Text="Change Password" Width="400px" />
+        <asp:Button ID="Button7" runat="server" Onclick="ChangePassword_Click" Text="Change Password" Width="400px" />
     </p>
     <p>
         &nbsp;</p>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
 
@@ -9,12 +8,7 @@ namespace WebApplication1.Repositories
 {
     public class InterventionsRepository : Repository<Interventions>
     {
-        
-
-        public InterventionsRepository(DbContext context) : base(context)
-        {
-            
-        }
+        public InterventionsRepository(DbContext context) : base(context) { }
 
         public override Interventions Insert(Interventions tentity)
         {

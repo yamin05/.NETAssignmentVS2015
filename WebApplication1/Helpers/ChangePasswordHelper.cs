@@ -3,9 +3,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using Microsoft.AspNet.Identity.Owin;
 using WebApplication1.Exceptions;
-
 
 namespace WebApplication1.Helpers
 {
@@ -31,7 +29,6 @@ namespace WebApplication1.Helpers
                     throw new WrongCurrentPassword();
                 } 
             }
-
             else
             {
                 throw new WrongUserInputException();
