@@ -31,7 +31,7 @@ namespace WebApplication1.Helpers
             return row.District;
         }
 
-        //create client function
+        //This Function here creates a client
         public void CreateClient (string clientName, string clientLocation, int clientDistrict)
         {
             var clientRepo = new ClientRepository(context);

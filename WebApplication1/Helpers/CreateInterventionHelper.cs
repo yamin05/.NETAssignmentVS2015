@@ -41,7 +41,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
-        //create a intervention
+        //create an intervention
         public void CreateIntervention (int interventionTypeId, int clientId, string interventionHour, string interventionCost)
         {
             var repos = new InterventionsRepository(context);

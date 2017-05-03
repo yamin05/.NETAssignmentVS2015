@@ -24,7 +24,7 @@ namespace WebApplication1.Helpers
 
         }
 
-        //run the change districrs for users based on userid
+        //Changes districts for users based on userid
         public void ChangeDistricts(string userId, string oldDistrict, int newDistrict)
         {
             userDetail.UserId = userId;
@@ -35,7 +35,7 @@ namespace WebApplication1.Helpers
             var row = repo.ChangeUserDistrict(userDetail.UserId, oldDistrictText, newDistrict);
         }
 
-        //get all district for users
+        //Creates A list of Districts to be used in drop down
         public Dictionary<string, int> GetDistrictForUser()
         {
             Dictionary<string, int> list = new Dictionary<string, int>();      

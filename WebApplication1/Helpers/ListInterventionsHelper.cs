@@ -65,7 +65,7 @@ namespace WebApplication1.Helpers
             }
          }
 
-       
+        //Gets the list of all intervention associated with a site engineer
         public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
@@ -73,6 +73,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
+        //Gets the list of all intervention associated with a client
         public IList<ListInterventions> GetInterventionsForClient(string clientid)
         {
             try
@@ -86,7 +87,7 @@ namespace WebApplication1.Helpers
                 throw new FaliedToRetriveRecordException();
             }
         }
-
+        //Gets the list of all intervention associated with a client in the same district
         public IList<ListInterventions> GetInterventionsForClientInSameDistrict(string clientid)
         {
             try
@@ -100,7 +101,7 @@ namespace WebApplication1.Helpers
                 throw new FaliedToRetriveRecordException();
             }
         }
-
+        //Returns a list of status based current status, used for populating a drop down on change state
         public Dictionary<string, int> GetPossibleStatusUpdateForIntervention(string status)
         {
             Dictionary<string, int> list = new Dictionary<string, int>();
@@ -117,6 +118,7 @@ namespace WebApplication1.Helpers
             }
             return list;
         }
+        //Gets a list of all proposed interventions from the database
         public IList<ListInterventionForManager> ListOfPropInterventions(string userid, int InterventionId)
         {
             try
@@ -131,6 +133,7 @@ namespace WebApplication1.Helpers
                 throw new FaliedToRetriveRecordException();
             }
         }
+        //used for cancelling an intervention by manager
         public IList<InterventionsRepository> CancelIntervention(int interventionId)
         {
             try
@@ -146,7 +149,8 @@ namespace WebApplication1.Helpers
                 throw new FailedToUpdateRecordException();
             }
         }
-    public IList<InterventionsRepository> ApproveIntervention(int InterventionId, int OldStatus, int NewStatus, string Userid)
+        //used for approving an intervention by manager
+        public IList<InterventionsRepository> ApproveIntervention(int InterventionId, int OldStatus, int NewStatus, string Userid)
         {
             try
             {
