@@ -123,7 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ListInterventionTests.cs" />
-    <Compile Include="ChangeSatusTests.cs" />
     <Compile Include="UnitTestforVerify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
