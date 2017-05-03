@@ -13,6 +13,11 @@ namespace WebApplication1.Helpers
         private DbConnectionFactory factory;
         private DbContext context;
 
+        public ListInterventionsHelper()
+        {
+            
+
+        }
         public ListInterventionsHelper(string connectionString)
         {
             factory = new DbConnectionFactory(connectionString);
@@ -219,6 +224,7 @@ namespace WebApplication1.Helpers
                     if (manager.MaximumHours >= InterList[i].InterventionHours && manager.MaximumCost >= InterList[i].InterventionCost && manager.District == InterList[i].District)
                     {
                         ProposedList.Add(InterList[i]);
+                        
                     }
                 }
             }
