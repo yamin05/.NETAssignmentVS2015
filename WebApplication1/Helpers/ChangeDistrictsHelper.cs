@@ -19,6 +19,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public ChangeDistrictsHelper()
+        {
+
+        }
+
         //run the change districrs for users based on userid
         public void ChangeDistricts(string userId, string oldDistrict, int newDistrict)
         {

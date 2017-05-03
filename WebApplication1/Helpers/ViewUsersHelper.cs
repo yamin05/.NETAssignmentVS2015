@@ -15,6 +15,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public ViewUsersHelper()
+        {
+
+        }
+
         public IList<UserDetail> GetAllUsers()
         {
             var repos = new UserDetailRepository(context);

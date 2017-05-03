@@ -15,6 +15,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public ViewReportHelper()
+        {
+
+        }
+
         //run the repository for View Total Costs By Engineer and return the list.
         public IList<Report> ViewTotalCostsByEngineer()
         {

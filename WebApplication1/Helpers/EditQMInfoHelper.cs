@@ -19,6 +19,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public EditQMInfoHelper()
+        {
+
+        }
+
         public IList<InterventionUpdate> GetAllPreviousUpdates(string intId)
         {
             intUpdateRepository = new InterventionUpdateRepository(context);

@@ -17,6 +17,11 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
+        public ViewClientHelper()
+        {
+
+        }
+
         public IList<Clients> GetAllClients ()
         {
             var repos = new ClientRepository(context);
