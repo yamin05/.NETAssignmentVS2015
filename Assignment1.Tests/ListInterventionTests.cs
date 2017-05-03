@@ -15,7 +15,7 @@ namespace Assignment1.Tests
     public class ListInterventionTests
     {
         [TestMethod]
-        public void ListInterventionsHelper()
+        public void ValidateProposedInterventions_Test_Pass()
         {
             Users MockUser = new Users();
             ListInterventionForManager Intervention1 = new ListInterventionForManager();
@@ -32,6 +32,25 @@ namespace Assignment1.Tests
             var list1= list.ValidateProposedInterventions(MockUser, interventionListMock);
             Collection<ListInterventionForManager> collection = new Collection<ListInterventionForManager>(list1);
             CollectionAssert.AreEqual(collection, list2);
+        }
+        [TestMethod]
+        public void ValidateProposedInterventions_Test_Fail()
+        {
+            Users MockUser = new Users();
+            ListInterventionForManager Intervention1 = new ListInterventionForManager();
+            List<ListInterventionForManager> interventionListMock = new List<ListInterventionForManager>();
+            MockUser.District = Convert.ToInt32(Districts.Sydney);
+            MockUser.MaximumCost = 200;
+            MockUser.MaximumHours = 10;
+            Intervention1.InterventionCost = 180;
+            Intervention1.InterventionHours = 13;
+            Intervention1.District = Convert.ToInt32(Districts.Sydney);
+            interventionListMock.Add(Intervention1);
+            var list2 = interventionListMock;
+            var list = new ListInterventionsHelper();
+            var list1 = list.ValidateProposedInterventions(MockUser, interventionListMock);
+            Collection<ListInterventionForManager> collection = new Collection<ListInterventionForManager>(list1);
+            CollectionAssert.AreNotEqual(collection, list2);
         }
     }
 }
