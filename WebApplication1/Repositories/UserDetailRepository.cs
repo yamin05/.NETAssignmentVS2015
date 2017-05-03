@@ -20,7 +20,9 @@ namespace WebApplication1.Repositories
                                         FROM Users u inner join [aspnet-WebApplication1-20170404072835].[dbo].[aspnetusers] anu on anu.id=u.userid 
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUserRoles] anur on anu.id=anur.userid
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetRoles] anr on anur.roleid=anr.id 
-										where anr.Name='siteengineer' or anr.Name='manager' ";
+										where anr.Name=@siteengineer or anr.Name=@manager order by RoleName, anu.UserName";
+                command.Parameters.Add(command.CreateParameter("siteengineer", "siteengineer"));
+                command.Parameters.Add(command.CreateParameter("manager", "manager"));
                 return this.ToList(command).ToList();
             }
         }

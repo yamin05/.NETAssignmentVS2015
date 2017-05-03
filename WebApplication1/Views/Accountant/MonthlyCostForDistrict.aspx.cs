@@ -14,7 +14,6 @@ namespace WebApplication1.Views.Accountant
     public partial class MonthlyCostForDistrict : System.Web.UI.Page
     {
         private ViewReportHelper viewReportHelper = new ViewReportHelper("CustomDatabase");
-       //private string districtId = HttpContext.Current.Request.QueryString.GetValues("district").ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,9 +25,7 @@ namespace WebApplication1.Views.Accountant
             District.DataBind();
             District.Visible = true;
             }
-
         }
-
 
         ICollection CreateDataSourceForDistrict()
         {
@@ -54,19 +51,16 @@ namespace WebApplication1.Views.Accountant
 
         protected void Confirm_Click(object sender, EventArgs e)
         {
-
             GridView.DataSource = CreateDataSourceForGridView(District.SelectedValue);
             GridView.DataBind();
             GridView.Columns[0].Visible = false;
-
+            Label2.Visible = true;
         }
 
 
         ICollection CreateDataSourceForGridView(string districtId)
         {
-
             var list = viewReportHelper.ViewMonthlyCostForDistrict(districtId);
-
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("DistrictId", typeof(string)));
             datatable.Columns.Add(new DataColumn("DistrictName", typeof(string)));
@@ -83,7 +77,6 @@ namespace WebApplication1.Views.Accountant
 
         DataRow CreateRowForGridView(string DistrictId, string DistrictName, string Month, decimal MonthlyCosts, decimal MonthlyHours, DataTable datatable)
         {
-
             DataRow datarow = datatable.NewRow();
             datarow[0] = DistrictId;
             datarow[1] = DistrictName;
@@ -92,10 +85,5 @@ namespace WebApplication1.Views.Accountant
             datarow[4] = MonthlyHours;
             return datarow;
         }
-
-
-
-
-
     }
 }

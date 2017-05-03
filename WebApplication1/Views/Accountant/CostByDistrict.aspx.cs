@@ -49,7 +49,6 @@ namespace WebApplication1.Views.Accountant
 
         DataRow CreateRowForGridView(string DistrictId, string DistrictName, decimal Costs, decimal Hours, DataTable datatable)
         {
-
             DataRow datarow = datatable.NewRow();
             datarow[0] = DistrictId;
             datarow[1] = DistrictName;

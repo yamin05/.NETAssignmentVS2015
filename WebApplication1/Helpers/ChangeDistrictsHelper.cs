@@ -19,8 +19,7 @@ namespace WebApplication1.Helpers
             context = new DbContext(factory);
         }
 
-
-
+        //run the change districrs for users based on userid
         public void ChangeDistricts(string userId, string oldDistrict, int newDistrict)
         {
             userDetail.UserId = userId;
@@ -31,7 +30,7 @@ namespace WebApplication1.Helpers
             var row = repo.ChangeUserDistrict(userDetail.UserId, oldDistrictText, newDistrict);
         }
 
-
+        //get all district for users
         public Dictionary<string, int> GetDistrictForUser()
         {
             Dictionary<string, int> list = new Dictionary<string, int>();      

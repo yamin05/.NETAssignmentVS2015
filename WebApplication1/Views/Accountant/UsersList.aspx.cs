@@ -33,10 +33,10 @@ namespace WebApplication1.Views.Accountant
 
         }
 
+        //create Data source for the gridview
         ICollection CreateDataSourceForGridView()
         {
             var list = viewUsersHelper.GetAllUsers();
-
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("UserId", typeof(string)));
             datatable.Columns.Add(new DataColumn("UserName", typeof(string)));
@@ -53,9 +53,9 @@ namespace WebApplication1.Views.Accountant
             return dataview;
         }
 
+        //create the row data for the gridview
         DataRow CreateRowForGridView(string UserId, string UserName, string RoleName, decimal MaximumCost, decimal MaximumHours, int District, DataTable datatable)
-        {
-            
+        {      
             DataRow datarow = datatable.NewRow();
             datarow[0] = UserId;
             datarow[1] = UserName;
@@ -67,6 +67,7 @@ namespace WebApplication1.Views.Accountant
             return datarow;
         }
 
+        //get district name by using districtid 
         private string GetDistrictName(int DistrictNumber)
         {
             string DistrictName = "";
@@ -99,6 +100,7 @@ namespace WebApplication1.Views.Accountant
 
         }
 
+        //run change district function 
         protected void ChangeDistrict_Click(object sender, EventArgs e)
         {
             try
@@ -126,6 +128,7 @@ namespace WebApplication1.Views.Accountant
         }
 
 
+        //data source for district
         ICollection CreateDataSourceForDistrict()
         {
             var list = changeDistrictsHelper.GetDistrictForUser();
@@ -144,6 +147,7 @@ namespace WebApplication1.Views.Accountant
             return dataview;
         }
 
+        //get row data for district
         DataRow CreateRowForDistrict(string districtName, int districtValue, DataTable datatable)
         {
             DataRow datarow = datatable.NewRow();
@@ -152,12 +156,11 @@ namespace WebApplication1.Views.Accountant
             return datarow;
         }
 
-
+        //confirm the change.
         protected void Confirm_Click(object sender, EventArgs e)
         {
             try
             {
-
                 var changeDistrictsHelper = new ChangeDistrictsHelper("CustomDatabase");
                 changeDistrictsHelper.ChangeDistricts(GridView.SelectedRow.Cells[1].Text, GridView.SelectedRow.Cells[6].Text, Convert.ToInt32(District.SelectedValue));
                 Response.Redirect("~/Views/Accountant/UsersList.aspx", false);
@@ -166,9 +169,7 @@ namespace WebApplication1.Views.Accountant
             {
                 FailureText.Text = ex.Message;
                 ErrorMessage.Visible = true;
-
             }
         }
-
     }
 }

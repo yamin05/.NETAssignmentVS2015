@@ -8,7 +8,7 @@ namespace WebApplication1.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register";
+           
         }
 
         protected void LogIn(object sender, EventArgs e)

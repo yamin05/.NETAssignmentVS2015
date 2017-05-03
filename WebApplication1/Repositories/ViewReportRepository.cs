@@ -21,11 +21,11 @@ namespace WebApplication1.Repositories
                                         FROM Report_TotalCostsByEngineer R inner join [aspnet-WebApplication1-20170404072835].[dbo].[aspnetusers] anu on anu.id=R.userid 
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUserRoles] anur on anu.id=anur.userid
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetRoles] anr on anur.roleid=anr.id 
-										where anr.Name='siteengineer' order by anu.UserName";
+										where anr.Name=@siteengineer order by anu.UserName";
+                command.Parameters.Add(command.CreateParameter("siteengineer", "siteengineer"));
                 return this.ToList(command).ToList();
             }
         }
-
 
         //Get Total Costs by Engineer data from database into the list and return list.
         public IList<Report> ViewAverageCostsByEngineer()
@@ -36,11 +36,11 @@ namespace WebApplication1.Repositories
                                         FROM Report_AverageCostsByEngineer R inner join [aspnet-WebApplication1-20170404072835].[dbo].[aspnetusers] anu on anu.id=R.userid 
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetUserRoles] anur on anu.id=anur.userid
                                         inner join  [aspnet-WebApplication1-20170404072835].[dbo].[AspNetRoles] anr on anur.roleid=anr.id 
-										where anr.Name='siteengineer' order by anu.UserName";
+										where anr.Name=@siteengineer order by anu.UserName";
+                command.Parameters.Add(command.CreateParameter("siteengineer", "siteengineer"));
                 return this.ToList(command).ToList();
             }
         }
-
 
         //Get Costs by District data from database into the list and return list.
         public IList<Report> ViewCostsByDistrict()
@@ -53,7 +53,6 @@ namespace WebApplication1.Repositories
             }
         }
 
-
         //Get Monthly Cost for District data from database into the list and return list.
         public IList<Report> ViewMonthlyCostForDistrict(string districtId)
         {
@@ -65,7 +64,6 @@ namespace WebApplication1.Repositories
                 return this.ToList(command).ToList();
             }
         }
-
 
         public override Report Delete(Report tentity)
         {
