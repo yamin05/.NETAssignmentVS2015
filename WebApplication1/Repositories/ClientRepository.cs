@@ -35,7 +35,19 @@ namespace WebApplication1.Repositories
             }
         }
 
-        public IList<Clients> GetAllClientsForUser(string userId)
+        public IList<Clients> GetAllClientsForUser(string userId, int district)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = @"SELECT * FROM EngineersClients inner join Clients on EngineersClients.ClientId = 
+                                            Clients.ClientId WHERE EngineersClients.UserId = @userid and Clients.ClientDistrict = @district";
+                command.Parameters.Add(command.CreateParameter("userid", userId));
+                command.Parameters.Add(command.CreateParameter("district", district));
+                return this.ToList(command).ToList();
+            }
+        }
+
+        public IList<Clients> GetAllClientsCreatedByUser(string userId)
         {
             using (var command = _context.CreateCommand())
             {

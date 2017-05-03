@@ -27,7 +27,7 @@ namespace WebApplication1.Views.SiteEngineer
 
         ICollection CreateDataSource()
         {
-            var list = viewClientHelper.GetAllClients();
+            var list = viewClientHelper.GetAllClientsCreatedByUser();
             if (list.Count == 0)
             {
                 Response.Redirect("~/Views/SiteEngineer/NoData.aspx?message=" + "No Clients Have Been Created By You");

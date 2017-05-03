@@ -37,7 +37,9 @@ namespace WebApplication1.Helpers
         public IList<Clients> GetClientNames()
         {
             var repos = new ClientRepository(context);
-            var list = repos.GetAllClientsForUser(HttpContext.Current.User.Identity.GetUserId());
+            var userRepo = new UserRepository(context);
+            var user = userRepo.GetAllForUser(Utils.getInstance.GetCurrentUserId());
+            var list = repos.GetAllClientsForUser(Utils.getInstance.GetCurrentUserId(), user.District);
             return list;
         }
 

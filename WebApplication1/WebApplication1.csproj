@@ -216,6 +216,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\_references.js" />
+    <Content Include="App_Data\aspnet-WebApplication1-20170404072835.mdf" />
+    <Content Include="App_Data\aspnet-WebApplication1-20170404072835_log.ldf">
+      <DependentUpon>aspnet-WebApplication1-20170404072835.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\CustomDatabase.mdf" />
     <Content Include="App_Data\CustomDatabase_log.ldf">
       <DependentUpon>CustomDatabase.mdf</DependentUpon>
