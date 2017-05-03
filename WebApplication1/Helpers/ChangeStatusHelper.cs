@@ -23,7 +23,7 @@ namespace WebApplication1.Helpers
 
         }
 
-        //change the status of intervention
+        //Change the status of a intervention
         public void ChangeStatus(string intId, string oldStatusText, string newStatusNumber)
         {
             intervention.InterventionId = Convert.ToInt32(intId);
@@ -55,7 +55,7 @@ namespace WebApplication1.Helpers
             }
         }
 
-        //validate the district of user
+        //validate the district of user for accessing edit premissions
         private bool validateUserDistrict()
         {
             var repo = new InterventionsRepository(context);
@@ -84,7 +84,7 @@ namespace WebApplication1.Helpers
             }
         }
 
-        //validate the hours and cost
+        //validate the hours and cost required for the intervention with the max hours and max cost of Site Engineer
         private bool validateHoursCost()
         {
             var userRepo = new UserRepository(context);
