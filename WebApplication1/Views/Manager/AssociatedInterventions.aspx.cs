@@ -20,6 +20,8 @@ namespace WebApplication1.Views.Manager
             Grid.DataBind();
 
         }
+
+        //create data source
         public DataTable CreateSource()
         {
             var userId = HttpContext.Current.User.Identity.GetUserId();
@@ -43,7 +45,7 @@ namespace WebApplication1.Views.Manager
             return datatable;
         }
 
-
+        //create a row for client's information
         DataRow CreateRow(string district, string clientdistrict, string clientName, string InterventionName, decimal hours, decimal cost, DateTime date, string status, int interventionid, DataTable datatable)
         {
             DataRow datarow = datatable.NewRow();

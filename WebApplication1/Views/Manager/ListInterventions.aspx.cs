@@ -24,13 +24,12 @@ namespace WebApplication1.Views.Manager
             }
         }
 
+       
        public DataTable CreateSource()
         {
             var userId = HttpContext.Current.User.Identity.GetUserId();
             List<ListInterventionForManager> ProposedInterList = new List<ListInterventionForManager>();
             ProposedInterList = listInterventions.ListOfProposedInterventions(userId).ToList();
-            //DataSet ds = ListToDatasetExtension.ToDataSet<ListInterventionForManager>(ProposedInterList);
-            //return ds;
             DataTable datatable = new DataTable();
             datatable.Columns.Add(new DataColumn("District", typeof(string)));
             datatable.Columns.Add(new DataColumn("ClientDistrict", typeof(string)));

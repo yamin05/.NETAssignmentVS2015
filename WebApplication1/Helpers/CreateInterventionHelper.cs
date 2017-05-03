@@ -33,6 +33,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
+        //get the client name list
         public IList<Clients> GetClientNames()
         {
             var repos = new ClientRepository(context);
@@ -40,6 +41,7 @@ namespace WebApplication1.Helpers
             return list;
         }
 
+        //create a intervention
         public void CreateIntervention (int interventionTypeId, int clientId, string interventionHour, string interventionCost)
         {
             var repos = new InterventionsRepository(context);
@@ -63,6 +65,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //validate the status of user
         private bool validateUserForStatus(decimal hours, decimal cost)
         {
             var userRepo = new UserRepository(context);

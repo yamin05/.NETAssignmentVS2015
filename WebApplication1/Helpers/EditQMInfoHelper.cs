@@ -24,6 +24,7 @@ namespace WebApplication1.Helpers
 
         }
 
+        
         public IList<InterventionUpdate> GetAllPreviousUpdates(string intId)
         {
             intUpdateRepository = new InterventionUpdateRepository(context);
@@ -44,6 +45,7 @@ namespace WebApplication1.Helpers
             intUpdateRepository.Insert(intUpdate);
         }
 
+        //validate the site engineer
         private bool validateUser()
         {
             var role = Utils.getInstance.GetCurrentUserRole();
@@ -56,6 +58,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //check the intervention and client are in same district or not
         private bool isInterventionClientInSameDistrict()
         {
             var repo = new InterventionsRepository(context);
@@ -69,6 +72,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //validate the update of intervention
         private bool validatePreviousUpdate()
         {
             var lastIntUpdate = intUpdateRepository.GetLastInterventionUpdateWithInterventionId(intUpdate.InterventionId);

@@ -23,6 +23,7 @@ namespace WebApplication1.Helpers
 
         }
 
+        //change the status of intervention
         public void ChangeStatus(string intId, string oldStatusText, string newStatusNumber)
         {
             intervention.InterventionId = Convert.ToInt32(intId);
@@ -38,6 +39,7 @@ namespace WebApplication1.Helpers
             var row = repo.UpdateInterventionStatus(intervention.InterventionId, oldStatus, newStatus);
         }
 
+        //validate the current role of user
         private bool validateUserRole()
         {
             var role = Utils.getInstance.GetCurrentUserRole();
@@ -53,6 +55,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //validate the district of user
         private bool validateUserDistrict()
         {
             var repo = new InterventionsRepository(context);
@@ -67,6 +70,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //check the intervention and client are in some district
         private bool isInterventionClientInSameDistrict()
         {
             var repo = new InterventionsRepository(context);
@@ -80,6 +84,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //validate the hours and cost
         private bool validateHoursCost()
         {
             var userRepo = new UserRepository(context);
@@ -96,6 +101,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //validate the status of intervention
         private bool validateOldStatus(int oldStatus)
         {
             if (oldStatus == (int)Status.Cancelled || oldStatus == (int)Status.Completed)

@@ -25,7 +25,7 @@ namespace WebApplication1.Helpers
 
         }
 
-
+        //get the manager's max cost and maxhour
         private IList<string> Get_District_MaxCost_MaxHour_ForManager(string userId)
         {
             try
@@ -44,6 +44,7 @@ namespace WebApplication1.Helpers
             }
         }
 
+        //get the list of intervention of manager
         public IList<ListInterventionForManager> GetInterventions(string userid)
         {
             try
@@ -63,6 +64,8 @@ namespace WebApplication1.Helpers
                 throw new FaliedToRetriveRecordException();
             }
          }
+
+       
         public IList<ListInterventions> GetInterventionsForUser()
         {
             var repos = new ListInterventionsRepository(context);
@@ -190,6 +193,7 @@ namespace WebApplication1.Helpers
                 throw new FaliedToRetriveRecordException();
             }
         }
+        //get the information of manager: cost and hours
         public Users GetManagerInfo(string userid)
         {
             try
@@ -211,6 +215,8 @@ namespace WebApplication1.Helpers
             }
 
         }
+
+        //validate the proposed intervention
         public IList<ListInterventionForManager> ValidateProposedInterventions(Users manager, List<ListInterventionForManager> InterList)
         {
             List<ListInterventionForManager> ProposedList = new List<ListInterventionForManager>();
